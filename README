@@ -17,6 +17,7 @@ There is wireframe for this screen in spec/wireframes/co_worker_home.png
 h2. Scenarios
 
 h3. Authentication
+
 * Successful authentication with Google Account
 * Unsuccessful authentication with Google Account
 
@@ -63,6 +64,4 @@ h2. Credits
 ***
 
 h2. License
-
-MIT
 
