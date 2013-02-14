@@ -7,6 +7,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
+# gem 'jquery_mobile_rails'
+
 gem "thin", ">= 1.5.0"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "capybara", ">= 2.0.2", :group => :test
