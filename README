@@ -53,6 +53,9 @@ h2. Getting Started
 
 * Install rvm and ruby 1.9.3
 * Fetch repository and run bundle
+* cp config/database.yml.example config/database.yml
+* rake db:create
+* rake db:migrate
 * run rails s
 
 h2. Documentation and Support

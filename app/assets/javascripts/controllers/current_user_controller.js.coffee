@@ -1,0 +1,1 @@
+Sks.CurrentUserController = Ember.ObjectController.extend()

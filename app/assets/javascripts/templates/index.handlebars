@@ -1,0 +1,69 @@
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">Kudos</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li><a href="#contact">Sign Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+  <div id="kudos-content">
+    <ul id="users-list">
+    {{#with controllers.currentUser}}
+      <li class="me">
+        <div class="row-fluid">
+          <div class="span12">
+            <img class="pull-left" {{bindAttr src="gravatar"}}  />
+            <p class="pull-left">
+              <span class="kudos-left">{{kudosLeft}}</span><i class="icon-star icon-kudo"></i>left
+            </p>
+          </div>
+        </div>
+      </li>
+    {{/with}}
+    {{#each user in controllers.users}}
+      <li class="coworker">
+        <div class="row-fluid">
+          <div class="span12">
+            <img class="pull-left" {{bindAttr src="user.gravatar"}}  />
+            <h2 class="pull-left"><small>{{user.fullName}}</small></h2>
+            <a href="#" class="btn btn-primary pull-right" {{action "addKudo" user target="controller.controllers.kudo"}}>add</a>
+          </div>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+
+  <div id="kudos-stats" class="row-fluid">
+    <div class="span6 me">
+      <h2>My Stats</h2>
+        {{#with controllers.currentUser}}
+        <ul>
+          <li><i class="icon-star icon-kudo"></i>Received Last Week: <strong>{{kudosReceived}}</strong></li>
+          <li><i class="icon-star icon-kudo"></i>Received Since Last Bonus: <strong>{{kudosReceivedSinceLastBonus}}</strong></li>
+        </ul>
+      {{/with}}
+
+    </div>
+    <div class="span6 coworkers pull-right">
+      <h2>TOP3 Collectors<br /><small>(in random order)</small></h2>
+      <ul>
+        {{#each controllers.top}}
+        <img {{bindAttr src="gravatar"}}  />
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+</div><!-- container -->
+
