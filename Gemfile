@@ -26,6 +26,7 @@ group :test do
   gem 'timecop'
   gem 'pry'
   gem 'shoulda-matchers'
+  gem 'mocha', require: 'mocha/setup'
 end
 
 group :development do

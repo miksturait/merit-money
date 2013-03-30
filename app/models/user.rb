@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :name, :email
 
-  has_many :kudos_send, class_name: "Kudo", foreign_key: :giver_id
+  has_many :weekly_kudos
+  has_many :kudos, through: :weekly_kudos
   has_many :kudos_received, class_name: "Kudo", foreign_key: :receiver_id
 
   def self.create_with_omniauth(auth)

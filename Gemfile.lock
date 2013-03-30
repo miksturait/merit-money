@@ -247,6 +247,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails (= 2.1.3)
   less-rails
+  mocha
   omniauth (>= 1.1.1)
   omniauth-google-oauth2
   pg
