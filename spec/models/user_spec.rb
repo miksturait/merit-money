@@ -10,4 +10,12 @@ describe User do
   it { should have_many(:kudos).through(:weekly_kudos) }
   it { should have_many(:kudos_received).class_name("Kudo") }
 
+
+  context "weekly kudo for current week" do
+    let(:tom) { create(:user, name: 'Tom') }
+    let!(:weekly_kudo) { WeeklyKudo.current(tom) }
+
+    it { expect(weekly_kudo).to eq(tom.current_weekly_kudo) }
+  end
+
 end

@@ -19,4 +19,35 @@ describe WeeklyKudo do
   it { should validate_presence_of(:user_id) }
 
   it { should have_many(:kudos) }
+
+
+  context "current" do
+    before do
+      Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))
+    end
+
+    after do
+      Timecop.return
+    end
+
+    let(:simon) { create(:user, name: 'Simon', email: 'simon@selleo.com') }
+
+    it { expect { WeeklyKudo.current(simon) }.to change { WeeklyKudo.count }.from(0).to(1) }
+
+    context "attributes and side effect" do
+      subject(:weekly_kudo) { WeeklyKudo.current(simon) }
+
+      it { expect(weekly_kudo.user).to eq(simon) }
+      it { expect(weekly_kudo.kudos_left).to eq(20) }
+      it { expect(weekly_kudo.last_week_kudos_received).to eq(0) }
+      it { expect(weekly_kudo.up_to_last_week_total_kudos_received).to eq(0) }
+      it { expect(weekly_kudo.hours_worked).to be_nil }
+
+      let(:week) { weekly_kudo.week }
+      it { expect(week).to eq(Week.current) }
+
+      let(:fusion) { week.fusion }
+      it { expect(fusion).to eq(Fusion.current) }
+    end
+  end
 end

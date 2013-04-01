@@ -16,4 +16,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # TODO - refactor
+  def thanks(user, attrs)
+    kudo = current_weekly_kudo.kudos.build(attrs)
+    kudo.receiver = user
+    kudo.save
+    kudo
+  end
+
+  def current_weekly_kudo
+    WeeklyKudo.current(self)
+  end
 end
