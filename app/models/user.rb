@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email
+  attr_accessible :provider, :uid, :name, :email,
+                  :with_company_since,
+                  :days_off_left
 
   has_many :weekly_kudos
   has_many :kudos, through: :weekly_kudos
