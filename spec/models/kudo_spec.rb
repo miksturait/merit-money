@@ -9,7 +9,8 @@ describe Kudo do
   it { should belong_to(:receiver).class_name("User") }
   it { should belong_to(:weekly_kudo).class_name("WeeklyKudo") }
 
-  it { should ensure_inclusion_of(:value).in_range(1..20) }
+  it { should ensure_inclusion_of(:value).in_range(1..20).
+                  with_message("you are not allowed to go beyond kudos limit") }
   it { should validate_presence_of(:value) }
   it { should validate_presence_of(:receiver_id) }
   it { should validate_presence_of(:weekly_kudo_id) }
