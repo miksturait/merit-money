@@ -21,6 +21,10 @@ gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem "zeus", :group => [:development, :test]
+
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+
 group :test do
   gem 'rspec-rails'
   gem 'timecop'
