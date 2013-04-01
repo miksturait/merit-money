@@ -2,7 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'email_spec'
+#require 'email_spec'
 require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -10,8 +10,8 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  config.include(EmailSpec::Helpers)
-  config.include(EmailSpec::Matchers)
+  #config.include(EmailSpec::Helpers)
+  #config.include(EmailSpec::Matchers)
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -26,6 +26,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
+  config.include FactoryGirl::Syntax::Methods
   config.use_transactional_fixtures = true
 
   # If true, the base class of anonymous controllers will be inferred
@@ -38,14 +39,11 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-  
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-  end
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+
+  # focus specs
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+  # and fail fast
+  config.fail_fast = true
 end

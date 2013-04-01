@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :name, :email
 
+  has_many :weekly_kudos
+  has_many :kudos, through: :weekly_kudos
+  has_many :kudos_received, class_name: "Kudo", foreign_key: :receiver_id
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
@@ -12,4 +16,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # TODO - refactor
+  def thanks(user, attrs)
+    kudo = current_weekly_kudo.kudos.build(attrs)
+    kudo.receiver = user
+    kudo.save
+    kudo
+  end
+
+  def current_weekly_kudo
+    WeeklyKudo.current(self)
+  end
 end
