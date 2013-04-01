@@ -1,0 +1,96 @@
+body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+#users-list {
+    margin: 0;
+    list-style: none;
+}
+
+#users-list .me div {
+    height: 80px;
+    line-height: 80px;
+    font-weight: bold;
+}
+
+#users-list .me p {
+    font-size: 32px;
+    line-height: 80px;
+    margin: 0;
+    margin-left: 30px;
+}
+
+#users-list .me p img {
+    line-height: 80px;
+}
+
+#users-list .coworker {
+    margin: 15px 0;
+    line-height: 80px;
+}
+
+#users-list .coworker div {
+    height: 80px;
+    line-height: 80px;
+}
+
+#users-list .coworker h2 {
+    margin: 0;
+    margin-left: 20px;
+    line-height: 80px;
+}
+
+#users-list .coworker .btn {
+    margin: 25px 20px 25px 0;
+}
+
+#users-list .coworker:nth-child(even) {
+    background-color: #a7dff1;
+}
+
+#kudos-stats h2 {
+    text-align: center;
+}
+
+#kudos-stats .me ul {
+    margin: 0 auto;
+    list-style: none;
+    width: 70%;
+}
+
+#kudos-stats .coworkers {
+    text-align: center;
+}
+
+.form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+.icon-kudo {
+    color: #034482;
+}
+
+h2 small {
+    color: #555;
+}

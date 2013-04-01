@@ -11,7 +11,6 @@ gem 'therubyracer'
 gem 'pg'
 
 gem "thin", ">= 1.5.0"
-#gem "bootstrap-sass", ">= 2.2.2.0"
 gem "omniauth", ">= 1.1.1"
 gem "omniauth-google-oauth2"
 gem "simple_form", ">= 2.0.4"
@@ -40,6 +39,9 @@ group :development do
 end
 
 gem "ember-rails"
+
+# TODO why not to use SASS version (we usually don't use less)
+#gem "bootstrap-sass", ">= 2.2.2.0"
 gem 'less-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 

@@ -1,0 +1,1 @@
+Sks.TopController = Ember.ArrayController.extend()

@@ -11,5 +11,13 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require handlebars
+//= require ember
+//= require ember-data
+// require ember-bootstrap
+//= require twitter/bootstrap
+//= require md5
+//= require_self
+//= require sks
+
+Sks = Ember.Application.create({LOG_TRANSITIONS: true});

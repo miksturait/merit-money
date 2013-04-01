@@ -1,0 +1,1 @@
+Sks.UsersController = Ember.ArrayController.extend()
