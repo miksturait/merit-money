@@ -7,4 +7,7 @@ Sks::Application.routes.draw do
 
   root to: 'homes#index'
   match '/about', to: 'homes#about', as: :about
+
+  match '/current_users/1', to: 'users#me'
+  match '/users', to: 'users#index'
 end

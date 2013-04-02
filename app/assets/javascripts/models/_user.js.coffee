@@ -1,13 +1,6 @@
 Sks.User = DS.Model.extend(
-  firstName: DS.attr("string")
-  lastName: DS.attr("string")
+  name: DS.attr("string")
   email: DS.attr("string")
-
-  fullName: Ember.computed(->
-    firstName = @get("firstName") || ""
-    lastName = @get("lastName") || ""
-    "#{firstName} #{lastName}"
-  ).property("firstName", "lastName")
 
   gravatar: Ember.computed(->
     email = @get("email") || ""
