@@ -53,7 +53,15 @@
           <li><i class="icon-star icon-kudo"></i>Received Since Last Bonus: <strong>{{kudosTotalReceived}}</strong></li>
         </ul>
       {{/with}}
+      </div>
 
+      <div class="span6 coworkers pull-right">
+        <h2>TOP3 Collectors<br /><small>(in random order)</small></h2>
+        <ul>
+            {{#each controllers.top}}
+                <img {{bindAttr src="gravatar"}} />
+            {{/each}}
+        </ul>
     </div>
   </div>
 
