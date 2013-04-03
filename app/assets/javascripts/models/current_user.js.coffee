@@ -1,7 +1,7 @@
 Sks.CurrentUser = Sks.User.extend(
-  kudosLeft: DS.attr("integer")
-  kudosReceived: DS.attr("integer")
-  kudosReceivedSinceLastBonus: DS.attr("integer")
+  kudosLeft: DS.attr("number")
+  kudosReceived: DS.attr("number")
+  kudosTotalReceived: DS.attr("number")
 )
 
 Sks.CurrentUser.FIXTURES = [

@@ -1,10 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user do
+  factory :allowed_user, :class => 'AllowedUser' do
     name "MyString"
     email "MyString"
-    provider "google_oauth2"
-    uid "MyString"
   end
 end
