@@ -10,4 +10,6 @@ Sks::Application.routes.draw do
 
   match '/current_users/1', to: 'users#me'
   match '/users', to: 'users#index'
+
+  match '/kudos/:user_id', to: 'kudos#create'
 end
