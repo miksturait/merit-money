@@ -14,7 +14,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
-// require ember-bootstrap
+//= require ember-bootstrap
 //= require twitter/bootstrap
 //= require md5
 //= require_self
