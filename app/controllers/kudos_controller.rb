@@ -6,9 +6,9 @@ class KudosController < ApplicationController
     user = User.find(params[:user_id])
     kudo = current_user.thanks(user, {value: 1})
     if kudo.valid?
-      render json: 'ok'
+      render json: {status: 'ok'}
     else
-      render json: kudo.errors
+      render json: {status: 'error'}
     end
   end
 end
