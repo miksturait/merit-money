@@ -111,3 +111,18 @@ body {
 h2 small {
     color: #555;
 }
+
+@media all {
+    body {
+        padding: 145px 0 0 0;
+    }
+    
+    .navbar-fixed-top {
+        position: fixed;
+        margin: 0;
+    }
+
+    #dashboard {
+        position: fixed;
+    }
+}
