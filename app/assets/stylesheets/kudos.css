@@ -56,7 +56,11 @@ body {
 }
 
 #users-list .coworker:nth-child(even) {
-    background-color: #a7dff1;
+    background-color: #f2f2f2;
+}
+
+#users-list .coworker:hover {
+    background-color: #e2e2e2;
 }
 
 #kudos-stats h2 {
