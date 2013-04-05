@@ -16,24 +16,22 @@
     </div>
   </div>
 
-  <div id="flash" class="alert">
-      <span></span>
-  </div>
+  {{#with controllers.currentUser}}
+    <div id="dashboard" class="row-fluid">
+      <div id="flash" class="alert"></div>
+      <div class="row-fluid">
+        <div class="span12">
+          <img class="pull-left" {{bindAttr src="gravatar"}}  />
+          <p class="pull-left">
+            <span class="kudos-left">{{kudosLeft}}</span><i class="icon-star icon-kudo"></i>left
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/with}}
 
   <div id="kudos-content">
     <ul id="users-list">
-    {{#with controllers.currentUser}}
-      <li class="me">
-        <div class="row-fluid">
-          <div class="span12">
-            <img class="pull-left" {{bindAttr src="gravatar"}}  />
-            <p class="pull-left">
-              <span class="kudos-left">{{kudosLeft}}</span><i class="icon-star icon-kudo"></i>left
-            </p>
-          </div>
-        </div>
-      </li>
-    {{/with}}
     {{#each user in controllers.users}}
       <li class="coworker">
         <div class="row-fluid">
