@@ -1,0 +1,11 @@
+%h1= @week.number
+%h2= @week.kudos.sum(:value)
+
+%table
+  %tr
+    %th User
+    %th Kudos Received
+  - @week.kudos.includes(:receiver).all.group_by(&:receiver).each_pair do |receiver, kudos|
+    %tr
+      %td= receiver.name
+      %td= kudos.sum(&:value)
