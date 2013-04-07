@@ -1,0 +1,18 @@
+<div id="kudos-content">
+  <ul id="users-list">
+  {{controller}}
+  {{#each user in controller}}
+    <li class="coworker">
+      <div class="row-fluid">
+        <div class="span12">
+          <img class="pull-left" {{bindAttr src="user.gravatar"}}  />
+          <h2 class="pull-left"><small>{{user.firstName}} {{user.lastName}}</small></h2>
+          <a href="#" class="btn btn-primary pull-right" {{action "addKudo" user target="controller.controllers.kudo"}}>add</a>
+        </div>
+      </div>
+    </li>
+  {{/each}}
+  </ul>
+</div>
+
+{{template stats}}
