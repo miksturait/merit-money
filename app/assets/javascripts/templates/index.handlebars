@@ -16,28 +16,28 @@
     </div>
   </div>
 
-  <div id="flash-container"></div>
+  {{#with controllers.currentUser}}
+    <div id="dashboard" class="row-fluid">
+      <div id="flash" class="alert"></div>
+      <div class="row-fluid">
+        <div class="span12">
+          <img class="pull-left" {{bindAttr src="gravatar"}}  />
+          <p class="pull-left">
+            <span class="kudos-left">{{kudosLeft}}</span><i class="icon-star icon-kudo"></i>left
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/with}}
 
   <div id="kudos-content">
     <ul id="users-list">
-    {{#with controllers.currentUser}}
-      <li class="me">
-        <div class="row-fluid">
-          <div class="span12">
-            <img class="pull-left" {{bindAttr src="gravatar"}}  />
-            <p class="pull-left">
-              <span class="kudos-left">{{kudosLeft}}</span><i class="icon-star icon-kudo"></i>left
-            </p>
-          </div>
-        </div>
-      </li>
-    {{/with}}
     {{#each user in controllers.users}}
       <li class="coworker">
         <div class="row-fluid">
           <div class="span12">
             <img class="pull-left" {{bindAttr src="user.gravatar"}}  />
-            <h2 class="pull-left"><small>{{user.name}}</small></h2>
+            <h2 class="pull-left"><small>{{user.lastName}} {{user.firstName}}</small></h2>
             <a href="#" class="btn btn-primary pull-right" {{action "addKudo" user target="controller.controllers.kudo"}}>add</a>
           </div>
         </div>
@@ -58,13 +58,17 @@
       </div>
 
       <div class="span6 coworkers pull-right">
-        <h2>TOP3 Collectors<br /><small>(in random order)</small></h2>
-    <!--    <ul> -->
-    <!--        {{#each controllers.top}} -->
-    <!--            <img {{bindAttr src="gravatar"}} /> -->
-    <!--        {{/each}} -->
-    <!--    </ul> -->
-    </div>
+        <h2>TOP3 Collectors<br /><small></small></h2>
+        {{#if controllers.top}}
+        <ul>
+          {{#each controllers.top}}
+          <img {{bindAttr src="gravatar"}} />
+          {{/each}}
+        </ul>
+        {{else}}
+        <p>Wanna be here? Be nice to other people!</p>
+        {{/if}}
+      </div>
   </div>
 
 </div><!-- container -->
