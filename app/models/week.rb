@@ -3,6 +3,7 @@ class Week < ActiveRecord::Base
 
   belongs_to :fusion
   has_many :weekly_kudos
+  has_many :kudos, through: :weekly_kudos
 
   validates_presence_of :start_at, :end_at, :number, :fusion_id
 
@@ -15,6 +16,14 @@ class Week < ActiveRecord::Base
   def self.previous
     week = Info.previous
     where(number: week.id).first
+  end
+
+
+  def previous
+    # TOOD - weird ...
+    last_week_date =  DateTime.parse(start_at.to_s) - 7.days
+    week = Info.new(last_week_date)
+    Week.where(number: week.id).first
   end
 
   class Info

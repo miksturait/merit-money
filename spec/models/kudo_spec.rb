@@ -78,18 +78,64 @@ describe Kudo do
       end
 
     end
-
-    pending "will be done in milestone: BackEnd-2#sks-34" do
-      context "in last week each user have their weekly kudo" do
-        # it will calculate stats from last week
-      end
-    end
-
-    pending "will be done in milestone: BackEnd-3#sks-35" do
-      context "there is two weeks gap between current week and last week that user have weekly kudo" do
-        # it should recreate all missing weekly kudos up to current week
-      end
-    end
-
   end
+
+  context "week after week - last week kudo stats recalculation" do
+    after do
+      Timecop.return
+    end
+
+    let(:tom) { create(:user, email: 'tom@selleo.com', name: 'Tom') }
+    let(:bart) { create(:user, email: 'bart@selleo.com', name: 'Bart') }
+    let(:simon) { create(:user, email: 'simon@selleo.com', name: 'Simon') }
+    let(:radek) { create(:user, email: 'radek@selleo.com', name: 'Radek') }
+
+    before do
+      Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
+
+      tom.thanks(bart, {value: 3})
+      tom.thanks(bart, {value: 2})
+      tom.thanks(bart, {value: 1})
+      simon.thanks(bart, {value: 5})
+      simon.thanks(bart, {value: 1})
+
+      simon.thanks(tom, {value: 1})
+      radek.thanks(bart, {value: 1})
+
+      simon.thanks(radek, {value: 1})
+      bart.thanks(radek, {value: 1})
+
+      Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))
+
+      simon.thanks(bart, {value: 8})
+    end
+
+    let(:bart_weekly_kudo) { bart.current_weekly_kudo }
+    let(:bart_last_week_kudos) { bart_weekly_kudo.last_week_kudos_received }
+    let(:bart_total_kudos) { bart_weekly_kudo.up_to_last_week_total_kudos_received }
+
+    it { expect(bart_last_week_kudos).to eq(13) }
+    it { expect(bart_total_kudos).to eq(13) }
+
+    let(:radek_weekly_kudo) { radek.current_weekly_kudo }
+    let(:radek_last_week_kudos) { radek_weekly_kudo.last_week_kudos_received }
+    let(:radek_total_kudos) { radek_weekly_kudo.up_to_last_week_total_kudos_received }
+
+    it { expect(radek_last_week_kudos).to eq(2) }
+    it { expect(radek_total_kudos).to eq(2) }
+
+    let(:tom_weekly_kudo) { tom.current_weekly_kudo }
+    let(:tom_last_week_kudos) { tom_weekly_kudo.last_week_kudos_received }
+    let(:tom_total_kudos) { tom_weekly_kudo.up_to_last_week_total_kudos_received }
+
+    it { expect(tom_last_week_kudos).to eq(1) }
+    it { expect(tom_total_kudos).to eq(1) }
+  end
+
+  pending "will be done in milestone: BackEnd-3#sks-35" do
+    context "there is two weeks gap between current week and last week that user have weekly kudo" do
+      # it should recreate all missing weekly kudos up to current week
+    end
+  end
+
 end
