@@ -25,12 +25,12 @@ gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
 
 group :test do
-  gem 'rspec-rails'
   gem 'timecop'
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'mocha', require: 'mocha/setup'
 end
+gem 'rspec-rails', :groups => [:development, :test]
 
 group :development do
   gem 'guard'
