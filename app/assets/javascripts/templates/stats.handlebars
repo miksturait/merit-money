@@ -1,5 +1,5 @@
 <div id="kudos-stats" class="row-fluid">
-  <div class="span6 me">
+  <div class="span4 me">
     <h2>My Stats</h2>
       {{#with controllers.currentUser}}
       <ul>
@@ -9,8 +9,8 @@
     {{/with}}
     </div>
 
-    <div class="span6 coworkers pull-right">
-      <h2>TOP3 Collectors<br /><small></small></h2>
+    <div class="span4 coworkers">
+      <h2>TOP3 Collectors</h2>
       {{#if controllers.top}}
       <ul>
         {{#each controllers.top}}
@@ -19,6 +19,19 @@
       </ul>
       {{else}}
       <p>Wanna be here? Be nice to other people!</p>
+      {{/if}}
+    </div>
+
+    <div class="span4 coworkers">
+      <h2>TOP3 Hamsters</h2>
+      {{#if controllers.hamsters}}
+      <ul>
+        {{#each controllers.hamsters}}
+        <img {{bindAttr src="gravatar"}} />
+        {{/each}}
+      </ul>
+      {{else}}
+      <p>Everyone gave kudos!</p>
       {{/if}}
     </div>
 </div>
