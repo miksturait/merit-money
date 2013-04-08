@@ -18,6 +18,13 @@ class Week < ActiveRecord::Base
     where(number: week.id).first
   end
 
+  def top_kudos_collectors
+    receivers = []
+    kudos.includes(:receiver).all.group_by(&:receiver).each_pair do |receiver, kudos|
+      receivers << [kudos.sum(&:value), receiver]
+    end
+    receivers.sort_by(&:first).reverse[0..2].map(&:last)
+  end
 
   def previous
     # TOOD - weird ...
