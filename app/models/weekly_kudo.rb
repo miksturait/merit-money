@@ -16,8 +16,7 @@ class WeeklyKudo < ActiveRecord::Base
   validates_presence_of :user_id, :week_id
   validates_inclusion_of :kudos_left, in: 0..20
 
-  def self.current(user)
-    week = Week.current
+  def self.current(user, week = Week.current)
     where(week_id: week.id, user_id: user.id).first ||
         create(ComputeAttrs.new(week, user).to_param)
   end

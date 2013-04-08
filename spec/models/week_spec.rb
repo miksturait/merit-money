@@ -74,26 +74,27 @@ describe Week do
     before do
       Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
 
-      # bart +13
+      # bart +13 -1
       tom.thanks(bart, {value: 3})
       tom.thanks(bart, {value: 2})
       tom.thanks(bart, {value: 1})
       simon.thanks(bart, {value: 5})
       simon.thanks(bart, {value: 1})
 
-      # tom +1
+      # tom +1 -6
       simon.thanks(tom, {value: 1})
       radek.thanks(bart, {value: 1})
 
-      # radek +3
+      # radek +3 -1
       simon.thanks(radek, {value: 2})
       bart.thanks(radek, {value: 1})
+      # simon -9
 
       Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))
     end
     let(:last_week) { Week.previous }
 
-    describe "collectors", :focus do
+    describe "collectors" do
       let(:top_kudos_collectors) { last_week.top_kudos_collectors }
 
       it { expect(last_week).to have(3).top_kudos_collectors }
@@ -101,7 +102,10 @@ describe Week do
     end
 
     describe "hamsters" do
+      let(:top_kudos_hamsters) { last_week.top_kudos_hamsters }
 
+      it { expect(last_week).to have(3).top_kudos_hamsters }
+      it { expect(top_kudos_hamsters).to_not include(tom, simon)}
     end
   end
 end
