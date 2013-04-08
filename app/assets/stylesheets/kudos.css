@@ -40,6 +40,7 @@ body {
 #users-list .coworker {
     margin: 15px 0;
     line-height: 80px;
+    position: relative;
 }
 
 #users-list .coworker div {
@@ -51,10 +52,15 @@ body {
     margin: 0;
     margin-left: 20px;
     line-height: 80px;
+    font-size: 18px;
+    color: #555;
+    font-weight: normal;
 }
 
 #users-list .coworker .btn {
-    margin: 25px 20px 25px 0;
+    position: absolute;
+    top: 25px;
+    right: 20px;
 }
 
 #users-list .coworker:nth-child(even) {
@@ -124,5 +130,14 @@ h2 small {
 
     #dashboard {
         position: fixed;
+    }
+}
+
+@media (max-width: 320px) {
+    #users-list .coworker h2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100px;
     }
 }
