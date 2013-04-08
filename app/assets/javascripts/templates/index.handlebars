@@ -69,6 +69,20 @@
         <p>Wanna be here? Be nice to other people!</p>
         {{/if}}
       </div>
+     </div>
+     <div>
+    <div class="span6 coworkers pull-right">
+      <h2>TOP3 Hamsters<br /><small></small></h2>
+      {{#if controllers.hamster}}
+      <ul>
+        {{#each controllers.hamster}}
+        <img {{bindAttr src="gravatar"}} />
+        {{/each}}
+      </ul>
+      {{else}}
+      <p>Every One Gave Kudo</p>
+      {{/if}}
+    </div>
   </div>
 
 </div><!-- container -->
