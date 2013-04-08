@@ -1,0 +1,24 @@
+<div id="kudos-stats" class="row-fluid">
+  <div class="span6 me">
+    <h2>My Stats</h2>
+      {{#with controllers.currentUser}}
+      <ul>
+        <li><i class="icon-star icon-kudo"></i>Received Last Week: <strong>{{kudosReceived}}</strong></li>
+        <li><i class="icon-star icon-kudo"></i>Received Since Last Bonus: <strong>{{kudosTotalReceived}}</strong></li>
+      </ul>
+    {{/with}}
+    </div>
+
+    <div class="span6 coworkers pull-right">
+      <h2>TOP3 Collectors<br /><small></small></h2>
+      {{#if controllers.top}}
+      <ul>
+        {{#each controllers.top}}
+        <img {{bindAttr src="gravatar"}} />
+        {{/each}}
+      </ul>
+      {{else}}
+      <p>Wanna be here? Be nice to other people!</p>
+      {{/if}}
+    </div>
+</div>
