@@ -38,17 +38,17 @@ describe WeekController do
       get :top_collectors
     end
 
-    subject(:response_object) { JSON.parse(response.body)["users"] }
+    subject(:response_object) { JSON.parse(response.body)["tops"] }
     let(:users) { [tom, bart, radek].map(&:ember_user_info).map(&:stringify_keys) }
     it { expect(response_object).to include(*users) }
   end
 
-  describe "top_hamsters", :focus do
+  describe "top_hamsters" do
     before do
       get :top_hamsters
     end
 
-    subject(:response_object) { JSON.parse(response.body)["users"] }
+    subject(:response_object) { JSON.parse(response.body)["hamsters"] }
     let(:users) { [stevo, bart, radek].map(&:ember_user_info).map(&:stringify_keys) }
 
     it { expect(response_object).to include(*users) }
