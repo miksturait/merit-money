@@ -6,7 +6,7 @@
         <div class="span12">
           <img class="pull-left" {{bindAttr src="user.gravatar"}}  />
           <h2 class="pull-left">{{user.firstName}} {{user.lastName}}</h2>
-          <a href="#" class="btn btn-primary pull-right" {{action "addKudo" user target="controller.controllers.kudo"}}>add</a>
+          <a href="#" class="btn btn-primary pull-right" {{action "addKudo" user}}>add</a>
         </div>
       </div>
     </li>
