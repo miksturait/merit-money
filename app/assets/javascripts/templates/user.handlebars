@@ -1,0 +1,23 @@
+<div id="kudos-content">
+  <ul id="users-list">
+  {{#with controller}}
+    <li class="coworker">
+      <div class="row-fluid">
+        <div class="span12">
+          <img class="pull-left" {{bindAttr src="gravatar"}}  />
+          <h2 class="pull-left">{{firstName}} {{lastName}}</h2>
+        </div>
+      </div>
+    </li>
+  {{/with}}
+  </ul>
+</div>
+
+
+{{#each kudo in controller.kudosReceived.content}}
+  <h2>Kudos Received: {{kudo.num}}</h2>
+  {{#each kudo.comments}}
+    {{body}} 
+  {{/each}}
+{{/each}}
+

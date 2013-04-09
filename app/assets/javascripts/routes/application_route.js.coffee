@@ -1,1 +1,0 @@
-Sks.ApplicationRoute = Ember.Route.extend()

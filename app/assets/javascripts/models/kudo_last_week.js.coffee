@@ -1,0 +1,1 @@
+Sks.KudoLastWeek = Sks.KudoReceived.extend()

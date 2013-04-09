@@ -8,4 +8,17 @@ class UsersController < ApplicationController
   def me
     render json: { current_user: current_user.ember_current_user_info }
   end
+
+ #  def show
+ #  	render json: { user: {
+ #  		name: 'Wojtek',
+ #  		email: 'rrh@op.pl'
+ #      received_this_week: [
+ #          {
+            
+ #          }
+ #      ]
+ #  	}}
+	# end
+
 end

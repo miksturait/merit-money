@@ -16,4 +16,6 @@ Sks::Application.routes.draw do
 
   match '/tops', to: 'week#top_collectors'
   match '/hamsters', to: 'week#top_hamsters'
+
+  match '/users/:id', to: 'users#show'
 end
