@@ -1,4 +1,4 @@
 Sks.UsersController = Ember.ArrayController.extend
-  needs: ['currentUser', 'kudo', 'top', 'hamsters']
+  needs: ['kudo', 'top', 'hamsters']
   sortProperties: ['lastName']
   sortAscending: true
