@@ -1,21 +1,26 @@
-body {
-    padding-top: 145px; /* 60px to make the container go all the way to the bottom of the topbar */
-}
-
 #users-list {
     margin: 0;
     list-style: none;
 }
 
 #dashboard {
+    font-size: 17px;
     height: 80px;
     line-height: 80px;
-    font-weight: bold;
-    background-color: #fff;
+    background-color: #45aeea;
+    color: #fff;
     position: fixed;
-    top: 50px;
+    top: 0;
     left: 0;
-    padding: 15px 0;
+    z-index: 10;
+}
+
+#dashboard img {
+    display: block;
+}
+
+#dashboard p {
+    margin: 0 20px;
 }
 
 #dashboard #flash {
@@ -24,17 +29,6 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     position: absolute;
-}
-
-#dashboard p {
-    font-size: 32px;
-    line-height: 80px;
-    margin: 0;
-    margin-left: 30px;
-}
-
-#dashboard p img {
-    line-height: 80px;
 }
 
 #users-list .coworker {
@@ -120,16 +114,7 @@ h2 small {
 
 @media all {
     body {
-        padding: 145px 0 0 0;
-    }
-    
-    .navbar-fixed-top {
-        position: fixed;
-        margin: 0;
-    }
-
-    #dashboard {
-        position: fixed;
+        padding: 80px 0 0 0;
     }
 }
 
