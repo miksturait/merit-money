@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe KudosController do
-  describe "giving one kudo", :focus do
+  describe "giving one kudo" do
     before do
       @tom = create(:user, name: 'Tom', email: 'tom@selleo.com')
       @simon = create(:user, name: 'Simon', email: 'simon@selleo.com')

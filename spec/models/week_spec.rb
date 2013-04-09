@@ -55,7 +55,57 @@ describe Week do
       subject(:week) { Week.previous }
 
       it { expect(Week.count).to eq(2) }
-      it { expect(week).to eq(@last_week)}
+      it { expect(week).to eq(@last_week) }
+    end
+  end
+
+  describe "top kudos" do
+
+    after do
+      Timecop.return
+    end
+
+    let!(:tom) { create(:user, email: 'tom@selleo.com', name: 'Tom') }
+    let!(:bart) { create(:user, email: 'bart@selleo.com', name: 'Bart') }
+    let!(:simon) { create(:user, email: 'simon@selleo.com', name: 'Simon') }
+    let!(:radek) { create(:user, email: 'radek@selleo.com', name: 'Radek') }
+    let!(:stevo) { create(:user, email: 'stevo@selleo.com', name: 'Stevo') }
+
+    before do
+      Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
+
+      # bart +13 -1
+      tom.thanks(bart, {value: 3})
+      tom.thanks(bart, {value: 2})
+      tom.thanks(bart, {value: 1})
+      simon.thanks(bart, {value: 5})
+      simon.thanks(bart, {value: 1})
+
+      # tom +1 -6
+      simon.thanks(tom, {value: 1})
+      radek.thanks(bart, {value: 1})
+
+      # radek +3 -1
+      simon.thanks(radek, {value: 2})
+      bart.thanks(radek, {value: 1})
+      # simon -9
+
+      Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))
+    end
+    let(:last_week) { Week.previous }
+
+    describe "collectors" do
+      let(:top_kudos_collectors) { last_week.top_kudos_collectors }
+
+      it { expect(last_week).to have(3).top_kudos_collectors }
+      it { expect(top_kudos_collectors).to_not include(simon, stevo) }
+    end
+
+    describe "hamsters" do
+      let(:top_kudos_hamsters) { last_week.top_kudos_hamsters }
+
+      it { expect(last_week).to have(3).top_kudos_hamsters }
+      it { expect(top_kudos_hamsters).to_not include(tom, simon)}
     end
   end
 end

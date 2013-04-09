@@ -3,6 +3,7 @@ class Week < ActiveRecord::Base
 
   belongs_to :fusion
   has_many :weekly_kudos
+  has_many :kudos, through: :weekly_kudos
 
   validates_presence_of :start_at, :end_at, :number, :fusion_id
 
@@ -17,6 +18,35 @@ class Week < ActiveRecord::Base
     where(number: week.id).first
   end
 
+  def self.ensure_each_user_have_weekly_kudos_created_for_week(week)
+    if User.count > week.weekly_kudos.count
+      User.all.each do |user|
+        WeeklyKudo.current(user, week)
+      end
+    end
+  end
+
+  def top_kudos_collectors
+    self.class.ensure_each_user_have_weekly_kudos_created_for_week(self)
+    receivers = []
+    kudos.includes(:receiver).all.group_by(&:receiver).each_pair do |receiver, kudos|
+      receivers << [kudos.sum(&:value), receiver]
+    end
+    receivers.sort_by(&:first).reverse[0..2].map(&:last)
+  end
+
+  def top_kudos_hamsters
+    self.class.ensure_each_user_have_weekly_kudos_created_for_week(self)
+    weekly_kudos.order("kudos_left DESC").includes(:user).limit(3).map(&:user)
+  end
+
+  def previous
+    # TOOD - weird ...
+    last_week_date = DateTime.parse(start_at.to_s) - 7.days
+    week = Info.new(last_week_date)
+    Week.where(number: week.id).first
+  end
+
   class Info
     def self.current
       new(DateTime.now.utc)
@@ -27,7 +57,7 @@ class Week < ActiveRecord::Base
     end
 
     def attrs
-      { number: id, start_at: start_at, end_at: end_at, fusion: Fusion.current }
+      {number: id, start_at: start_at, end_at: end_at, fusion: Fusion.current}
     end
 
     def initialize(time)

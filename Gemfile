@@ -8,6 +8,8 @@ end
 gem 'jquery-rails', '2.1.3'
 gem 'therubyracer'
 gem 'pg'
+gem 'haml-rails'
+gem 'haml'
 
 gem "thin", ">= 1.5.0"
 gem "omniauth", ">= 1.1.1"
@@ -25,12 +27,12 @@ gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
 
 group :test do
-  gem 'rspec-rails'
   gem 'timecop'
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'mocha', require: 'mocha/setup'
 end
+gem 'rspec-rails', :groups => [:development, :test]
 
 group :development do
   gem 'guard'

@@ -4,6 +4,7 @@ Sks::Application.routes.draw do
 
   resources :sessions
   match "/auth/google_oauth2/callback", to: "sessions#create"
+  match "/logout", to: "sessions#destroy"
 
   root to: 'homes#index'
   match '/about', to: 'homes#about', as: :about
@@ -12,4 +13,7 @@ Sks::Application.routes.draw do
   match '/users', to: 'users#index'
 
   match '/kudos', to: 'kudos#create'
+
+  match '/tops', to: 'week#top_collectors'
+  match '/hamsters', to: 'week#top_hamsters'
 end
