@@ -1,0 +1,1 @@
+Sks.HamstersController = Ember.ArrayController.extend()
