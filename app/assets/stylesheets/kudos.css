@@ -65,17 +65,7 @@
     background-color: #e2e2e2;
 }
 
-#kudos-stats h2 {
-    text-align: center;
-}
-
-#kudos-stats .me ul {
-    margin: 0 auto;
-    list-style: none;
-    width: 70%;
-}
-
-#kudos-stats .coworkers {
+#kudos-stats {
     text-align: center;
 }
 

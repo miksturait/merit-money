@@ -1,27 +1,4 @@
 <div id="kudos-stats" class="row-fluid">
-  <div class="span6 coworkers">
-    <h2>Collectors</h2>
-    {{#if controllers.top}}
-    <ul>
-      {{#each controllers.top}}
-      <img {{bindAttr src="gravatar"}} />
-      {{/each}}
-    </ul>
-    {{else}}
-    <p>Wanna be here? Be nice to other people!</p>
-    {{/if}}
-  </div>
-
-  <div class="span6 coworkers">
-    <h2>Hamsters</h2>
-    {{#if controllers.hamsters}}
-    <ul>
-      {{#each controllers.hamsters}}
-      <img {{bindAttr src="gravatar"}} />
-      {{/each}}
-    </ul>
-    {{else}}
-    <p>Everyone gave kudos!</p>
-    {{/if}}
-  </div>
+  {{render top}}
+  {{render hamsters}}
 </div>
