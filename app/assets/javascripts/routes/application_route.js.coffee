@@ -1,6 +1,10 @@
 Sks.ApplicationRoute = Ember.Route.extend
   events:
     addKudo: (user) ->
+      self = @
+      token = $('meta[name="csrf-token"]').attr 'content'
+      currentUserController = @controllerFor 'currentUser'
+
       showFlash = (type, message) ->
         $("#flash")
           .addClass(type)
@@ -11,16 +15,11 @@ Sks.ApplicationRoute = Ember.Route.extend
           .delay(2000)
           .fadeOut 'slow'
 
-      self = this
-      token = $('meta[name="csrf-token"]').attr('content')
-      cuController = Sks.Router.get 'currentUserController'
-      console.log cuController.kudosLeft
-
-      jQuery.post("/kudos", user_id: user.get("id"), authenticity_token: token)
+      $.post("/kudos", user_id: user.get("id"), authenticity_token: token)
       .done((data, status) =>
-        kudosLeft = self.get 'controllers.currentUser.kudosLeft'
+        kudosLeft = currentUserController.get 'kudosLeft'
         if kudosLeft > 0
-          self.decrementProperty "controllers.currentUser.kudosLeft"
+          currentUserController.set 'kudosLeft', kudosLeft - 1
           showFlash 'alert-success', 'You\'ve added a kudo!'
         else
           showFlash 'alert-error', 'There\'re no kudos left!'
