@@ -1,5 +1,5 @@
 //= require ./store
-//= require_tree ./models
+//= require ./models
 //= require_tree ./controllers
 //= require_tree ./views
 //= require_tree ./helpers
