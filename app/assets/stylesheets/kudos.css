@@ -58,7 +58,14 @@
 #users-list .coworker .btn {
     position: absolute;
     top: 25px;
+}
+
+#users-list .coworker .btn-default {
     right: 20px;
+}
+
+#users-list .coworker .btn-primary {
+    right: 90px;
 }
 
 #users-list .coworker:nth-child(even) {
