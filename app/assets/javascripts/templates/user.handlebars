@@ -1,27 +1,64 @@
-<div>
-  <img class="" {{bindAttr src="gravatar"}}  />
-  <h2 class="">{{firstName}} {{lastName}}</h2>
+<div class="coworker">
+    <div class="row-fluid">
+      <div class="span12">
+        <img class="pull-left" {{bindAttr src="gravatar"}}  />
+        <h2 class="pull-left">{{firstName}} {{lastName}}</h2>
+      </div>
+    </div>
 </div>
 
-<div>
-{{#each kudo in controller.kudosReceived.content}}
-  <h2>Received this week: {{kudo.num}}</h2>
-  <ul>
-  {{#each kudo.comments}}
-    <li>{{body}}</li>
-  {{/each}}
-  </ul>
-{{/each}}
-</div>
+<div class="row-fluid">
+  <div class="span6">
+    <form>
+      <div class="control-group">
+        <label class="control-label" for="kudos-add">I’d like to add</label>
+        <div class="controls">
+          <select id="kudos-add">
+            <option>1 kudo</option>
+            <option>2 kudos</option>
+            <option>3 kudos</option>
+            <option>4 kudos</option>
+            <option>5 kudos</option>
+          </select>
+        </div>
+      </div>
 
-<div>
-{{#each kudo in controller.kudosLastWeek.content}}
-  <h2>Received last week: {{kudo.num}}</h2>
-  <ul>
-  {{#each kudo.comments}}
-    <li>{{body}}</li>
-  {{/each}}
-  </ul>
-{{/each}}
+      <div class="control-group">
+        <label class="control-label" for="kudos-comment">Comment</label>
+        <div class="controls">
+          <textarea rows="6" id="kudos-comment" valueBinding="comment" placeholder="I’d like to add kudo because…"></textarea>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <button {{action addKudo}} type="submit">Add</button>
+        </div>
+      </div>
+     </form>
+  </div>
+
+  <div class="span6 stats">
+    <div>
+      {{#each kudo in controller.kudosReceived.content}}
+        <h2 class="text-center">This Week: <i class="icon-star icon-kudo"></i> {{kudo.num}}</h2>
+        <ul class="comments">
+        {{#each kudo.comments}}
+          <li>{{body}}</li>
+        {{/each}}
+        </ul>
+      {{/each}}
+    </div>
+
+    <div>
+      {{#each kudo in controller.kudosLastWeek.content}}
+        <h2 class="text-center">Last Week: <i class="icon-star icon-kudo"></i> {{kudo.num}}</h2>
+        <ul class="comments">
+        {{#each kudo.comments}}
+          <li>{{body}}</li>
+        {{/each}}
+        </ul>
+      {{/each}}
+    </div>
 </div>
 

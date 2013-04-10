@@ -35,7 +35,7 @@
     margin-top: 15px;
 }
 
-#users-list .coworker {
+#users-list .coworker, #kudos-user-view .coworker {
     margin-bottom: 15px;
     line-height: 80px;
     position: relative;
@@ -46,7 +46,7 @@
     line-height: 80px;
 }
 
-#users-list .coworker h2 {
+#users-list .coworker h2, #kudos-user-view .coworker h2 {
     margin: 0;
     margin-left: 20px;
     line-height: 80px;
@@ -80,12 +80,21 @@
     text-align: center;
 }
 
-.icon-kudo {
-    color: #034482;
+#kudos-user-view .stats .comments {
+    list-style: none;
 }
 
-h2 small {
-    color: #555;
+#kudos-user-view .stats .comments li {
+    padding: 15px;
+    font-style: italic;
+}
+
+#kudos-user-view .stats .comments li:nth-child(even) {
+    background-color: #e2e2e2;
+}
+
+.icon-kudo {
+    color: #034482;
 }
 
 @media all {

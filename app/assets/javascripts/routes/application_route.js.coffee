@@ -1,6 +1,7 @@
 Sks.ApplicationRoute = Ember.Route.extend
   events:
     addKudo: (user) ->
+      console.log event
       self = @
       token = $('meta[name="csrf-token"]').attr 'content'
       currentUserCon = @controllerFor 'currentUser'
