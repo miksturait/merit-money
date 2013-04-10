@@ -31,8 +31,12 @@
     position: absolute;
 }
 
+#kudos-content {
+    margin-top: 15px;
+}
+
 #users-list .coworker {
-    margin: 15px 0;
+    margin-bottom: 15px;
     line-height: 80px;
     position: relative;
 }
