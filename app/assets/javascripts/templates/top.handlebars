@@ -1,12 +1,1 @@
-<div class="span6">
-  <h2>Collectors</h2>
-  {{#if controller.content}}
-  <ul>
-    {{#each user in controller}}
-    <img {{bindAttr src="user.gravatar"}} />
-    {{/each}}
-  </ul>
-  {{else}}
-  <p>Wanna be here? Be nice to other people!</p>
-  {{/if}}
-</div>
+{{partial top3}}

@@ -1,3 +1,1 @@
-Sks.ApplicationView = Ember.View.extend
-  didInsertElement: ->
-    this.$('#flash').hide()
+Sks.ApplicationView = Ember.View.extend()

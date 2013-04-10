@@ -1,2 +1,1 @@
-Sks.UserController = Ember.ObjectController.extend
-  needs: ['currentUser']
+Sks.UserController = Ember.ObjectController.extend()

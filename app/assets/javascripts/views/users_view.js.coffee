@@ -1,3 +1,1 @@
-Sks.UsersView = Ember.View.extend
-  didInsertElement: ->
-    this.$('#flash').hide()
+Sks.UsersView = Ember.View.extend()
