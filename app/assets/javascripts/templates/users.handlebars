@@ -2,12 +2,7 @@
 {{#each user in controller}}
   <li class="coworker">
     <div class="row-fluid">
-      <div class="span12">
-        <img class="pull-left" {{bindAttr src="user.gravatar"}}  />
-        <h2 class="pull-left">{{user.firstName}} {{user.lastName}}</h2>
-        <a href="#" class="btn btn-primary" {{action "addKudo" user}}>add</a>
-        {{#linkTo 'user' user classNames="btn btn-default"}}more{{/linkTo}}
-      </div>
+      {{view Sks.UserInUsersView contentBinding="user"}}
     </div>
   </li>
 {{/each}}
