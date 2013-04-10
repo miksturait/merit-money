@@ -1,23 +1,27 @@
-<div id="kudos-content">
-  <ul id="users-list">
-  {{#with controller}}
-    <li class="coworker">
-      <div class="row-fluid">
-        <div class="span12">
-          <img class="pull-left" {{bindAttr src="gravatar"}}  />
-          <h2 class="pull-left">{{firstName}} {{lastName}}</h2>
-        </div>
-      </div>
-    </li>
-  {{/with}}
-  </ul>
+<div>
+  <img class="" {{bindAttr src="gravatar"}}  />
+  <h2 class="">{{firstName}} {{lastName}}</h2>
 </div>
 
-
+<div>
 {{#each kudo in controller.kudosReceived.content}}
-  <h2>Kudos Received: {{kudo.num}}</h2>
+  <h2>Received this week: {{kudo.num}}</h2>
+  <ul>
   {{#each kudo.comments}}
-    {{body}} 
+    <li>{{body}}</li>
   {{/each}}
+  </ul>
 {{/each}}
+</div>
+
+<div>
+{{#each kudo in controller.kudosLastWeek.content}}
+  <h2>Received last week: {{kudo.num}}</h2>
+  <ul>
+  {{#each kudo.comments}}
+    <li>{{body}}</li>
+  {{/each}}
+  </ul>
+{{/each}}
+</div>
 

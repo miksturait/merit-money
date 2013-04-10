@@ -1,6 +1,6 @@
 Sks.User = DS.Model.extend
   kudosReceived: DS.hasMany 'Sks.kudoReceived'
-  #kudosLastWeek: DS.hasMany 'Sks.kudosLastWeek'
+  kudosLastWeek: DS.hasMany 'Sks.kudoLastWeek'
   name: DS.attr("string")
   email: DS.attr("string")
 
@@ -24,16 +24,23 @@ Sks.User.FIXTURES = [
   kudoReceived_ids: [1]
   kudosReceived: [
     id: 1
-    num: 5
-    comment_ids: [1, 2, 3]
+    num: 2
+    comment_ids: [1]
     comments: [
       id: 1
       body: 'Because you are nice to me!'
-    ,
-      id: 2
+    ]
+  ]
+  kudoLastWeek_ids: [1]
+  kudosLastWeek: [
+    id: 1
+    num: 5
+    comment_ids: [1, 2]
+    comments: [
+      id: 1
       body: 'You gave me a helping hand yesterday!'
     ,
-      id: 3
+      id: 2
       body: 'Whatever!'
     ]
   ]
@@ -44,17 +51,33 @@ Sks.User.FIXTURES = [
   kudoReceived_ids: [1]
   kudosReceived: [
     id: 1
-    num: 5
-    comment_ids: [1, 2, 3]
+    num: 3
+    comment_ids: [1, 2]
     comments: [
       id: 1
-      body: 'Because you are nice to me!'
+      body: 'It was a huge help, man!'
     ,
       id: 2
-      body: 'You gave me a helping hand yesterday!'
+      body: 'It was awesome!'
+    ]
+  ]
+  kudoLastWeek_ids: [1]
+  kudosLastWeek: [
+    id: 1
+    num: 7
+    comment_ids: [1, 2, 3, 4]
+    comments: [
+      id: 1
+      body: 'Thanks for the dinner!'
+    ,
+      id: 2
+      body: 'you did amazing job'
     ,
       id: 3
-      body: 'Whatever!'
+      body: 'Keep it up man!'
+    ,
+      id: 4
+      body: 'unbelievable!!!'
     ]
   ]
 ]
