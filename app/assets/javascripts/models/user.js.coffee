@@ -24,60 +24,53 @@ Sks.User.FIXTURES = [
   kudoReceived_ids: [1]
   kudosReceived: [
     id: 1
-    num: 2
-    comment_ids: [1]
-    comments: [
-      id: 1
-      body: 'Because you are nice to me!'
-    ]
+    value: 2
+    comment: 'Because you are nice to me!'
   ]
-  kudoLastWeek_ids: [1]
+  kudoLastWeek_ids: [1, 2, 3]
   kudosLastWeek: [
     id: 1
-    num: 5
-    comment_ids: [1, 2]
-    comments: [
-      id: 1
-      body: 'You gave me a helping hand yesterday!'
-    ,
-      id: 2
-      body: 'Whatever!'
-    ]
+    value: 3
+    comment: 'You gave me a helping hand yesterday!'
+  ,
+    id: 2
+    value: 2
+    comment: 'It was awesome!'
+  ,
+    id: 3
+    value: 1
+    comment: 'for no reason!'
   ]
 ,
   id: 2
   name: 'Boro'
   email: 'boro.selleo@gmail.com'
-  kudoReceived_ids: [1]
+  kudoReceived_ids: [1, 2]
   kudosReceived: [
     id: 1
-    num: 3
-    comment_ids: [1, 2]
-    comments: [
-      id: 1
-      body: 'It was a huge help, man!'
-    ,
-      id: 2
-      body: 'It was awesome!'
-    ]
+    value: 2
+    comment: 'you did amazing job'
+  ,
+    id: 2
+    value: 4
+    comment: 'Keep it up, dude!'
   ]
-  kudoLastWeek_ids: [1]
+  kudoLastWeek_ids: [1, 2, 3, 4]
   kudosLastWeek: [
     id: 1
-    num: 7
-    comment_ids: [1, 2, 3, 4]
-    comments: [
-      id: 1
-      body: 'Thanks for the dinner!'
-    ,
-      id: 2
-      body: 'you did amazing job'
-    ,
-      id: 3
-      body: 'Keep it up man!'
-    ,
-      id: 4
-      body: 'unbelievable!!!'
-    ]
+    value: 5
+    comment: 'Unbelievable!'
+  ,
+    id: 2
+    value: 1
+    comment: 'cool'
+  ,
+    id: 3
+    value: 1
+    comment: 'uh-oh'
+  ,
+    id: 4
+    value: 3
+    comment: 'super-duper!'
   ]
 ]

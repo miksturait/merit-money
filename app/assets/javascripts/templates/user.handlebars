@@ -40,25 +40,21 @@
 
   <div class="span6 stats">
     <div>
-      {{#each kudo in controller.kudosReceived.content}}
-        <h2 class="text-center">This Week: <i class="icon-star icon-kudo"></i> {{kudo.num}}</h2>
+        <h2 class="text-center">Current Week</h2>
         <ul class="comments">
-        {{#each kudo.comments}}
-          <li>{{body}}</li>
-        {{/each}}
+          {{#each kudo in controller.kudosReceived.content}}
+          <li><i class="icon-star icon-kudo"></i> {{kudo.value}} for {{kudo.comment}}</li>
+          {{/each}}
         </ul>
-      {{/each}}
     </div>
 
     <div>
-      {{#each kudo in controller.kudosLastWeek.content}}
-        <h2 class="text-center">Last Week: <i class="icon-star icon-kudo"></i> {{kudo.num}}</h2>
+        <h2 class="text-center">Last Week</h2>
         <ul class="comments">
-        {{#each kudo.comments}}
-          <li>{{body}}</li>
-        {{/each}}
+          {{#each kudo in controller.kudosLastWeek.content}}
+          <li><i class="icon-star icon-kudo"></i> {{kudo.value}} for {{kudo.comment}}</li>
+          {{/each}}
         </ul>
-      {{/each}}
     </div>
 </div>
 
