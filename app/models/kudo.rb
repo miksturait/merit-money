@@ -3,7 +3,7 @@ class Kudo < ActiveRecord::Base
   belongs_to :weekly_kudo, autosave: true
 
   delegate :giver, to: :weekly_kudo
-  attr_accessible :comment, :value
+  attr_accessible :comment, :value, :receiver_id
 
   validates_presence_of :value, :receiver_id, :weekly_kudo_id
   validates_inclusion_of :value, in: 1..20, message: "you are not allowed to go beyond kudos limit"

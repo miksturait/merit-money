@@ -14,11 +14,11 @@
         <label class="control-label" for="kudos-add">I’d like to add</label>
         <div class="controls">
           <select id="kudos-add">
-            <option>1 kudo</option>
-            <option>2 kudos</option>
-            <option>3 kudos</option>
-            <option>4 kudos</option>
-            <option>5 kudos</option>
+            <option value="1">1 kudo</option>
+            <option value="2">2 kudos</option>
+            <option value="3">3 kudos</option>
+            <option value="4">4 kudos</option>
+            <option value="5">5 kudos</option>
           </select>
         </div>
       </div>
@@ -32,7 +32,7 @@
 
       <div class="control-group">
         <div class="controls">
-          <button {{action addKudo}} type="submit">Add</button>
+          <button {{action addKudo this}} type="submit">Add</button>
         </div>
       </div>
      </form>

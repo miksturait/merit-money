@@ -1,6 +1,6 @@
 Sks.User = DS.Model.extend
-  kudosReceived: DS.hasMany 'Sks.kudoReceived'
-  kudosLastWeek: DS.hasMany 'Sks.kudoLastWeek'
+  kudosReceived: DS.hasMany 'Sks.KudoReceived'
+  kudosLastWeek: DS.hasMany 'Sks.KudoLastWeek'
   name: DS.attr("string")
   email: DS.attr("string")
 

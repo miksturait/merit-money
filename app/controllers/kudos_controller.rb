@@ -3,9 +3,7 @@ class KudosController < ApplicationController
 
   def create
     # TODO refactor
-    user = User.find(params[:user_id])
-    kudo = current_user.thanks(user, {value: 1})
-    if kudo.valid?
+    if current_user.thanks(params[:kudo])
       render json: {status: 'ok'}
     else
       render json: {status: 'error'}
