@@ -1,4 +1,4 @@
 <img class="pull-left" {{bindAttr src="user.gravatar"}}  />
 <h2 class="pull-left">{{user.firstName}} {{user.lastName}}</h2>
-<a href="#" class="btn btn-primary" {{action "addKudo" user}}>add</a>
-{{#linkTo 'user' user classNames="btn btn-default"}}more{{/linkTo}}
+<a href="#" class="btn btn-primary" {{action "addKudo" user}}><i class="icon-plus"></i></a>
+{{#linkTo 'user' user classNames="btn btn-default"}}...{{/linkTo}}

@@ -65,7 +65,7 @@
 }
 
 #users-list .coworker .btn-primary {
-    right: 90px;
+    right: 70px;
 }
 
 #users-list .coworker:nth-child(even) {
@@ -82,6 +82,7 @@
 
 #kudos-user-view .stats ul {
     list-style: none;
+    margin: 0;
 }
 
 #kudos-user-view .stats .kudo-received {
