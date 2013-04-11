@@ -94,6 +94,14 @@
     background-color: #e2e2e2;
 }
 
+#kudos-user-view select, #kudos-user-view textarea {
+    width: 100%;
+}
+
+#kudos-user-view textarea {
+    resize: none;
+}
+
 .icon-kudo {
     color: #034482;
 }
