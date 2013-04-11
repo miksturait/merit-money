@@ -80,16 +80,16 @@
     text-align: center;
 }
 
-#kudos-user-view .stats .comments {
+#kudos-user-view .stats ul {
     list-style: none;
 }
 
-#kudos-user-view .stats .comments li {
+#kudos-user-view .stats .kudo-received {
     padding: 15px;
     font-style: italic;
 }
 
-#kudos-user-view .stats .comments li:nth-child(even) {
+#kudos-user-view .stats .kudo-received:nth-child(even) {
     background-color: #e2e2e2;
 }
 
