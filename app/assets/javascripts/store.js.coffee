@@ -1,5 +1,5 @@
 Sks.Store = DS.Store.extend
-    revision: 11
+    revision: 12
     adapter: 'DS.RESTAdapter'
 
 Sks.Store.registerAdapter 'Sks.User', DS.FixtureAdapter
