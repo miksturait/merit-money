@@ -7,7 +7,7 @@ Sks.ApplicationRoute = Ember.Route.extend
       kudosLeft = currentUserCon.get 'kudosLeft'
       $kudoSelect = $ '#kudos-add'
       $kudoComment = $ '#kudos-comment'
-      kudoNum = parseInt $kudoSelect.val()
+      kudoNum = parseInt $kudoSelect.val() || 1
       kudoComment = $kudoComment.val()
 
       showFlash = (type, message) ->
