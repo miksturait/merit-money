@@ -13,7 +13,7 @@
 //= require jquery
 //= require handlebars
 //= require ember-1.0.0-rc.2
-//= require ember-data
+//= require ember-data-dev
 //= require ember-bootstrap
 //= require twitter/bootstrap
 //= require md5
