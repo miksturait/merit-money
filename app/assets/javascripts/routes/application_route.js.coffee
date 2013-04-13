@@ -25,8 +25,7 @@ Sks.ApplicationRoute = Ember.Route.extend
       .done((data, status) =>
         if kudosLeft > 0
           currentUserCon.decrementKudos kudoNum
-          newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
-          user.get('kudosReceived').get('content').pushObject(newKudo)
+          #todo update view with a new current week kudo
           showFlash 'alert-success', 'You\'ve added a kudo!'
         else
           showFlash 'alert-error', 'There\'re no kudos left!'
