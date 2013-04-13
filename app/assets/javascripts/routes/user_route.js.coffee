@@ -1,3 +1,3 @@
-Sks.UserRoute = Ember.Route.extend
-  renderTemplate: ->
-    @render into: 'application'   
+#Sks.UserRoute = Ember.Route.extend
+  #renderTemplate: ->
+    #@render into: 'application'   
