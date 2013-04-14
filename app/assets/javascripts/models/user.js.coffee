@@ -29,4 +29,10 @@ Sks.User.FIXTURES = [
   email: 'boro.selleo@gmail.com'
   kudosReceived: [2, 3]
   kudosLastWeek: [4, 5, 6, 7]
+,
+  id: 3
+  name: 'Wojtek'
+  email: 'rrh@op.pl'
+  kudosReceived: []
+  kudosLastWeek: []
 ]
