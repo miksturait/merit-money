@@ -20,13 +20,15 @@ Sks.ApplicationRoute = Ember.Route.extend
           .delay(2000)
           .fadeOut 'slow'
 
-      kudo = Sks.Kudo.createRecord receiver_id: user.get('id'), value: kudoNum, comment: kudoComment
+      kudo = Sks.Kudo.createRecord receiver: user, value: kudoNum, comment: kudoComment
       $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
       .done((data, status) =>
         if kudosLeft > 0
           currentUserCon.decrementKudos kudoNum
-          #todo update view with a new current week kudo
+          newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
+          user.get('kudosReceived').pushObject(newKudo)
           showFlash 'alert-success', 'You\'ve added a kudo!'
+
         else
           showFlash 'alert-error', 'There\'re no kudos left!'
       )
