@@ -19,8 +19,14 @@ class User < ActiveRecord::Base
   end
 
   def thanks(attrs)
-    kudo = current_weekly_kudo.kudos.build(attrs)
-    kudo.save
+    # TODO manual - rewrite
+    _attrs = {
+        value: attrs["value"],
+        comment: attrs["comment"],
+        receiver_id: attrs["receiver_id"]
+    }
+    kudo = current_weekly_kudo.kudos.build(_attrs)
+    kudo.save!
   end
 
   def current_weekly_kudo
@@ -34,7 +40,12 @@ class User < ActiveRecord::Base
         email: email,
         kudos_left: current_weekly_kudo.kudos_left,
         kudos_received: current_weekly_kudo.last_week_kudos_received,
-        kudos_total_received: current_weekly_kudo.up_to_last_week_total_kudos_received
+        kudos_total_received: current_weekly_kudo.up_to_last_week_total_kudos_received,
+        trend: 'steady',
+
+        # TODO hack because of ember.js model inheritance
+        kudos_received: [],
+        kudos_last_week: []
     }
   end
 
@@ -45,4 +56,22 @@ class User < ActiveRecord::Base
         email: email
     }
   end
+
+  def ember_user_info_for_current_user(user)
+    {
+        id: id,
+        name: name,
+        email: email,
+        kudos_received_ids: [],
+        kudos_last_week_ids: []
+    }
+  end
+
+  #kudosReceived: kudos_for_week_and_from_user(Week::Info.current, user).map(&:ember_kudo_info),
+  #kudosLastWeek: kudos_for_week_and_from_user(Week::Info.previous, user).map(&:ember_kudo_info)
+  #def kudos_for_week_and_from_user(week, user)
+  #  kudos_received.joins(:weekly_kudo => :week).
+  #      where(weeks: {number: week.id},
+  #            weekly_kudos: {user_id: user.id})
+  #end
 end

@@ -2,7 +2,7 @@ Sks.CurrentUser = Sks.User.extend
   kudosLeft: DS.attr 'number'
   kudosReceived: DS.attr 'number'
   kudosTotalReceived: DS.attr 'number'
-  trend: DS.attr 'trend'
+  trend: DS.attr 'string'
 
 Sks.CurrentUser.FIXTURES = [
   id: 1

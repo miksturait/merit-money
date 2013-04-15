@@ -22,6 +22,15 @@ class Kudo < ActiveRecord::Base
 
   validates_with ReceiverIsDifferentThenGiverValidator
 
+
+  def ember_kudo_info
+    {
+        id: id,
+        comment: comment,
+        receiver_id: receiver_id
+    }
+  end
+
   private
 
   def substract_kudos_from_weekly_kudos
