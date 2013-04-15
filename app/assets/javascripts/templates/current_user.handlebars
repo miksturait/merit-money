@@ -3,7 +3,7 @@
   <div class="span12">
     <img class="pull-left" {{bindAttr src="gravatar"}}  />
       <p class="pull-left"><i class="icon-star icon-kudo"></i> <strong>{{kudosLeft}}</strong> Left</p>
-      <p class="pull-right"><i class="icon-star icon-kudo"></i> <strong>{{kudosReceived}}</strong> /
-      <strong>{{kudosTotalReceived}}</strong></p>
+      <p class="pull-right">{{trend trend}}</i> <strong title="last week">{{kudosReceived}}</strong> /
+      <strong title="since last bonus">{{kudosTotalReceived}}</strong></p>
   </div>
 </div>

@@ -31,6 +31,18 @@
     position: absolute;
 }
 
+#dashboard .trend.steady {
+    color: #ccc;
+}
+
+#dashboard .trend.upward {
+    color: green;
+}
+
+#dashboard .trend.downward {
+    color: red;
+}
+
 #kudos-content {
     margin-top: 15px;
 }
