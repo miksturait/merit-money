@@ -12,6 +12,7 @@ Sks.ApplicationRoute = Ember.Route.extend
 
       showFlash = (type, message) ->
         $("#flash")
+          .removeClass('alert-error alert-success')
           .addClass(type)
           .empty()
           .append(message)
