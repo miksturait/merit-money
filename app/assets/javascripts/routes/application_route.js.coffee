@@ -22,15 +22,14 @@ Sks.ApplicationRoute = Ember.Route.extend
 
       kudo = Sks.Kudo.createRecord receiver: user, value: kudoNum, comment: kudoComment
       $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
-      .done((data, status) =>
-        if kudosLeft > 0
+      .done((data) =>
+        if data.status isnt 'error'
           currentUserCon.decrementKudos kudoNum
           newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
           user.get('kudosReceived').pushObject(newKudo)
           showFlash 'alert-success', 'You\'ve added a kudo!'
-
         else
-          showFlash 'alert-error', 'There\'re no kudos left!'
+          showFlash 'alert-error', 'Oops! An error occured!'
       )
       .fail (data, status) ->
         showFlash 'alert-error', 'Oops! An error occured!'
