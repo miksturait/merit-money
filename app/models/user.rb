@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     kudo
   end
 
+  def kudos_given_by_user_in_week(user, week)
+    kudos_received.joins(:weekly_kudo).where(weekly_kudos: {week_id: week, user_id: user})
+  end
+
   def current_weekly_kudo
     WeeklyKudo.current(self)
   end

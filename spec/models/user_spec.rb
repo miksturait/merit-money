@@ -52,13 +52,13 @@ describe User do
       let(:last_week_kudos_for_tom) { tom.kudos_given_by_user_in_week(current_user, previous_week) }
       let(:last_week_kudos_value_for_tom) { last_week_kudos_for_tom.sum(&:value) }
 
-      it { expect(last_week_kudos_for_tom).to eq(2) }
+      it { expect(last_week_kudos_for_tom).to have(2).items }
       it { expect(last_week_kudos_value_for_tom).to eq(6)}
 
       let(:last_week_kudos_for_bart) { bart.kudos_given_by_user_in_week(current_user, previous_week) }
       let(:last_week_kudos_value_for_bart) { last_week_kudos_for_bart.sum(&:value) }
 
-      it { expect(last_week_kudos_for_bart).to eq(1) }
+      it { expect(last_week_kudos_for_bart).to have(1).item }
       it { expect(last_week_kudos_value_for_bart).to eq(7)}
     end
 
@@ -67,13 +67,13 @@ describe User do
       let(:current_week_kudos_for_tom) { tom.kudos_given_by_user_in_week(current_user, week) }
       let(:current_week_kudos_value_for_tom) { current_week_kudos_for_tom.sum(&:value) }
 
-      it { expect(current_week_kudos_for_tom).to eq(1) }
-      it { expect(current_week_kudos_value_for_tom).to eq(3)}
+      it { expect(current_week_kudos_for_tom).to have(1).item }
+      it { expect(current_week_kudos_value_for_tom).to eq(3) }
 
       let(:current_week_kudos_for_bart) { bart.kudos_given_by_user_in_week(current_user, week) }
-      let(:current_week_kudos_value_for_bart) { last_week_kudos_for_bart.sum(&:value) }
+      let(:current_week_kudos_value_for_bart) { current_week_kudos_for_bart.sum(&:value) }
 
-      it { expect(current_week_kudos_for_bart).to eq(0) }
+      it { expect(current_week_kudos_for_bart).to be_empty }
       it { expect(current_week_kudos_value_for_bart).to eq(0)}
     end
   end
