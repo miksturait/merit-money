@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
         kudos_left: current_weekly_kudo.kudos_left,
         kudos_received: current_weekly_kudo.last_week_kudos_received,
         kudos_total_received: current_weekly_kudo.up_to_last_week_total_kudos_received,
-        trend: 'steady'
+        trend: current_weekly_kudo.trend
     }
   end
 
