@@ -27,7 +27,7 @@ Sks.ApplicationRoute = Ember.Route.extend
         if data.status isnt 'error'
           currentUserCon.decrementKudos kudoNum
           newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
-          #user.get('kudoReceived').pushObject(newKudo)
+          user.get('kudoReceiveds').pushObject(newKudo)
           showFlash 'alert-success', 'You\'ve added a kudo!'
         else
           showFlash 'alert-error', 'Oops! An error occured!'
