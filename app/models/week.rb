@@ -32,12 +32,12 @@ class Week < ActiveRecord::Base
     kudos.includes(:receiver).all.group_by(&:receiver).each_pair do |receiver, kudos|
       receivers << [kudos.sum(&:value), receiver]
     end
-    receivers.sort_by(&:first).reverse[0..2].map(&:last)
+    receivers.sort_by(&:first).reverse[0..2].map(&:last).compact
   end
 
   def top_kudos_hamsters
     self.class.ensure_each_user_have_weekly_kudos_created_for_week(self)
-    weekly_kudos.where("kudos_left > 8").order("kudos_left DESC").includes(:user).limit(3).map(&:user)
+    weekly_kudos.where("kudos_left > 8").order("kudos_left DESC").includes(:user).limit(3).map(&:user).compact
   end
 
   def previous
