@@ -18,7 +18,7 @@ describe User do
     it { expect(weekly_kudo).to eq(tom.current_weekly_kudo) }
   end
 
-  describe "kudos that have been received in current week from current_user", :focus do
+  describe "kudos that have been received in current week from current_user" do
     after do
       Timecop.return
     end
