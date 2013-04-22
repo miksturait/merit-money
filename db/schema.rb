@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401174949) do
+ActiveRecord::Schema.define(:version => 20130422053349) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -91,8 +91,9 @@ ActiveRecord::Schema.define(:version => 20130401174949) do
     t.integer  "hours_worked"
     t.integer  "user_id"
     t.integer  "week_id"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                                                 :null => false
+    t.datetime "updated_at",                                                 :null => false
+    t.string   "trend",                                :default => "steady"
   end
 
   add_index "weekly_kudos", ["user_id"], :name => "index_weekly_kudos_on_user_id"

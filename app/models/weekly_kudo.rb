@@ -1,7 +1,7 @@
 class WeeklyKudo < ActiveRecord::Base
   attr_accessible :hours_worked, :kudos_left,
                   :last_week_kudos_received, :up_to_last_week_total_kudos_received,
-                  :week, :user
+                  :week, :user, :trend
 
 
   belongs_to :user
@@ -26,10 +26,32 @@ class WeeklyKudo < ActiveRecord::Base
       defaults.merge({last_week_kudos_received: last_week_kudos_received,
                       up_to_last_week_total_kudos_received: up_to_last_week_total_kudos_received,
                       week: week,
-                      user: user})
+                      user: user,
+                      trend: trend })
     end
 
     private
+
+
+    def trend
+      previous_weekly_kudos = user.weekly_kudos.where(["week_id < ?", week.id]).order("week_id DESC").limit(2)
+      if previous_weekly_kudos.any?
+
+        total_kudos = previous_weekly_kudos.sum(&:last_week_kudos_received)
+        total_weeks = previous_weekly_kudos.size
+        average = total_kudos / total_weeks
+
+        if last_week_kudos_received > average
+          "upward"
+        elsif last_week_kudos_received < average
+          "downward"
+        else
+          "steady"
+        end
+      else
+        "steady"
+      end
+    end
 
     def last_week_kudos_received
       if previous_week
