@@ -7,7 +7,7 @@ describe KudosController do
       @simon = create(:user, name: 'Simon', email: 'simon@selleo.com')
       @bart = create(:user, name: 'Bart', email: 'bart@selleo.com')
 
-      post :create, user_id: @tom.id
+      post :create, kudo: { receiver_id: @tom.id }
     end
 
     let(:bart_kudo) { @bart.kudos.last }
@@ -18,4 +18,5 @@ describe KudosController do
 
     it { expect(@tom).to have(1).kudos_received }
   end
+
 end

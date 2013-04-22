@@ -22,7 +22,8 @@ describe UsersController do
                                                email: 'bart@selleo.com',
                                                kudos_left: 15,
                                                kudos_received: 13,
-                                               kudos_total_received: 57
+                                               kudos_total_received: 57,
+                                               trend: 'steady'
                                            }.stringify_keys}.stringify_keys) }
   end
 
@@ -31,13 +32,19 @@ describe UsersController do
       @tom = create(:user, name: 'Tom', email: 'tom@selleo.com')
       @simon = create(:user, name: 'Simon', email: 'simon@selleo.com')
       @radek = create(:user, name: 'Radek', email: 'radek@selleo.com')
-      create(:user, name: 'Bart', email: 'bart@selleo.com')
+      @current_user = create(:user, name: 'Bart', email: 'bart@selleo.com')
       get :index
     end
 
     subject(:response_object) { JSON.parse(response.body) }
 
-    let(:users_hash) { {:users => [@tom, @simon, @radek].map(&:ember_user_info).map(&:stringify_keys)}.stringify_keys }
+    subject(:users_hash) {
+      {
+          users: [@tom, @simon, @radek].map { |user|
+            user.ember_user_info_for_current_user(@current_user).stringify_keys
+          }
+      }.stringify_keys
+    }
 
     it { expect(response_object).to eq(users_hash) }
 

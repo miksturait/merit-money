@@ -21,12 +21,18 @@ class User < ActiveRecord::Base
   def thanks(attrs)
     # TODO manual - rewrite
     _attrs = {
-        value: attrs["value"],
-        comment: attrs["comment"],
-        receiver_id: attrs["receiver_id"]
+        value: attrs["value"] || 1,
+        comment: attrs["comment"]
     }
-    kudo = current_weekly_kudo.kudos.build(_attrs)
-    kudo.save!
+    receiver = User.find(attrs["receiver_id"])
+    thanks_to_user(receiver, _attrs)
+  end
+
+  def thanks_to_user(user, attrs)
+    kudo = current_weekly_kudo.kudos.build(attrs)
+    kudo.receiver = user
+    kudo.save
+    kudo
   end
 
   def current_weekly_kudo

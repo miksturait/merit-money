@@ -75,19 +75,19 @@ describe Week do
       Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
 
       # bart +13 -1
-      tom.thanks(bart, {value: 3})
-      tom.thanks(bart, {value: 2})
-      tom.thanks(bart, {value: 1})
-      simon.thanks(bart, {value: 5})
-      simon.thanks(bart, {value: 1})
+      tom.thanks_to_user(bart, {value: 3})
+      tom.thanks_to_user(bart, {value: 2})
+      tom.thanks_to_user(bart, {value: 1})
+      simon.thanks_to_user(bart, {value: 5})
+      simon.thanks_to_user(bart, {value: 1})
 
       # tom +1 -6
-      simon.thanks(tom, {value: 1})
-      radek.thanks(bart, {value: 1})
+      simon.thanks_to_user(tom, {value: 1})
+      radek.thanks_to_user(bart, {value: 1})
 
       # radek +3 -1
-      simon.thanks(radek, {value: 2})
-      bart.thanks(radek, {value: 1})
+      simon.thanks_to_user(radek, {value: 2})
+      bart.thanks_to_user(radek, {value: 1})
       # simon -9
 
       Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))

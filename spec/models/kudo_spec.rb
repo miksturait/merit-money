@@ -47,7 +47,7 @@ describe Kudo do
 
       context "giving kudo" do
 
-        let!(:kudo) { tom.thanks(bart, {value: 3, comment: 'for sending feedback to the team'}) }
+        let!(:kudo) { tom.thanks_to_user(bart, {value: 3, comment: 'for sending feedback to the team'}) }
 
         it { expect(Kudo.count).to eq(1) }
         it { expect(kudo).to eq(tom.kudos.first) }
@@ -72,9 +72,9 @@ describe Kudo do
       end
 
       context "giving more then you have is not allowed" do
-        let!(:kudo) { tom.thanks(bart, {value: 15, comment: 'for sending feedback to the team'}) }
+        let!(:kudo) { tom.thanks_to_user(bart, {value: 15, comment: 'for sending feedback to the team'}) }
 
-        it { expect { tom.thanks(bart, {value: 6}) }.to_not change { Kudo.count } }
+        it { expect { tom.thanks_to_user(bart, {value: 6}) }.to_not change { Kudo.count } }
       end
 
     end
@@ -93,21 +93,21 @@ describe Kudo do
     before do
       Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
 
-      tom.thanks(bart, {value: 3})
-      tom.thanks(bart, {value: 2})
-      tom.thanks(bart, {value: 1})
-      simon.thanks(bart, {value: 5})
-      simon.thanks(bart, {value: 1})
+      tom.thanks_to_user(bart, {value: 3})
+      tom.thanks_to_user(bart, {value: 2})
+      tom.thanks_to_user(bart, {value: 1})
+      simon.thanks_to_user(bart, {value: 5})
+      simon.thanks_to_user(bart, {value: 1})
 
-      simon.thanks(tom, {value: 1})
-      radek.thanks(bart, {value: 1})
+      simon.thanks_to_user(tom, {value: 1})
+      radek.thanks_to_user(bart, {value: 1})
 
-      simon.thanks(radek, {value: 1})
-      bart.thanks(radek, {value: 1})
+      simon.thanks_to_user(radek, {value: 1})
+      bart.thanks_to_user(radek, {value: 1})
 
       Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))
 
-      simon.thanks(bart, {value: 8})
+      simon.thanks_to_user(bart, {value: 8})
     end
 
     let(:bart_weekly_kudo) { bart.current_weekly_kudo }
