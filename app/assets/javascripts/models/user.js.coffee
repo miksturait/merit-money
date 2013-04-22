@@ -1,6 +1,6 @@
 Sks.User = DS.Model.extend
-  kudosReceived: DS.hasMany('Sks.KudoReceived')
-  kudosLastWeek: DS.hasMany('Sks.KudoLastWeek')
+  kudoReceiveds: DS.hasMany('Sks.KudoReceived')
+  kudoLastWeeks: DS.hasMany('Sks.KudoLastWeek')
   name: DS.attr("string")
   email: DS.attr("string")
 
@@ -21,18 +21,18 @@ Sks.User.FIXTURES = [
   id: 1
   name: 'Michał Czyż'
   email: 'michalczyz@gmail.com'
-  kudosReceived: [1]
-  kudosLastWeek: [1, 2, 3]
+  kudoReceived: [1]
+  kudoLastWeek: [1, 2, 3]
 ,
   id: 2
   name: 'Boro'
   email: 'boro.selleo@gmail.com'
-  kudosReceived: [2, 3]
-  kudosLastWeek: [4, 5, 6, 7]
+  kudoReceived: [2, 3]
+  kudoLastWeek: [4, 5, 6, 7]
 ,
   id: 3
   name: 'Wojtek'
   email: 'rrh@op.pl'
-  kudosReceived: []
-  kudosLastWeek: []
+  kudoReceived: []
+  kudoLastWeek: []
 ]

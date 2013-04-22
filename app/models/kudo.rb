@@ -27,7 +27,8 @@ class Kudo < ActiveRecord::Base
     {
         id: id,
         comment: comment,
-        receiver_id: receiver_id
+        receiver_id: receiver_id,
+        value: value
     }
   end
 

@@ -41,9 +41,9 @@
   <div class="span6 stats">
     <div>
         <h2 class="text-center">Current Week</h2>
-        {{#if controller.kudosReceived}}
+        {{#if controller.kudoReceived}}
         <ul>
-          {{#each kudo in controller.kudosReceived}}
+          {{#each kudo in controller.kudoReceived}}
           <li class="kudo-received">
             <i class="icon-star icon-kudo"></i><strong>{{kudo.value}}</strong>:
             {{#if kudo.comment}}
@@ -61,9 +61,9 @@
 
     <div>
         <h2 class="text-center">Last Week</h2>
-        {{#if controller.kudosLastWeek}}
+        {{#if controller.kudoLastWeek}}
         <ul>
-          {{#each kudo in controller.kudosLastWeek}}
+          {{#each kudo in controller.kudoLastWeek}}
           <li class="kudo-received">
             <i class="icon-star icon-kudo"></i><strong>{{kudo.value}}</strong>:
             {{#if kudo.comment}}

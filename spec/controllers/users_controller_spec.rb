@@ -33,20 +33,25 @@ describe UsersController do
       @simon = create(:user, name: 'Simon', email: 'simon@selleo.com')
       @radek = create(:user, name: 'Radek', email: 'radek@selleo.com')
       @current_user = create(:user, name: 'Bart', email: 'bart@selleo.com')
+
+      @kudo = @current_user.thanks_to_user(@simon, {value: 5, comment: 'Thanks :-)'})
       get :index
     end
 
-    subject(:response_object) { JSON.parse(response.body) }
-
-    subject(:users_hash) {
+    let(:response_object) { JSON.parse(response.body) }
+    let(:users_hash) {
       {
-          users: [@tom, @simon, @radek].map { |user|
-            user.ember_user_info_for_current_user(@current_user).stringify_keys
-          }
-      }.stringify_keys
+          "users" => [{"id" => @tom.id, "name" => "Tom", "email" => "tom@selleo.com",
+                       "kudo_received_ids" => [], "kudo_last_week_ids" => []},
+                      {"id" => @simon.id, "name" => "Simon", "email" => "simon@selleo.com",
+                       "kudo_received_ids" => [@kudo.id], "kudo_last_week_ids" => []},
+                      {"id" => @radek.id, "name" => "Radek", "email" => "radek@selleo.com",
+                       "kudo_received_ids" => [], "kudo_last_week_ids" => []}],
+          "kudo_receiveds" => [{"comment" => "Thanks :-)", "id" => @kudo.id, "receiver_id" => @simon.id, "value" => 5}],
+          "kudo_last_weeks" => []
+      }
     }
 
     it { expect(response_object).to eq(users_hash) }
-
   end
 end
