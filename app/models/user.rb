@@ -98,6 +98,26 @@ class User < ActiveRecord::Base
     }
   end
 
+  def ember_user_for(user_id)
+    user = User.where(["users.id != ?", self.id]).find(user_id)
+
+    kudos_received = user.kudos_given_by_user_in_week(self, Week.current)
+    kudos_last_week = user.kudos_given_by_user_in_week(self, Week.previous)
+
+    user_info = user.ember_user_info_for_current_user.merge(
+        {
+            kudo_received_ids: kudos_received.map(&:id),
+            kudo_last_week_ids: kudos_last_week.map(&:id)
+        }
+    )
+
+    {
+        user: user_info,
+        kudo_receiveds: kudos_received.map(&:ember_kudo_info),
+        kudo_last_weeks: kudos_last_week.map(&:ember_kudo_info)
+    }
+  end
+
   #kudosReceived: kudos_for_week_and_from_user(Week::Info.current, user).map(&:ember_kudo_info),
   #kudosLastWeek: kudos_for_week_and_from_user(Week::Info.previous, user).map(&:ember_kudo_info)
   #def kudos_for_week_and_from_user(week, user)
