@@ -31,8 +31,11 @@
     position: absolute;
 }
 
+#dashboard .trend {
+    font-style: normal;
+}
 #dashboard .trend.steady {
-    color: #ccc;
+    color: #fff;
 }
 
 #dashboard .trend.upward {

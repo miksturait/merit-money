@@ -9,5 +9,5 @@ Sks.CurrentUser.FIXTURES = [
   kudosLeft: 20
   kudosReceived: 10
   kudosTotalReceived: 23
-  trend: 'downward' # steady, upward, downward
+  trend: 'upward' # steady, upward, downward
 ]
