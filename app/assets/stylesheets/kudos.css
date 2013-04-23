@@ -61,10 +61,11 @@
 #users-list .coworker h2, #kudos-user-view .coworker h2 {
     margin: 0;
     margin-left: 20px;
-    line-height: 80px;
+    line-height: 27px;
     font-size: 18px;
     color: #555;
     font-weight: normal;
+    padding-top: 13px;
 }
 
 #users-list .coworker .btn {
