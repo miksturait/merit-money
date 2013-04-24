@@ -87,11 +87,11 @@
 }
 
 #users-list .coworker .btn-default {
-    right: 20px;
+    right: 0;
 }
 
 #users-list .coworker .btn-primary {
-    right: 80px;
+    right: 70px;
 }
 
 #users-list .coworker:nth-child(even) {
@@ -144,13 +144,5 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 100px;
-    }
-
-    #users-list .coworker .btn-default {
-        right: 0;
-    }
-
-    #users-list .coworker .btn-primary {
-        right: 60px;
     }
 }
