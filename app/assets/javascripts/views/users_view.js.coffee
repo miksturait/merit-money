@@ -1,1 +1,2 @@
-Sks.UsersView = Ember.View.extend()
+Sks.UsersView = Ember.View.extend
+  elementId: 'kudos-users-view'

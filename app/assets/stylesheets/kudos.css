@@ -46,7 +46,7 @@
     color: red;
 }
 
-#kudos-content {
+#kudos-content #kudos-users-view {
     margin-top: 15px;
 }
 
@@ -104,6 +104,15 @@
 
 #kudos-stats {
     text-align: center;
+}
+
+#kudos-user-view .coworker {
+    position: fixed;
+    background-color: #fff;
+}
+
+#kudos-user-view .coworker-content {
+    padding-top: 100px;
 }
 
 #kudos-user-view .stats ul {
