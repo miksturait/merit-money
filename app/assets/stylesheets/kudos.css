@@ -61,6 +61,16 @@
     line-height: 80px;
 }
 
+#users-list .coworker .image-container {
+    position: relative;
+}
+
+#users-list .coworker .image-container .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
 #users-list .coworker h2, #kudos-user-view .coworker h2 {
     margin: 0;
     margin-left: 20px;
