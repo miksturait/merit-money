@@ -1,9 +1,25 @@
 Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
     trendClasses = ""
+    trend = ""
     if value
         switch value
-            when 'steady' then trendClasses = 'trend steady icon-minus'
-            when 'upward' then trendClasses = 'trend upward icon-caret-up'
-            when 'downward' then trendClasses = 'trend downward icon-caret-down'
+            when 'steady'
+                trend = '↔'
+                trendClasses = 'trend steady'
+            when 'upward'
+              trend = '↗'
+              trendClasses = 'trend upward'
+            when 'downward'
+              trend = '↘'
+              trendClasses = 'trend downward'
 
-       new Handlebars.SafeString("<i class=\'#{trendClasses}\'></i>")
+       new Handlebars.SafeString("<i class=\'#{trendClasses}\'>#{trend}</i>")
+
+Ember.Handlebars.registerBoundHelper 'kudosReceivedNum', (user, options) ->
+  kudosTotal = 0
+  if user
+    weeklyKudos = user.get 'kudoReceiveds'
+    weeklyKudos.forEach (item) ->
+      kudosTotal += item.get 'value'
+
+    kudosTotal

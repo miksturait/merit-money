@@ -31,8 +31,11 @@
     position: absolute;
 }
 
+#dashboard .trend {
+    font-style: normal;
+}
 #dashboard .trend.steady {
-    color: #ccc;
+    color: #fff;
 }
 
 #dashboard .trend.upward {
@@ -58,22 +61,33 @@
     line-height: 80px;
 }
 
+#users-list .coworker .image-container {
+    position: relative;
+}
+
+#users-list .coworker .image-container .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
 #users-list .coworker h2, #kudos-user-view .coworker h2 {
     margin: 0;
     margin-left: 20px;
-    line-height: 80px;
+    line-height: 27px;
     font-size: 18px;
     color: #555;
     font-weight: normal;
+    padding-top: 13px;
 }
 
 #users-list .coworker .btn {
     position: absolute;
-    top: 25px;
+    top: 18px;
 }
 
 #users-list .coworker .btn-default {
-    right: 20px;
+    right: 0;
 }
 
 #users-list .coworker .btn-primary {
