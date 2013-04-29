@@ -17,6 +17,15 @@ Sks.User = DS.Model.extend
     lName = @get('name').split(' ')[1]
   ).property("name")
 
+  kudosReceivedNum: Ember.computed(->
+    kudosTotal = 0
+    if @get 'kudoReceiveds'
+      @get('kudoReceiveds').forEach (item) ->
+        kudosTotal += item.get 'value'
+
+      kudosTotal
+  ).property('kudoReceiveds.@each')
+
 Sks.User.FIXTURES = [
   id: 1
   name: 'Michał Czyż'
