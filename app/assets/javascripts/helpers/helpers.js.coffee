@@ -14,12 +14,3 @@ Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
               trendClasses = 'trend downward'
 
        new Handlebars.SafeString("<i class=\'#{trendClasses}\'>#{trend}</i>")
-
-Ember.Handlebars.registerBoundHelper 'kudosReceivedNum', (user, options) ->
-  kudosTotal = 0
-  if user
-    weeklyKudos = user.get 'kudoReceiveds'
-    weeklyKudos.forEach (item) ->
-      kudosTotal += item.get 'value'
-
-    kudosTotal
