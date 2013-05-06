@@ -2,8 +2,9 @@
 <div class="row-fluid">
   <div class="span12">
     <img class="pull-left" {{bindAttr src="gravatar"}}  />
-      <p class="pull-left"><i class="icon-star icon-kudo"></i> <strong>{{kudosLeft}}</strong> Left</p>
-      <p class="pull-right">{{trend trend}}</i> <strong title="last week">{{kudosReceived}}</strong>
-      <strong title="since last bonus">({{kudosTotalReceived}})</strong></p>
+      <p class="kudos-left pull-left"><i class="icon-star icon-kudo"></i> <strong>{{kudosLeft}}</strong> Left</p>
+      <p id="kudos-received" class="pull-right">{{trend trend}}</i> <strong class="last-week" title="last
+      week">{{kudosReceived}}</strong>
+      <strong class="since-bonus" title="since last bonus">({{kudosTotalReceived}})</strong></p>
   </div>
 </div>

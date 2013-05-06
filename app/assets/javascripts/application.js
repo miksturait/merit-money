@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require handlebars
-//= require ember-1.0.0-rc.2
+//= require ember-1.0.0-rc.3
 //= require ember-data-dev
 //= require ember-bootstrap
 //= require twitter/bootstrap
@@ -20,4 +20,5 @@
 //= require_self
 //= require sks
 
+//Ember.testing = true
 Sks = Ember.Application.create({LOG_TRANSITIONS: true});
