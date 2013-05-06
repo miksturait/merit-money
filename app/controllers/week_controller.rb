@@ -12,6 +12,6 @@ class WeekController < ApplicationController
   private
 
   def week
-    @week ||= Week.previous
+    @week ||= Week.previous || Week.create(Week::Info.previous.attrs)
   end
 end

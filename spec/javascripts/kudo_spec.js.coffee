@@ -1,5 +1,4 @@
 # use require to load any .js file available to the asset pipeline
-#= require application
 
 describe "Adding kudos", ->
   currentUser = user1 = user2 = null
@@ -9,7 +8,7 @@ describe "Adding kudos", ->
 
   describe "adding a kudo without a comment", ->
     it "it subtract the kudosLeft", ->
-      # simulate addKudo action?
+      $('li.coworker:first a').click()
       expect(currentUser.get('kudosLeft')).toBe 19
 
 
