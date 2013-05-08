@@ -106,6 +106,17 @@
     text-align: center;
 }
 
+#kudos-stats ul {
+    list-style: none;
+    margin: 0 auto;
+    width: 240px;
+    height: 80px;
+}
+
+#kudos-stats ul li {
+    float: left;
+}
+
 #kudos-user-view .stats ul {
     list-style: none;
     margin: 0;
