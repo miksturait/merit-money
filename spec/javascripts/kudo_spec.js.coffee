@@ -10,5 +10,3 @@ describe "Adding kudos", ->
     it "it subtract the kudosLeft", ->
       $('li.coworker:first a').click()
       expect(currentUser.get('kudosLeft')).toBe 19
-
-
