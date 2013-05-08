@@ -26,13 +26,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     # TODO - fix me :-)
-    #if Rails.env.test?
+    if Rails.env.test?
       session[:user_id] = User.last.id
-    #else
-    #  if !current_user
-    #    redirect_to new_session_path
-    #  end
-    #end
+    else
+      if !current_user
+        redirect_to new_session_path
+      end
+    end
   end
 
 end
