@@ -46,6 +46,15 @@
     color: red;
 }
 
+#dashboard .last-comments {
+    color: #000;
+    text-decoration: none;
+}
+
+#dashboard .last-comments:hover {
+    color: #fff;
+}
+
 #kudos-content #kudos-users-view {
     margin-top: 15px;
 }
@@ -126,17 +135,17 @@
     float: left;
 }
 
-#kudos-user-view .stats ul {
+#kudos-user-view .stats ul, #kudos-comments-view .comments {
     list-style: none;
     margin: 0;
 }
 
-#kudos-user-view .stats .kudo-received {
+#kudos-user-view .stats .kudo-received, #kudos-comments-view .comment {
     padding: 15px;
     font-style: italic;
 }
 
-#kudos-user-view .stats .kudo-received:nth-child(even) {
+#kudos-user-view .stats .kudo-received:nth-child(even), #kudos-comments-view .comment:nth-child(even) {
     background-color: #e2e2e2;
 }
 
