@@ -138,4 +138,9 @@ describe Kudo do
     end
   end
 
+  describe "comment format" do
+    let(:kudo) { build(:kudo, value: 3, comment: "one, two")}
+
+    it { expect(kudo.ember_comment_info).to eq({value: 3, comment: "one, two"})}
+  end
 end

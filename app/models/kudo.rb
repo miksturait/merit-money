@@ -11,6 +11,11 @@ class Kudo < ActiveRecord::Base
 
   before_validation :substract_kudos_from_weekly_kudos, if: Proc.new { weekly_kudo }
 
+  scope :with_comment, where("kudos.comment is not null and kudos.comment != ''")
+  scope :latest_first, order("kudos.id DESC")
+  scope :without_kudos_from_current_week, -> { joins(:weekly_kudo).
+      where(["weekly_kudos.week_id != ?", Week.current.id]) }
+
   class ReceiverIsDifferentThenGiverValidator < ActiveModel::Validator
     def validate(record)
       if record.weekly_kudo &&
@@ -28,6 +33,13 @@ class Kudo < ActiveRecord::Base
         id: id,
         comment: comment,
         receiver_id: receiver_id,
+        value: value
+    }
+  end
+
+  def ember_comment_info
+    {
+        comment: comment,
         value: value
     }
   end

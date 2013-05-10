@@ -53,13 +53,13 @@ describe User do
       let(:last_week_kudos_value_for_tom) { last_week_kudos_for_tom.sum(&:value) }
 
       it { expect(last_week_kudos_for_tom).to have(2).items }
-      it { expect(last_week_kudos_value_for_tom).to eq(6)}
+      it { expect(last_week_kudos_value_for_tom).to eq(6) }
 
       let(:last_week_kudos_for_bart) { bart.kudos_given_by_user_in_week(current_user, previous_week) }
       let(:last_week_kudos_value_for_bart) { last_week_kudos_for_bart.sum(&:value) }
 
       it { expect(last_week_kudos_for_bart).to have(1).item }
-      it { expect(last_week_kudos_value_for_bart).to eq(7)}
+      it { expect(last_week_kudos_value_for_bart).to eq(7) }
     end
 
     let(:week) { Week.current }
@@ -74,7 +74,38 @@ describe User do
       let(:current_week_kudos_value_for_bart) { current_week_kudos_for_bart.sum(&:value) }
 
       it { expect(current_week_kudos_for_bart).to be_empty }
-      it { expect(current_week_kudos_value_for_bart).to eq(0)}
+      it { expect(current_week_kudos_value_for_bart).to eq(0) }
     end
+  end
+
+  describe "received comments" do
+    after do
+      Timecop.return
+    end
+
+    let(:tom) { create(:user, name: 'Tom', email: 'tom@selleo.com') }
+    let(:simon) { create(:user, name: 'Simon', email: 'simon@selleo.com') }
+    let(:bart) { create(:user, name: 'Bart', email: 'bart@selleo.com') }
+
+    before do
+      Timecop.freeze(Time.parse('2013-02-20 13:15 UTC'))
+
+      tom.thanks_to_user(bart, {value: 5, comment: 'this presentation in Paris was awesome'})
+      simon.thanks_to_user(bart, {value: 1, comment: 'great job on metreno'})
+      tom.thanks_to_user(simon, {value: 2, comment: 'for running'})
+      bart.thanks_to_user(tom, {value: 2, comment: 'for the icecream'})
+
+      # it should't include comments from current week
+      Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
+
+      simon.thanks_to_user(bart, {value: 2, comment: 'pair programming was awesome'})
+    end
+
+    it { expect(bart).to have(2).latest_comments }
+
+    let(:last_comment) { bart.latest_comments.first }
+
+    it {expect(last_comment).to eq({value: 1, comment: 'great job on metreno'})}
+
   end
 end
