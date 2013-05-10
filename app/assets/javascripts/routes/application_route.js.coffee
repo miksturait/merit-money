@@ -4,6 +4,16 @@ Sks.ApplicationRoute = Ember.Route.extend
       self = @
       token = $('meta[name="csrf-token"]').attr 'content'
       currentUserCon = @controllerFor 'currentUser'
+
+      # prevent from multi-clicking
+      return if currentUserCon.get 'disableAddingKudos'
+
+      currentUserCon.set 'disableAddingKudos', true
+
+      setTimeout ->
+        currentUserCon.set 'disableAddingKudos', false
+      , 1500
+
       kudosLeft = currentUserCon.get 'kudosLeft'
       $kudoSelect = $ '#kudos-add'
       $kudoComment = $ '#kudos-comment'
