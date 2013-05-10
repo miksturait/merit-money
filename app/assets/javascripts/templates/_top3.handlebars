@@ -2,7 +2,9 @@
 {{#if controller.content}}
 <ul>
   {{#each user in controller}}
-  <li><img {{bindAttr src="user.gravatar"}} /></li>
+  <li>
+    <img {{bindAttr src="user.gravatar" title="user.name"}} />
+  </li>
   {{/each}}
 </ul>
 {{else}}
