@@ -14,3 +14,7 @@ Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
               trendClasses = 'trend downward'
 
        new Handlebars.SafeString("<i class=\'#{trendClasses}\'>#{trend}</i>")
+
+Ember.Handlebars.registerBoundHelper 'avatar', (gravatar) ->
+  if gravatar
+    new Handlebars.SafeString "<img src=\'#{gravatar}\' />"
