@@ -128,6 +128,7 @@ GEM
     formatador (0.2.4)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    growl (1.0.3)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -173,6 +174,8 @@ GEM
     less-rails (2.3.2)
       actionpack (>= 3.1)
       less (~> 2.3.1)
+    libnotify (0.8.0)
+      ffi (>= 1.0.11)
     libv8 (3.11.8.13)
     listen (0.7.3)
     lumberjack (1.0.3)
@@ -218,8 +221,6 @@ GEM
       slop (~> 3.4)
     quiet_assets (1.0.1)
       railties (~> 3.1)
-    qunit-rails (0.0.3)
-      railties (>= 3.2.3)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -319,6 +320,7 @@ DEPENDENCIES
   ember-rails
   factory_girl_rails (>= 4.2.0)
   figaro (>= 0.5.3)
+  growl
   guard
   guard-jasmine
   guard-rspec
@@ -327,6 +329,7 @@ DEPENDENCIES
   jasminerice!
   jquery-rails (= 2.1.3)
   less-rails
+  libnotify
   meta_search (>= 1.1.0.pre)
   mocha
   omniauth (>= 1.1.1)
@@ -334,9 +337,8 @@ DEPENDENCIES
   pg
   pry
   quiet_assets (>= 1.0.1)
-  qunit-rails
   rails (= 3.2.12)
-  rb-fsevent (~> 0.9)
+  rb-fsevent
   rb-inotify
   rspec-rails
   sass-rails (~> 3.2.3)
