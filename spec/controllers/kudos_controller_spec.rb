@@ -58,4 +58,19 @@ describe KudosController do
 
     it { expect(@tom).to have(0).kudos_received }
   end
+
+  context "giving the last kudo" do
+    before do
+      @tom = create(:user, name: 'Tom', email: 'tom@selleo.com')
+      @bart = create(:user, name: 'Bart', email: 'bart@selleo.com')
+      @bart.current_weekly_kudo.update_attribute(:kudos_left, 1)
+
+      post :create, kudo: {receiver_id: @tom.id, comment: "one :-)", value: 1}
+    end
+
+    let(:response_object) { JSON.parse(response.body) }
+    it { expect(response_object).to eq({"status" => "ok"}) }
+
+    it { expect(@tom).to have(1).kudos_received }
+  end
 end
