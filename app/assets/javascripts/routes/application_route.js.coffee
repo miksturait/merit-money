@@ -36,3 +36,5 @@ Sks.ApplicationRoute = Ember.Route.extend
         showFlash 'alert-error', 'Oops! An error occured!'
       .always ->
           $kudoComment.val ''
+
+

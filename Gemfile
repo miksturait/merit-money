@@ -37,10 +37,12 @@ gem 'rspec-rails', :groups => [:development, :test]
 group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
-  gem 'guard-jasmine'
+  # gem 'guard-jasmine'
   gem 'rb-fsevent', '~> 0.9'
+  gem 'rb-inotify'
   gem 'sqlite3'
-  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  # gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem 'qunit-rails'
 end
 
 gem "ember-rails"

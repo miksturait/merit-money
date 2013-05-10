@@ -1,0 +1,14 @@
+<h2 class="text-center">Last 50 Comments</h2>
+
+{{#if controller.model}}
+<ul class="comments">
+  {{#each comment in controller.model}}
+  <li class="comment">
+    <i class="icon-star icon-kudo"></i><strong>{{comment.value}}</strong>:
+    {{comment.comment}}
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+<p>no comments received</p>
+{{/if}}
