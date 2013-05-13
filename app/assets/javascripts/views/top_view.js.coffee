@@ -1,3 +1,3 @@
 Sks.TopView = Em.View.extend
-  classNames: ['span6']
+  classNames: ['col-span-6']
 

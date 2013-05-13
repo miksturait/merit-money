@@ -1,9 +1,18 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    src: url('glyphiconshalflings-regular.eot');
+    src: url('glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphiconshalflings-regular.woff') format('woff'), url('glyphiconshalflings-regular.ttf') format('truetype'), url('glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
 #users-list {
     margin: 0;
     list-style: none;
 }
 
 #dashboard {
+    width: 100%;
     font-size: 17px;
     height: 80px;
     line-height: 80px;
@@ -15,12 +24,12 @@
     z-index: 10;
 }
 
-#dashboard img {
+#dashboard .avatar, #dashboard .avatar img {
     display: block;
 }
 
-#dashboard p {
-    margin: 0 20px;
+#dashboard .kudos-left {
+    margin-left: 20px;
 }
 
 #dashboard #flash {
@@ -29,6 +38,7 @@
     padding-top: 0;
     padding-bottom: 0;
     position: absolute;
+    z-index: 20;
 }
 
 #dashboard .trend {
@@ -100,7 +110,7 @@
 }
 
 #users-list .coworker .btn-primary {
-    right: 70px;
+    right: 60px;
 }
 
 #users-list .coworker:nth-child(even) {
@@ -118,10 +128,16 @@
 #kudos-user-view .coworker {
     position: fixed;
     background-color: #fff;
+    width: 100%;
+    z-index: 20;
 }
 
 #kudos-user-view .coworker-content {
     padding-top: 100px;
+}
+
+#kudos-user-view form .control-group {
+    margin-bottom: 10px;
 }
 
 #kudos-stats ul {
@@ -167,11 +183,18 @@
     }
 }
 
-@media (max-width: 320px) {
+@media screen and (max-width: 320px) {
     #users-list .coworker h2 {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 100px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    [class*="col-span-"] {
+        padding-right: 0;
+        padding-left: 0;
     }
 }
