@@ -1,0 +1,31 @@
+@import "variables";
+
+@media all {
+  body {
+    padding: $row-height 0 0 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #users-list .coworker h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  [class*="col-span-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  src: url('glyphiconshalflings-regular.eot');
+  src: url('glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphiconshalflings-regular.woff') format('woff'), url('glyphiconshalflings-regular.ttf') format('truetype'), url('glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}

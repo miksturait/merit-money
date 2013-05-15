@@ -1,7 +1,7 @@
 <div class="coworker row">
       <div class="col-span-12">
         <img class="pull-left" {{bindAttr src="gravatar"}}  />
-        <h2 class="pull-left">{{firstName}}<br />{{lastName}}</h2>
+        <h2 class="name pull-left">{{firstName}}<br />{{lastName}}</h2>
       </div>
 </div>
 
@@ -40,7 +40,7 @@
     <div>
         <h2 class="text-center">Current Week</h2>
         {{#if controller.kudoReceiveds}}
-        <ul>
+        <ul class='kudos-received-list'>
           {{#each kudo in controller.kudoReceiveds}}
           <li class="kudo-received">
             <span class="glyphicon glyphicon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
@@ -60,7 +60,7 @@
     <div>
         <h2 class="text-center">Last Week</h2>
         {{#if controller.kudoLastWeeks}}
-        <ul>
+        <ul class='kudos-received-list'>
           {{#each kudo in controller.kudoLastWeeks}}
           <li class="kudo-received">
             <span class="glyphicon glyphicon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:

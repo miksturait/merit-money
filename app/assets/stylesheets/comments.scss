@@ -1,0 +1,8 @@
+@import "variables";
+@import "mixins";
+
+#kudos-comments-view {
+  .comment {
+    @include stripped-list;
+  }
+}
