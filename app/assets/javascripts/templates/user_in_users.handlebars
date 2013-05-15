@@ -3,5 +3,5 @@
   <span class="badge badge-inverse">{{user.kudosReceivedNum}}</span>
 </div>
 <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
-<a href="#" class="btn btn-large btn-primary" {{action "addKudo" user}}><span class="glyphicon glyphicon-plus"></i></a>
+<a href="#" class="btn btn-large btn-primary" {{action "addKudo" user}}>+1</a>
 {{#linkTo 'user' user classNames="btn btn-large btn-default"}}...{{/linkTo}}
