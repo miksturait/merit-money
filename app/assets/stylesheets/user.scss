@@ -1,0 +1,29 @@
+@import "variables";
+@import "mixins";
+
+#kudos-user-view {
+  .coworker {
+    position: fixed;
+    background-color: $color-white;
+    width: 100%;
+    z-index: 20;
+  }
+
+  .coworker-content {
+    padding-top: 100px;
+  }
+
+  form .control-group {
+    margin-bottom: 10px;
+  }
+
+  .select, textarea {
+    width: 100%;
+  }
+
+  .stats {
+    .kudo-received {
+      @include stripped-list;
+    }
+  }
+}

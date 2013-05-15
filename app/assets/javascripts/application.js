@@ -14,8 +14,7 @@
 //= require handlebars
 //= require ember-1.0.0-rc.3
 //= require ember-data-dev
-//= require ember-bootstrap
-//= require twitter/bootstrap
+// require ember-bootstrap
 //= require md5
 //= require_self
 //= require sks

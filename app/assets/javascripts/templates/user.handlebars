@@ -1,12 +1,12 @@
-<div class="coworker row-fluid">
-      <div class="span12">
+<div class="coworker row">
+      <div class="col-span-12">
         <img class="pull-left" {{bindAttr src="gravatar"}}  />
-        <h2 class="pull-left">{{firstName}}<br />{{lastName}}</h2>
+        <h2 class="name pull-left">{{firstName}}<br />{{lastName}}</h2>
       </div>
 </div>
 
-<div class="coworker-content row-fluid">
-  <div class="span6">
+<div class="coworker-content row">
+  <div class="col-span-6">
     <form>
       <div class="control-group">
         <label class="control-label" for="kudos-add">I’d like to add</label>
@@ -36,14 +36,14 @@
      </form>
   </div>
 
-  <div class="span6 stats">
+  <div class="col-span-6 stats">
     <div>
         <h2 class="text-center">Current Week</h2>
         {{#if controller.kudoReceiveds}}
-        <ul>
+        <ul class='kudos-received-list'>
           {{#each kudo in controller.kudoReceiveds}}
           <li class="kudo-received">
-            <i class="icon-star icon-kudo"></i><strong>{{kudo.value}}</strong>:
+            <span class="glyphicon glyphicon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
             {{#if kudo.comment}}
               {{kudo.comment}}
             {{else}}
@@ -60,10 +60,10 @@
     <div>
         <h2 class="text-center">Last Week</h2>
         {{#if controller.kudoLastWeeks}}
-        <ul>
+        <ul class='kudos-received-list'>
           {{#each kudo in controller.kudoLastWeeks}}
           <li class="kudo-received">
-            <i class="icon-star icon-kudo"></i><strong>{{kudo.value}}</strong>:
+            <span class="glyphicon glyphicon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
             {{#if kudo.comment}}
               {{kudo.comment}}
             {{else}}

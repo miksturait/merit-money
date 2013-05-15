@@ -48,9 +48,5 @@ end
 
 gem "ember-rails"
 
-# TODO why not to use SASS version (we usually don't use less)
-#gem "bootstrap-sass", ">= 2.2.2.0"
-gem 'less-rails'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
+gem 'bootstrap3-wip-rails'
 gem "whitespace"

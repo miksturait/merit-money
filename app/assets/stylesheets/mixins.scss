@@ -1,0 +1,9 @@
+@mixin stripped-list {
+  &:nth-child(even) {
+    background-color: $color-grey-light1;
+  }
+
+  &:hover {
+    background-color: $color-grey-light2;
+  }
+}
