@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     # TODO - fix me :-)
-    if Rails.env.test?
+    if Rails.env.test? || Rails.env.development?
       session[:user_id] = User.last.id
     else
       if !current_user
