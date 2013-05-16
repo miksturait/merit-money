@@ -4,4 +4,56 @@
 </div>
 <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
 <a href="#" class="btn btn-large btn-primary" {{action "addKudo" user}}>+1</a>
-{{#linkTo 'user' user classNames="btn btn-large btn-default"}}...{{/linkTo}}
+
+<a href="#" class="more btn btn-large btn-default">...</a>
+
+<div class="content-more row">
+  <div class="col-span-6">
+    <div class="stars"></div>
+
+    {{view Ember.TextArea classNames="kudos-comment" placeholder="I’d like to add kudo because…" rows="3"}}
+    <a href="#" class="btn btn-large btn-primary" {{action "addKudo" user}}>add</a>
+  </div>
+
+  <div class="col-span-6">
+    <div>
+      <h2 class="text-center">Current Week</h2>
+      {{#if user.kudoReceiveds}}
+        <ul class='kudos-received-list'>
+          {{#each kudo in user.kudoReceiveds}}
+            <li class="kudo-received">
+                <span class="glyphicon glyphicon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
+              {{#if kudo.comment}}
+                {{kudo.comment}}
+              {{else}}
+                  :-)
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>no kudos given</p>
+      {{/if}}
+    </div>
+
+    <div>
+      <h2 class="text-center">Last Week</h2>
+      {{#if user.kudoLastWeeks}}
+        <ul class='kudos-received-list'>
+          {{#each kudo in user.kudoLastWeeks}}
+            <li class="kudo-received">
+              <span class="glyphicon glyphicon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
+              {{#if kudo.comment}}
+                {{kudo.comment}}
+              {{else}}
+                  :-)
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>no kudos given</p>
+      {{/if}}
+    </div>
+  </div>
+</div>

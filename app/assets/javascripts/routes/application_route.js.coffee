@@ -15,9 +15,9 @@ Sks.ApplicationRoute = Ember.Route.extend
       , 1500
 
       kudosLeft = currentUserCon.get 'kudosLeft'
-      $kudoSelect = $ '#kudos-add'
-      $kudoComment = $ '#kudos-comment'
-      kudoNum = parseInt $kudoSelect.val() || 1
+      $visibleContent = $('#users-list').find '.form-visible'
+      kudoNum = $visibleContent.find('.stars').raty('score') || 1
+      $kudoComment = $visibleContent.find('.kudos-comment')
       kudoComment = $kudoComment.val()
 
       showFlash = (type, message) ->
