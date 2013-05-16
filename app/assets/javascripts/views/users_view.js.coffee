@@ -22,7 +22,13 @@ Sks.UsersView = Ember.View.extend
 
       return false
 
-    @.$('#users-list').on 'click', '.coworker', (event) ->
-      showRow $ this
+    @.$('#users-list').on 'click', '.content', (event) ->
+      $this = $ this
+
+      if $(event.target).is '.btn-add'
+        event.preventDefault()
+        return
+
+      showRow $this.closest('.coworker') unless event.target is $this.get()
 
       return false
