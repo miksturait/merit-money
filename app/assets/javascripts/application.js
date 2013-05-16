@@ -16,6 +16,7 @@
 //= require ember-data-dev
 // require ember-bootstrap
 //= require md5
+//= require jquery.raty.js
 //= require_self
 //= require sks
 
