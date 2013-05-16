@@ -1,4 +1,4 @@
-Sks.ApplicationRoute = Ember.Route.extend
+Sks.ApplicationRoute = Ember.Route.extend Ember.Evented,
   events:
     addKudo: (user) ->
       self = @
@@ -20,16 +20,7 @@ Sks.ApplicationRoute = Ember.Route.extend
       $kudoComment = $visibleContent.find('.kudos-comment')
       kudoComment = $kudoComment.val()
 
-      showFlash = (type, message) ->
-        $("#flash")
-          .removeClass('alert-error alert-success')
-          .addClass(type)
-          .empty()
-          .append(message)
-          .show()
-          .fadeIn()
-          .delay(2000)
-          .fadeOut 'slow'
+
 
       kudo = Sks.Kudo.createRecord receiver: user, value: kudoNum, comment: kudoComment
       $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
@@ -38,13 +29,10 @@ Sks.ApplicationRoute = Ember.Route.extend
           currentUserCon.decrementKudos kudoNum
           newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
           user.get('kudoReceiveds').pushObject(newKudo)
-          showFlash 'alert-success', "You've added #{kudoNum} kudo(s)!"
+          self.trigger 'kudoAdded', 'success', value: kudoNum, comment: kudoComment
         else
-          showFlash 'alert-error', 'Oops! An error occured!'
+          self.trigger 'kudoAdded', 'error'
       )
       .fail (data, status) ->
-        showFlash 'alert-error', 'Oops! An error occured!'
-      .always ->
-          $kudoComment.val ''
-
+        self.trigger 'kudoAdded', 'error'
 
