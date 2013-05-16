@@ -10,6 +10,7 @@ Sks.UsersView = Ember.View.extend
 
       #then show the clicked one
       if $row.get() isnt $active.get()
+        $row.find('.more span').toggleClass 'glyphicon-chevron-down', 'glyphicon-chevron-up'
         $row
           .toggleView {}, ->
             $row.ScrollTo(offsetTop: 90)
