@@ -10,19 +10,21 @@
     line-height: $row-height;
     font-style: normal;
     position: relative;
+    @include clearfix;
 
     .content {
+      cursor: pointer;
       @include clearfix;
-    }
 
-    .image-container {
-      position: relative;
+      .image-container {
+        position: relative;
 
-      .badge {
-        position: absolute;
-        top: -5px;
-        right: -10px;
-        background-color: $color-black;
+        .badge {
+          position: absolute;
+          top: -5px;
+          right: -10px;
+          background-color: $color-black;
+        }
       }
     }
 
