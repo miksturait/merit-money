@@ -8,8 +8,11 @@ Sks.UsersView = Ember.View.extend
       # first hide all the active element
       $active.toggleView()
 
-      # then show the clicked one
-      $row.toggleView() if $row.get() isnt $active.get()
+      #then show the clicked one
+      if $row.get() isnt $active.get()
+        $row
+          .toggleView {}, ->
+            $row.ScrollTo(offsetTop: 90)
 
     # show hidden content on more button click
     @.$('#users-list').on 'click', '.more', (event) ->
