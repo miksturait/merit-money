@@ -3,16 +3,16 @@ Sks.FlashView = Em.View.extend
   classNames: 'alert'
 
   didInsertElement: ->
-    $this = this.$ this
+    self = @
 
-    Sks.get('ApplicationController').on('kudoAdded', (status, data) ->
-      console.log 'foo'
+    # listen for kudoAdded event broadcasted from ApplicatoinController
+    @get('controller.controllers.application').on 'kudoAdded', (status, data) ->
       if status is 'success'
-        message = "You've added #{data.value} kudo{s}!"
+        message = "You've added #{data.value} kudo(s)!"
       else
         message = "Oops! An error has occured!"
 
-      $this
+      self.$()
         .removeClass('alert-error alert-success')
         .addClass("alert-#{status}")
         .empty()
@@ -21,4 +21,3 @@ Sks.FlashView = Em.View.extend
         .fadeIn()
         .delay(2000)
         .fadeOut()
-    )

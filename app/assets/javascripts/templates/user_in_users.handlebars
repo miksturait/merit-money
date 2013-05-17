@@ -4,7 +4,7 @@
     <span class="badge badge-inverse">{{user.kudosReceivedNum}}</span>
   </div>
   <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
-  <a href="#" class="btn-add btn btn-large btn-primary" {{action "addKudo" user}}>+1</a>
+  <a href="#" class="btn-add btn btn-large btn-primary" {{action "addKudo" user target="controllers.application"}}>+1</a>
   <a href="#" class="more btn btn-large btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </div>
 
@@ -13,7 +13,7 @@
     <div class="stars"></div>
 
     {{view Ember.TextArea classNames="kudos-comment" placeholder="I’d like to add kudo because…" rows="3"}}
-    <a href="#" class="btn btn-large btn-primary" {{action "addKudo" user}}>add</a>
+    <a href="#" class="btn btn-large btn-primary" {{action "addKudo" user target="controllers.application"}}>add</a>
   </div>
 
   <div class="col-span-6">
