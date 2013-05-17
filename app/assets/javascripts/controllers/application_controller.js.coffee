@@ -1,5 +1,5 @@
 Sks.ApplicationController = Ember.Controller.extend Ember.Evented,
-  addKudo: (user) ->
+  addKudo: (user, value, comment) ->
     self = @
     token = $('meta[name="csrf-token"]').attr 'content'
     currentUserCon = @controllerFor 'currentUser'
@@ -14,21 +14,31 @@ Sks.ApplicationController = Ember.Controller.extend Ember.Evented,
     , 1500
 
     kudosLeft = currentUserCon.get 'kudosLeft'
-    $visibleContent = $('#users-list').find '.form-visible'
-    kudoNum = $visibleContent.find('.stars').raty('score') || 1
-    $kudoComment = $visibleContent.find('.kudos-comment')
-    kudoComment = $kudoComment.val()
 
-    kudo = Sks.Kudo.createRecord receiver: user, value: kudoNum, comment: kudoComment
+    kudo = Sks.Kudo.createRecord receiver: user, value: value, comment: comment
     $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
     .done((data) =>
       if data.status isnt 'error'
-        currentUserCon.decrementKudos kudoNum
-        newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
+        currentUserCon.decrementKudos value
+        newKudo = Sks.KudoReceived.createRecord value: value, comment: comment
         user.get('kudoReceiveds').pushObject(newKudo)
-        self.trigger 'kudoAdded', 'success', value: kudoNum, comment: kudoComment, userId: user.get 'id'
+        self.trigger 'kudoAdded', 'success', value: value, comment: value, userId: user.get 'id'
       else
         self.trigger 'kudoAdded', 'error', userId: user.get 'id'
     )
     .fail (data, status) ->
       self.trigger 'kudoAdded', 'error', userId: user.get 'id'
+
+  addOneKudo: (user) ->
+    @addKudo user, 1, ''
+
+  addManyKudos: (user) ->
+    $visibleContent = $('#users-list').find '.form-visible'
+    value = $visibleContent.find('.stars').raty('score') || 1
+    $kudoComment = $visibleContent.find('.kudos-comment')
+    comment = $kudoComment.val()
+
+    @addKudo user, value, comment
+
+
+
