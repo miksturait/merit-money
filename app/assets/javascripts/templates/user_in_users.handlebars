@@ -1,7 +1,7 @@
 <div class="content">
   <div class="image-container pull-left">
     <img {{bindAttr src="user.gravatar"}}  />
-    <span class="badge badge-inverse">{{user.kudosReceivedNum}}</span>
+    {{#view Sks.KudoBadgeView}}{{user.kudosReceivedNum}}{{/view}}
   </div>
   <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
   <a href="#" class="btn-add btn btn-large btn-primary" {{action "addKudo" user target="controllers.application"}}>+1</a>

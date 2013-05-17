@@ -18,6 +18,6 @@ Sks.FlashView = Em.View.extend
         .empty()
         .append(message)
         .show()
-        .fadeIn()
+        .fadeIn(500)
         .delay(2000)
-        .fadeOut()
+        .fadeOut(500)

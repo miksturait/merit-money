@@ -26,9 +26,9 @@ Sks.ApplicationController = Ember.Controller.extend Ember.Evented,
         currentUserCon.decrementKudos kudoNum
         newKudo = Sks.KudoReceived.createRecord value: kudoNum, comment: kudoComment
         user.get('kudoReceiveds').pushObject(newKudo)
-        self.trigger 'kudoAdded', 'success', value: kudoNum, comment: kudoComment
+        self.trigger 'kudoAdded', 'success', value: kudoNum, comment: kudoComment, userId: user.get 'id'
       else
-        self.trigger 'kudoAdded', 'error'
+        self.trigger 'kudoAdded', 'error', userId: user.get 'id'
     )
     .fail (data, status) ->
-      self.trigger 'kudoAdded', 'error'
+      self.trigger 'kudoAdded', 'error', userId: user.get 'id'
