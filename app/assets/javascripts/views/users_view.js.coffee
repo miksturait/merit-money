@@ -33,10 +33,10 @@ Sks.UsersView = Ember.View.extend
 
       return false
 
-    @.$('#users-list').on 'focus', '.kudos-comment', ->
+    @.$('#users-list').on 'focusin', '.kudos-comment', ->
       width = $(window).width()
-      $('#dashboard').fadeOut() if width <= 768
+      $('#dashboard').css(position: 'absolute', top: 0) if width < 980
 
-    @.$('#users-list').on 'blur', '.kudos-comment', ->
+    @.$('#users-list').on 'focusout', '.kudos-comment', ->
       width = $(window).width()
-      $('#dashboard').fadeIn() if width <= 768
+      $('#dashboard').css(position: 'fixed', top: 0) if width < 980
