@@ -4,4 +4,9 @@
 {{/each}}
 </ul>
 
-{{partial stats}}
+<div id="kudos-stats" class="row">
+  {{view Sks.Top3View contentBinding="controllers.top" label="Collectors" blankState="Wanna be here? Be
+  nice to other people!"}}
+
+  {{view Sks.Top3View contentBinding="controllers.hamsters" label="Hamsters" blankState="Everyone gave kudos!"}}
+</div>
