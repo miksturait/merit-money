@@ -1,11 +1,12 @@
-<div class="image-container pull-left">
-  <img {{bindAttr src="user.gravatar"}}  />
-  <span class="badge badge-inverse">{{user.kudosReceivedNum}}</span>
+<div class="content">
+  <div class="image-container pull-left">
+    <img {{bindAttr src="user.gravatar"}}  />
+    <span class="badge badge-inverse">{{user.kudosReceivedNum}}</span>
+  </div>
+  <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
+  <a href="#" class="btn-add btn btn-large btn-primary" {{action "addKudo" user}}>+1</a>
+  <a href="#" class="more btn btn-large btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </div>
-<h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
-<a href="#" class="btn btn-large btn-primary" {{action "addKudo" user}}>+1</a>
-
-<a href="#" class="more btn btn-large btn-default">...</a>
 
 <div class="content-more row">
   <div class="col-span-6">

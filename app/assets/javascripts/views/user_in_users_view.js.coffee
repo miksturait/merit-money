@@ -1,6 +1,7 @@
 Sks.UserInUsersView = Em.View.extend
+  tagName: 'li'
   templateName: 'user_in_users'
-  classNames: 'content'
+  classNames: 'coworker'
 
   didInsertElement: ->
     # todo - init only once per element
