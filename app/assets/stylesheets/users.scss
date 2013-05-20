@@ -7,10 +7,13 @@
   .coworker {
     margin-bottom: 15px;
     padding: 0;
-    height: $row-height;
     line-height: $row-height;
     font-style: normal;
     position: relative;
+
+    .content {
+      @include clearfix;
+    }
 
     .image-container {
       position: relative;
@@ -20,6 +23,25 @@
         top: -5px;
         right: -10px;
         background-color: $color-black;
+      }
+    }
+
+    .content-more {
+      clear: both;
+      padding: 10px 0;
+      display: none;
+      line-height: 30px;
+
+      .stars, .kudos-comment, .btn {
+        margin: 5px 0;
+      }
+
+      .btn {
+        position: static;
+      }
+
+      .kudo-received {
+        @include stripped-list($color-grey-light2);
       }
     }
 
@@ -37,6 +59,9 @@
     }
 
     @include stripped-list;
+    &:hover {
+      background-color: $color-yellow-light;
+    }
   }
 
   #kudos-stats {
