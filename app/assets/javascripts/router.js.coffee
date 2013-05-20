@@ -1,3 +1,3 @@
 Sks.Router.map ->
-  @resource 'users', path: '/users'
+  @resource 'users', path: '/'
   @resource 'comments'
