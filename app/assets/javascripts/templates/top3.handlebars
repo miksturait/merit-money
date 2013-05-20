@@ -1,12 +1,12 @@
-<h2>{{label}}</h2>
-{{#if controller.content}}
+<h2>{{view.label}}</h2>
+{{#if view.content}}
 <ul>
-  {{#each user in controller}}
+  {{#each user in view.content}}
   <li>
     <img {{bindAttr src="user.gravatar" title="user.name"}} />
   </li>
   {{/each}}
 </ul>
 {{else}}
-<p>{{blankState}}</p>
+<p>{{view.blankState}}</p>
 {{/if}}
