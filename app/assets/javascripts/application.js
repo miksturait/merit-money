@@ -24,17 +24,5 @@
 
 //Ember.testing = true
 Sks = Ember.Application.create({
-    LOG_TRANSITIONS: true,
-    ready: function() {
-        // load data once and set it somewhere accessible
-        console.log('app is ready');
-        this.set('currentUserCache', Sks.CurrentUser.find(1));
-        this.set('userCache', Sks.User.find());
-        this.set('topCache', Sks.Top.find());
-        this.set('hamsterCache', Sks.Hamster.find());
-        this.set('kudoCache', Sks.Kudo.find());
-        this.set('kudoReceivedCache', Sks.KudoReceived.find());
-        this.set('kudoLastWeekCache', Sks.KudoLastWeek.find());
-        this.set('commentCache', Sks.Comment.find());
-    }
+    LOG_TRANSITIONS: true
 });
