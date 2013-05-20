@@ -1,6 +1,6 @@
 Sks.CommentsRoute = Ember.Route.extend
   model: ->
-    Sks.Comment.find()
+    Sks.Comment.all()
 
   setupController: (controller, model) ->
-    @controllerFor('currentUser').set 'content', Sks.CurrentUser.find 1
+    @controllerFor('currentUser').set 'content', Sks.CurrentUser.find(1)
