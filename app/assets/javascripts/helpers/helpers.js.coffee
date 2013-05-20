@@ -21,7 +21,7 @@ Ember.Handlebars.registerBoundHelper 'avatar', (gravatar) ->
 
 
 $.fn.extend
-  toggleView: (options) ->
+  toggleView: (options, callback) ->
     @defaults = {}
     settings = $.extend {}, @defaults, options
 
@@ -29,4 +29,4 @@ $.fn.extend
       $this = $ this
       $this
         .toggleClass('form-visible', 'form-hidden')
-        .find('.content-more').slideToggle()
+        .find('.content-more').slideToggle 'normal', callback
