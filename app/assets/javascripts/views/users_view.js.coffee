@@ -32,3 +32,11 @@ Sks.UsersView = Ember.View.extend
       showRow $this.closest('.coworker') unless event.target is $this.get()
 
       return false
+
+    @.$('#users-list').on 'focusin', '.kudos-comment', ->
+      width = $(window).width()
+      $('#dashboard').css(position: 'absolute', top: 0) if width < 980
+
+    @.$('#users-list').on 'focusout', '.kudos-comment', ->
+      width = $(window).width()
+      $('#dashboard').css(position: 'fixed', top: 0) if width < 980
