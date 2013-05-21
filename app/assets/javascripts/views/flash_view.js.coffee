@@ -1,23 +1,26 @@
-Sks.FlashView = Em.View.extend
+Sks.FlashView = Ember.View.extend
   elementId: 'flash'
   classNames: 'alert'
+  classNameBindings: ['alertType']
 
-  didInsertElement: ->
+  alertType: (->
+    status = @get('controller.status')
+    "alert-#{status}" if status
+  ).property('controller.status')
+
+  messageDidChange: (->
     self = @
+    message = @get('controller.message')
 
-    # listen for kudoAdded event broadcasted from ApplicatoinController
-    @get('controller.controllers.application').on 'kudoAdded', (status, data) ->
-      if status is 'success'
-        message = "You've added #{data.value} kudo(s)!"
-      else
-        message = "Oops! An error has occured!"
-
-      self.$()
-        .removeClass('alert-error alert-success')
-        .addClass("alert-#{status}")
+    if @get('controller.status')
+      $('#flash')
         .empty()
-        .append(message)
         .show()
-        .fadeIn(500)
+        .append(message)
+        .fadeIn()
         .delay(2000)
-        .fadeOut(500)
+        .fadeOut(->
+          # we want flash to appear again
+          self.set('controller.status', null)
+        )
+  ).observes('controller.status')

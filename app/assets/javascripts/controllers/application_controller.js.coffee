@@ -1,4 +1,7 @@
-Sks.ApplicationController = Ember.Controller.extend Ember.Evented,
+Sks.ApplicationController = Ember.Controller.extend
+  status: null
+  kudoAddedNum: null
+
   addKudo: (user, value, comment) ->
     self = @
     token = $('meta[name="csrf-token"]').attr 'content'
@@ -22,12 +25,14 @@ Sks.ApplicationController = Ember.Controller.extend Ember.Evented,
         currentUserCon.decrementKudos value
         newKudo = Sks.KudoReceived.createRecord value: value, comment: comment
         user.get('kudoReceiveds').pushObject(newKudo)
-        self.trigger 'kudoAdded', 'success', value: value, comment: value, userId: user.get 'id'
+        self.set('status', 'success')
+        self.set('kudoAddedNum', value)
+#        self.set('kudoAdded', value: value, userId: user.get('id'))
       else
-        self.trigger 'kudoAdded', 'error', userId: user.get 'id'
+        self.set('status', 'error')
     )
     .fail (data, status) ->
-      self.trigger 'kudoAdded', 'error', userId: user.get 'id'
+      self.set('status', 'error')
 
   addOneKudo: (user) ->
     @addKudo user, 1, ''
