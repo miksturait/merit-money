@@ -1,7 +1,7 @@
 <h2>{{view.label}}</h2>
-{{#if view.content}}
+{{#if controller.content}}
 <ul>
-  {{#each user in view.content}}
+  {{#each user in controller.content}}
   <li>
     <img {{bindAttr src="user.gravatar" title="user.name"}} />
   </li>
