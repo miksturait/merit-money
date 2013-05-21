@@ -38,11 +38,17 @@ Sks.ApplicationController = Ember.Controller.extend
 
   addManyKudos: (user) ->
     $visibleContent = $('#users-list').find '.form-visible'
-    value = $visibleContent.find('.stars').raty('score') || 1
+    $ratyContainer = $visibleContent.find('.stars')
+    value = $ratyContainer.raty('score') || 1
     $kudoComment = $visibleContent.find('.kudos-comment')
     comment = $kudoComment.val()
 
     @addKudo user, value, comment
+
+    # reset to defaults
+    $kudoComment.val('')
+    $ratyContainer.raty('score', 1)
+
 
 
 
