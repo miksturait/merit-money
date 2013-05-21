@@ -27,7 +27,6 @@ Sks.ApplicationController = Ember.Controller.extend
         user.get('kudoReceiveds').pushObject(newKudo)
         self.set('status', 'success')
         self.set('kudoAddedNum', value)
-#        self.set('kudoAdded', value: value, userId: user.get('id'))
       else
         self.set('status', 'error')
     )

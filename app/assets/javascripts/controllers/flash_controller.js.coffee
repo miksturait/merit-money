@@ -9,7 +9,6 @@ Sks.FlashController = Ember.Controller.extend
 
   message: (->
     message = @get('messages')[@get('status')] || null
-    console.log message
     message += "#{@get('value')} kudo(s)" if @get('status') is 'success'
     message
   ).property('status')
