@@ -10,17 +10,9 @@ Sks.UsersView = Ember.View.extend
 
       #then show the clicked one
       if $row.get() isnt $active.get()
-        $row.find('.more span').toggleClass 'glyphicon-chevron-down', 'glyphicon-chevron-up'
         $row
           .toggleView {}, ->
             $row.ScrollTo(offsetTop: 90)
-
-    # show hidden content on more button click
-    @.$('#users-list').on 'click', '.more', (event) ->
-      $row = $(this).parents '.coworker'
-      showRow $row
-
-      return false
 
     @.$('#users-list').on 'click', '.content', (event) ->
       $this = $ this
@@ -28,6 +20,19 @@ Sks.UsersView = Ember.View.extend
       if $(event.target).is '.btn-add'
         event.preventDefault()
         return
+
+      # init raty plugin only once
+      $ratyContainer = $this.closest('.coworker').find('.content-more .stars')
+      ratyInitialized = $ratyContainer.data('initialized')
+
+      if !ratyInitialized
+        $ratyContainer.raty
+          path: 'assets/raty'
+          size: 54
+          score: 1
+          hints: ['', '', '', '', '']
+
+        $ratyContainer.data('initialized', true)
 
       showRow $this.closest('.coworker') unless event.target is $this.get()
 
