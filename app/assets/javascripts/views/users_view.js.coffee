@@ -45,3 +45,12 @@ Sks.UsersView = Ember.View.extend
     @.$('#users-list').on 'focusout', '.kudos-comment', ->
       width = $(window).width()
       $('#dashboard').css(position: 'fixed', top: 0) if width < 980
+
+  statusDidChange: (->
+    $expanded = $('#users-list').find '.form-visible'
+    if @get('controller.status') is 'success' and $expanded.length is 1
+      $ratyContainer = $expanded.find('.stars')
+      $kudoComment = $expanded.find('.kudos-comment')
+      $ratyContainer.raty('score', 1)
+      $kudoComment.val('')
+  ).observes('controller.status')
