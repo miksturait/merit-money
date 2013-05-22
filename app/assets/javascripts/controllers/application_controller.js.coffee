@@ -45,10 +45,6 @@ Sks.ApplicationController = Ember.Controller.extend
 
     @addKudo user, value, comment
 
-    # reset to defaults
-    $kudoComment.val('')
-    $ratyContainer.raty('score', 1)
-
 
 
 
