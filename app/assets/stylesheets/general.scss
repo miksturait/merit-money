@@ -26,9 +26,9 @@
     width: 100%;
     height: $row-height;
     padding: 0 15px;
-
     position: absolute;
     z-index: 20;
+    display: none;
   }
 
   .trend {
