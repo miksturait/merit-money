@@ -1,19 +1,15 @@
 {{render flash}}
-<div class="row">
-  <div class="col-span-12">
-    {{#linkTo 'users' classNames="avatar pull-left" title="back"}}
-      {{avatar gravatar}}
-    {{/linkTo}}
+<div class="content">
+  {{#linkTo 'users' classNames="avatar pull-left" title="back"}}
+    {{avatar gravatar}}
+  {{/linkTo}}
 
+  {{#linkTo 'comments' classNames="dashboard-clicable" title="dashboard"}}
     <p class="kudos-left pull-left"><span class="glyphicon glyphicon-star icon-kudo"></span> <strong>{{kudosLeft}}</strong>
     Left</p>
     <p id="kudos-received" class="pull-right">
       {{trend trend}}</i> <strong class="last-week" title="last week">{{kudosReceived}}</strong>
       <strong class="since-bonus" title="since last bonus">({{kudosTotalReceived}})</strong>
-      |
-      {{#linkTo 'comments' classNames='last-comments'}}
-        {{#view tagName="span" classNames="glyphicon glyphicon-comment"}}{{/view}}
-      {{/linkTo}}
     </p>
-  </div>
+  {{/linkTo}}
 </div>

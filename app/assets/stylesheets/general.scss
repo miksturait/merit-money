@@ -2,7 +2,7 @@
 
 @import "variables";
 
-#dashboard {
+#dashboard-container {
   width: 100%;
   font-size: 18px;
   height: $row-height;
@@ -14,12 +14,22 @@
   left: 0;
   z-index: 10;
 
+  .dashboard-clicable {
+    display: block;
+    height: $row-height;
+    color: $color-white;
+  }
+
   .avatar, .avatar img {
     display: block;
   }
 
+  #kudos-received {
+    margin: 0 20px 0 0;
+  }
+
   .kudos-left {
-    margin-left: 20px;
+    margin: 0 0 0 20px;
   }
 
   #flash {
@@ -42,15 +52,6 @@
 
     .downward {
       color: $color-red;
-    }
-  }
-
-  .last-comments {
-    color: $color-black;
-    text-decoration: none;
-
-    &:hover {
-      color: $color-white;
     }
   }
 }

@@ -1,3 +1,3 @@
 Sks.DashboardView = Ember.View.extend
-  elementId: 'dashboard'
+  elementId: 'dashboard-container'
   classNames: ['row-fluid']
