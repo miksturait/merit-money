@@ -1,19 +1,15 @@
 Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
     trendClasses = ""
-    trend = ""
     if value
         switch value
             when 'steady'
-                trend = '↔'
-                trendClasses = 'trend steady'
+                trendClasses = 'trend steady glyphicon glyphicon-minus'
             when 'upward'
-              trend = '↗'
-              trendClasses = 'trend upward'
+              trendClasses = 'trend upward glyphicon glyphicon-chevron-up'
             when 'downward'
-              trend = '↘'
-              trendClasses = 'trend downward'
+              trendClasses = 'trend downward glyphicon glyphicon-chevron-down'
 
-       new Handlebars.SafeString("<i class=\'#{trendClasses}\'>#{trend}</i>")
+       new Handlebars.SafeString("<span class=\'#{trendClasses}\'></span>")
 
 Ember.Handlebars.registerBoundHelper 'avatar', (gravatar) ->
   if gravatar
