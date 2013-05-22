@@ -53,4 +53,7 @@ Sks.UsersView = Ember.View.extend
       $kudoComment = $expanded.find('.kudos-comment')
       $ratyContainer.raty('score', 1)
       $kudoComment.val('')
+
+      # hide expanded on success
+      $expanded.toggleView()
   ).observes('controller.status')
