@@ -42,15 +42,15 @@
   }
 
   .trend {
-    .steady {
+    &.steady {
       color: $color-white;
     }
 
-    .upward {
+    &.upward {
       color: $color-green;
     }
 
-    .downward {
+    &.downward {
       color: $color-red;
     }
   }
