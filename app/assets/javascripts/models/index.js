@@ -6,3 +6,5 @@
 //= require ./kudo_received
 //= require ./kudo_last_week
 //= require ./comment
+//= require ./my_comment
+//= require ./other_comment

@@ -1,0 +1,1 @@
+Sks.OtherCommentsController = Ember.ArrayController.extend()

@@ -1,14 +1,27 @@
-<h2 class="text-center">Last 50 Comments</h2>
+<div class="row">
+    <div class="col-span-6 comments">
+        <h2>My Comments</h2>
+        {{#if controllers.myComments}}
+            <ul class="comments-list">
+            {{#each controllers.myComments}}
+                {{view Sks.CommentEntryView}}
+            {{/each}}
+            </ul>
+        {{else}}
+            <p>You have received no comments :(</p>
+        {{/if}}
+    </div>
 
-{{#if controller.model}}
-<ul class="comments">
-  {{#each comment in controller.model}}
-  <li class="comment">
-    <span class="glyphicon glyphicon-star icon-kudo"></span><b>{{comment.value}}</b>:
-    {{comment.comment}}
-  </li>
-  {{/each}}
-</ul>
-{{else}}
-<p>no comments received</p>
-{{/if}}
+    <div class="col-span-6 comments">
+        <h2>All Comments</h2>
+        {{#if controllers.otherComments}}
+            <ul class="comments-list">
+                {{#each controllers.otherComments}}
+                    {{view Sks.CommentEntryView}}
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>Whoa! No comments!</p>
+        {{/if}}
+    </div>
+</div>

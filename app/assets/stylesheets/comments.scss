@@ -2,7 +2,15 @@
 @import "mixins";
 
 #kudos-comments-view {
-  .comment {
-    @include stripped-list;
+  .comments {
+    text-align: center;
+
+    .comments-list {
+      text-align: left;
+    }
+
+    .comment {
+      @include stripped-list;
+    }
   }
 }

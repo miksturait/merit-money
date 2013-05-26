@@ -1,0 +1,1 @@
+Sks.OtherComment = Sks.Comment.extend()
