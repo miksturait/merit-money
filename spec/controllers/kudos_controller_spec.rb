@@ -74,38 +74,4 @@ describe KudosController do
 
     it { expect(@tom).to have(1).kudos_received }
   end
-
-
-  describe "Comments" do
-    let!(:tom) { create(:user, name: 'Tom', email: 'tom@selleo.com') }
-    let!(:simon) { create(:user, name: 'Simon', email: 'simon@selleo.com') }
-    let!(:bart) { create(:user, name: 'Bart', email: 'bart@selleo.com') }
-
-    after do
-      Timecop.return
-    end
-    before do
-      Timecop.freeze(Time.parse('2013-02-20 13:15 UTC'))
-
-      tom.thanks_to_user(bart, {value: 5, comment: 'this presentation in Paris was awesome'})
-      simon.thanks_to_user(bart, {value: 1, comment: 'great job on metreno'})
-      tom.thanks_to_user(simon, {value: 2, comment: 'for running'})
-      bart.thanks_to_user(tom, {value: 2, comment: 'for the icecream'})
-
-      Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
-
-      get :index
-    end
-
-    let(:response_object) { JSON.parse(response.body) }
-
-    it { expect(response_object).
-        to eq({
-                  "comments" => [
-                      {"value" => 1, "comment" => "great job on metreno"},
-                      {"value" => 5, "comment" => "this presentation in Paris was awesome"}
-                  ]
-              }) }
-
-  end
 end
