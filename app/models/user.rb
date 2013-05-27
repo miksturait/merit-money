@@ -8,9 +8,11 @@ class User < ActiveRecord::Base
   has_many :kudos_received, class_name: "Kudo", foreign_key: :receiver_id
 
   scope :order_by_last_week_kudos_distribution_asc, ->(user) {
-    previous_weekly_kudo = WeeklyKudo.where(week_id: Week.previous.id, user_id: user.id).first
+    last_two_weekly_kudos = WeeklyKudo.where(week_id: [Week.try(:previous).try(:id),
+                                                       Week.try(:previous).try(:previous).try(:id)],
+                                             user_id: user.id).pluck(:id)
 
-    order_tmp_table = previous_weekly_kudo.kudos.group(:receiver_id).select("sum(kudos.value) as kudos, receiver_id as user_id").to_sql
+    order_tmp_table = Kudo.where(weekly_kudo_id: last_two_weekly_kudos).group(:receiver_id).select("sum(kudos.value) as kudos, receiver_id as user_id").to_sql
     order_table = User.joins("LEFT JOIN (#{order_tmp_table}) AS users_order ON users_order.user_id=users.id").
         select("users.id AS user_id, coalesce(users_order.kudos, 0) AS kudos").to_sql
     joins("LEFT JOIN (#{order_table}) as users_order ON users_order.user_id = users.id").order("users_order.kudos ASC")
