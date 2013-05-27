@@ -94,18 +94,30 @@ describe User do
       simon.thanks_to_user(bart, {value: 1, comment: 'great job on metreno'})
       tom.thanks_to_user(simon, {value: 2, comment: 'for running'})
       bart.thanks_to_user(tom, {value: 2, comment: 'for the icecream'})
+      tom.thanks_to_user(simon, {value: 3, comment: 'for sks app'})
 
       # it should't include comments from current week
       Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
 
       simon.thanks_to_user(bart, {value: 2, comment: 'pair programming was awesome'})
+      tom.thanks_to_user(simon, {value: 3, comment: 'learning patters is awesome'})
     end
 
-    it { expect(bart).to have(2).latest_comments }
+    context "my comments" do
+      it { expect(bart).to have(2).latest_comments }
 
-    let(:last_comment) { bart.latest_comments.first }
+      let(:last_comment) { bart.latest_comments.first }
 
-    it {expect(last_comment).to eq({value: 1, comment: 'great job on metreno'})}
+      it { expect(last_comment).to eq({value: 1, comment: 'great job on metreno'}) }
+    end
+
+    context "other comments" do
+      it { expect(bart).to have(3).latest_other_comments }
+
+      let(:last_other_comment) { bart.latest_other_comments.first }
+
+      it { expect(last_other_comment).to eq({value: 3, comment: 'for sks app'}) }
+    end
 
   end
 end

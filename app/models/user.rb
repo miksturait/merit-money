@@ -130,4 +130,8 @@ class User < ActiveRecord::Base
     kudos_received.with_comment.latest_first.without_kudos_from_current_week.
         limit(50).map(&:ember_comment_info)
   end
+
+  def latest_other_comments
+    Week.previous.kudos.latest_first.without_received_by(self).map(&:ember_comment_info)
+  end
 end

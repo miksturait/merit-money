@@ -4,4 +4,8 @@ class CommentsController < ApplicationController
   def my
     render json: { my_comments: current_user.latest_comments }
   end
+
+  def other
+    render json: { other_comments: current_user.latest_other_comments }
+  end
 end

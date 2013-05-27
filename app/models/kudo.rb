@@ -15,6 +15,9 @@ class Kudo < ActiveRecord::Base
   scope :latest_first, order("kudos.id DESC")
   scope :without_kudos_from_current_week, -> { joins(:weekly_kudo).
       where(["weekly_kudos.week_id != ?", Week.current.id]) }
+  scope :without_received_by, ->(user) {
+    where(["kudos.receiver_id != ?", user.id])
+  }
 
   class ReceiverIsDifferentThenGiverValidator < ActiveModel::Validator
     def validate(record)

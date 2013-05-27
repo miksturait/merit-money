@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CommentsController, :focus do
+describe CommentsController do
 
   let!(:tom) { create(:user, name: 'Tom', email: 'tom@selleo.com') }
   let!(:simon) { create(:user, name: 'Simon', email: 'simon@selleo.com') }
@@ -38,9 +38,9 @@ describe CommentsController, :focus do
 
   end
 
-  describe "others comments", :pending do
+  describe "others comments" do
     before do
-      get :others
+      get :other
     end
 
     let(:response_object) { JSON.parse(response.body) }

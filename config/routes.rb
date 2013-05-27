@@ -14,6 +14,7 @@ Sks::Application.routes.draw do
 
   match '/kudos', to: 'kudos#create'
   match '/my_comments', to: 'comments#my'
+  match '/other_comments', to: 'comments#other'
 
   match '/tops', to: 'week#top_collectors'
   match '/hamsters', to: 'week#top_hamsters'

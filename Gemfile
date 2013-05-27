@@ -32,7 +32,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'mocha', require: 'mocha/setup'
 end
-gem 'rspec-rails', :groups => [:development, :test]
 
 group :development, :test do
   gem 'guard'
@@ -44,6 +43,8 @@ group :development, :test do
   gem 'rb-fsevent', :require => RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
   gem 'sqlite3'
   gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem 'fuubar'
+  gem 'rspec-rails'
 end
 
 gem "ember-rails"
