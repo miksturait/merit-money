@@ -33,8 +33,20 @@ describe UsersController do
       @simon = create(:user, name: 'Simon', email: 'simon@selleo.com')
       @radek = create(:user, name: 'Radek', email: 'radek@selleo.com')
       @current_user = create(:user, name: 'Bart', email: 'bart@selleo.com')
+      Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
+
+      @tom_last_week_one = @current_user.thanks_to_user(@tom, {value: 2})
+      @simon_last_week_one = @current_user.thanks_to_user(@simon, {value: 1})
+      @tom_last_week_two = @current_user.thanks_to_user(@tom, {value: 2})
+      @simon_last_week_two = @current_user.thanks_to_user(@simon, {value: 1})
+
+      Timecop.freeze(Time.parse('2013-03-04 13:15 UTC'))
 
       @kudo = @current_user.thanks_to_user(@simon, {value: 5, comment: 'Thanks :-)'})
+    end
+
+    after do
+      Timecop.return
     end
 
     context "index" do
@@ -45,37 +57,27 @@ describe UsersController do
       let(:response_object) { JSON.parse(response.body) }
       let(:users_hash) {
         {
-            "users" => [{"id" => @tom.id, "name" => "Tom", "email" => "tom@selleo.com",
+            "users" => [{"id" => @radek.id, "name" => "Radek", "email" => "radek@selleo.com",
                          "kudo_received_ids" => [], "kudo_last_week_ids" => []},
                         {"id" => @simon.id, "name" => "Simon", "email" => "simon@selleo.com",
-                         "kudo_received_ids" => [@kudo.id], "kudo_last_week_ids" => []},
-                        {"id" => @radek.id, "name" => "Radek", "email" => "radek@selleo.com",
-                         "kudo_received_ids" => [], "kudo_last_week_ids" => []}],
-            "kudo_receiveds" => [{"comment" => "Thanks :-)", "id" => @kudo.id, "receiver_id" => @simon.id, "value" => 5}],
-            "kudo_last_weeks" => []
+                         "kudo_received_ids" => [@kudo.id],
+                         "kudo_last_week_ids" => [@simon_last_week_two.id, @simon_last_week_one.id]},
+                        {"id" => @tom.id, "name" => "Tom", "email" => "tom@selleo.com",
+                         "kudo_received_ids" => [],
+                         "kudo_last_week_ids" => [@tom_last_week_two.id, @tom_last_week_one.id]}
+            ],
+            "kudo_receiveds" => [
+                {"comment" => "Thanks :-)", "id" => @kudo.id, "receiver_id" => @simon.id, "value" => 5}],
+            "kudo_last_weeks" => [
+                {"comment" => nil, "id" => @simon_last_week_two.id, "receiver_id" => @simon.id, "value" => 1},
+                {"comment" => nil, "id" => @simon_last_week_one.id, "receiver_id" => @simon.id, "value" => 1},
+                {"comment" => nil, "id" => @tom_last_week_two.id, "receiver_id" => @tom.id, "value" => 2},
+                {"comment" => nil, "id" => @tom_last_week_one.id, "receiver_id" => @tom.id, "value" => 2}
+            ]
         }
       }
 
       it { expect(response_object).to eq(users_hash) }
-    end
-
-    context "show" do
-      before do
-        get :show, id: @simon.id
-      end
-
-      let(:response_object) { JSON.parse(response.body) }
-      let(:user_hash) {
-        {
-            "user" => {"id" => @simon.id, "name" => "Simon", "email" => "simon@selleo.com",
-                       "kudo_received_ids" => [@kudo.id], "kudo_last_week_ids" => []},
-            "kudo_receiveds" => [{"comment" => "Thanks :-)", "id" => @kudo.id, "receiver_id" => @simon.id, "value" => 5}],
-            "kudo_last_weeks" => []
-        }
-      }
-
-      it { expect(response_object).to eq(user_hash) }
-
     end
   end
 end

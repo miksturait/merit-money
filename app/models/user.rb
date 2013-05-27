@@ -7,6 +7,15 @@ class User < ActiveRecord::Base
   has_many :kudos, through: :weekly_kudos
   has_many :kudos_received, class_name: "Kudo", foreign_key: :receiver_id
 
+  scope :order_by_last_week_kudos_distribution_asc, ->(user) {
+    previous_weekly_kudo = WeeklyKudo.where(week_id: Week.previous.id, user_id: user.id).first
+
+    order_tmp_table = previous_weekly_kudo.kudos.group(:receiver_id).select("sum(kudos.value) as kudos, receiver_id as user_id").to_sql
+    order_table = User.joins("LEFT JOIN (#{order_tmp_table}) AS users_order ON users_order.user_id=users.id").
+        select("users.id AS user_id, coalesce(users_order.kudos, 0) AS kudos").to_sql
+    joins("LEFT JOIN (#{order_table}) as users_order ON users_order.user_id = users.id").order("users_order.kudos ASC")
+  }
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
@@ -36,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def kudos_given_by_user_in_week(user, week)
-    kudos_received.joins(:weekly_kudo).where(weekly_kudos: {week_id: week, user_id: user})
+    kudos_received.latest_first.joins(:weekly_kudo).where(weekly_kudos: {week_id: week, user_id: user})
   end
 
   def current_weekly_kudo
@@ -76,7 +85,7 @@ class User < ActiveRecord::Base
     kudos_received = []
     kudos_last_week = []
 
-    User.where(["users.id != ?", self.id]).all.each do |user|
+    User.where(["users.id != ?", self.id]).order_by_last_week_kudos_distribution_asc(self).all.each do |user|
       _kudos_received = user.kudos_given_by_user_in_week(self, Week.current)
       _kudos_last_week = user.kudos_given_by_user_in_week(self, Week.previous)
 
