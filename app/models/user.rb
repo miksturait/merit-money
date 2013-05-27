@@ -132,6 +132,6 @@ class User < ActiveRecord::Base
   end
 
   def latest_other_comments
-    Week.previous.kudos.latest_first.without_received_by(self).map(&:ember_comment_info)
+    Week.previous.kudos.with_comment.latest_first.without_received_by(self).map(&:ember_comment_info)
   end
 end
