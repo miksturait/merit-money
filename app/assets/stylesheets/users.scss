@@ -53,12 +53,10 @@
       right: 20px;
     }
 
-    .btn-primary {
-    }
-
     @include stripped-list;
     &:hover {
       background-color: $color-yellow-light;
+    }
   }
 
   #kudos-stats {
