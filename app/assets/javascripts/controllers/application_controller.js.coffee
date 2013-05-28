@@ -7,6 +7,7 @@ Sks.ApplicationController = Ember.Controller.extend
     token = $('meta[name="csrf-token"]').attr 'content'
     currentUserCon = @controllerFor 'currentUser'
 
+    # TODO - refactor this!
     # prevent from multi-clicking
     return if currentUserCon.get 'disableAddingKudos'
 
@@ -18,6 +19,7 @@ Sks.ApplicationController = Ember.Controller.extend
 
     kudosLeft = currentUserCon.get 'kudosLeft'
 
+    # TODO don't use jQuery Ajax - use Ember Data transitions instead
     kudo = Sks.Kudo.createRecord receiver: user, value: value, comment: comment
     $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
     .done((data) =>
@@ -33,10 +35,8 @@ Sks.ApplicationController = Ember.Controller.extend
     .fail (data, status) ->
       self.set('status', 'error')
 
-  addOneKudo: (user) ->
-    @addKudo user, 1, ''
-
   addManyKudos: (user) ->
+    # TODO delegate getting data to view
     $visibleContent = $('#users-list').find '.form-visible'
     $ratyContainer = $visibleContent.find('.stars')
     value = $ratyContainer.raty('score') || 1

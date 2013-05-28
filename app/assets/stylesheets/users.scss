@@ -47,19 +47,18 @@
       }
     }
 
-    .btn {
+    .btn-more {
       position: absolute;
       top: 18px;
+      right: 20px;
     }
 
     .btn-primary {
-      right: 20px;
     }
 
     @include stripped-list;
     &:hover {
       background-color: $color-yellow-light;
-    }
   }
 
   #kudos-stats {

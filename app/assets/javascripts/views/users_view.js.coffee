@@ -13,13 +13,11 @@ Sks.UsersView = Ember.View.extend
         $row
           .toggleView {}, ->
             $row.ScrollTo(offsetTop: 90)
+        # TODO - use binding e.g expanding to update the view
+          .find('.btn-more span').toggleClass('glyphicon-chevron-down', 'glyphicon-chevron-up')
 
-    @.$('#users-list').on 'click', '.content', (event) ->
+    @.$('#users-list').on 'click', '.content, .btn-more', (event) ->
       $this = $ this
-
-      if $(event.target).is '.btn-add'
-        event.preventDefault()
-        return
 
       # init raty plugin only once
       $ratyContainer = $this.closest('.coworker').find('.content-more .stars')
