@@ -2,6 +2,10 @@
 @import "mixins";
 
 #kudos-comments-view {
+  h2 {
+    text-align: center;
+  }
+
   .comments {
     text-align: center;
 
