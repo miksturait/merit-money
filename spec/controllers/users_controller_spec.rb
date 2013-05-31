@@ -32,6 +32,7 @@ describe UsersController do
       @tom = create(:user, name: 'Tom', email: 'tom@selleo.com')
       @simon = create(:user, name: 'Simon', email: 'simon@selleo.com')
       @radek = create(:user, name: 'Radek', email: 'radek@selleo.com')
+      @rafal = create(:user, name: 'Rafal', email: 'rafal@selleo.com', retired: true)
       @current_user = create(:user, name: 'Bart', email: 'bart@selleo.com')
       Timecop.freeze(Time.parse('2013-02-27 13:15 UTC'))
 

@@ -18,6 +18,7 @@ class Kudo < ActiveRecord::Base
   scope :without_received_by, ->(user) {
     where(["kudos.receiver_id != ?", user.id])
   }
+  scope :without_retired, joins(:receiver).where(users: {retired: [nil, false]})
 
   class ReceiverIsDifferentThenGiverValidator < ActiveModel::Validator
     def validate(record)

@@ -6,6 +6,8 @@ class WeeklyKudo < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :without_retired, joins(:user).where(users: {retired: [nil, false]})
+
   def giver;
     user;
   end
@@ -27,7 +29,7 @@ class WeeklyKudo < ActiveRecord::Base
                       up_to_last_week_total_kudos_received: up_to_last_week_total_kudos_received,
                       week: week,
                       user: user,
-                      trend: trend })
+                      trend: trend})
     end
 
     private

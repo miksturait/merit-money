@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :kudos, through: :weekly_kudos
   has_many :kudos_received, class_name: "Kudo", foreign_key: :receiver_id
 
+  scope :without_retired, where(retired: [nil, false])
   scope :order_by_last_week_kudos_distribution_asc, ->(user) {
     last_two_weekly_kudos = WeeklyKudo.where(week_id: [Week.try(:previous).try(:id),
                                                        Week.try(:previous).try(:previous).try(:id)],
@@ -87,7 +88,7 @@ class User < ActiveRecord::Base
     kudos_received = []
     kudos_last_week = []
 
-    User.where(["users.id != ?", self.id]).order_by_last_week_kudos_distribution_asc(self).all.each do |user|
+    User.without_retired.where(["users.id != ?", self.id]).order_by_last_week_kudos_distribution_asc(self).all.each do |user|
       _kudos_received = user.kudos_given_by_user_in_week(self, Week.current)
       _kudos_last_week = user.kudos_given_by_user_in_week(self, Week.previous)
 
