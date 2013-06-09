@@ -47,6 +47,10 @@ class Week < ActiveRecord::Base
     Week.where(number: week.id).first
   end
 
+  def name
+    [number, start_at.to_date.to_s(:short)].join(" - ")
+  end
+
   class Info
     def self.current
       new(DateTime.now.utc)

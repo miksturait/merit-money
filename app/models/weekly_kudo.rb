@@ -23,6 +23,10 @@ class WeeklyKudo < ActiveRecord::Base
         create(ComputeAttrs.new(week, user).to_param)
   end
 
+  def name
+    [week.name, giver.name].join(" :: ")
+  end
+
   class ComputeAttrs < Struct.new(:week, :user)
     def to_param
       defaults.merge({last_week_kudos_received: last_week_kudos_received,
