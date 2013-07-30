@@ -1,4 +1,4 @@
-h1. Merit Money
+= Merit Money
 
 more info about Merit Money -> http://www.management30.com/workout/merit-money/
 
@@ -20,21 +20,23 @@ User after authorization using google account, is redirecting to main screen. On
 
 ![](doc/assets/merit_money_coworkers.png)
 ![](doc/assets/merit_money_comments.png)
-![](doc/assets/merit_money_giving.png)
 
-h2. Scenarios
 
-h3. Authentication
+== Scenarios
+
+=== Authentication
 
 * Successful authentication with Google Account
 * Unsuccessful authentication with Google Account
 
-h3. Giving Kudos
+=== Giving Kudos
 
 * Pressing co-worker image for 3 seconds result in giving kudos when they are still left
 * Clicking co-worker image when there is no 'kudos' left, show error notice - that you can't
 
-h2. Ruby on Rails
+![](doc/assets/merit_money_giving.png)
+
+== Ruby on Rails
 
 This application requires:
 
@@ -45,7 +47,7 @@ h2. Database
 
 This application uses SQLite with ActiveRecord.
 
-h2. Development
+== Development
 
 * Template Engine: ERB
 * Testing Framework: RSpec and Factory Girl
@@ -53,11 +55,11 @@ h2. Development
 * Form Builder: SimpleForm
 * Authentication: OmniAuth
 
-h2. Email
+== Email
 
 The application is configured to send email using a Gmail account.
 
-h2. Getting Started
+== Getting Started
 
 * Install rvm and ruby 1.9.3
 * Fetch repository and run bundle
@@ -66,14 +68,14 @@ h2. Getting Started
 * rake db:migrate
 * run rails s
 
-h2. Documentation and Support
+== Documentation and Support
 
 ***
 
-h2. Credits
+== Credits
 
 ***
 
-h2. License
+== License
 
 MIT
