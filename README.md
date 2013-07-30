@@ -2,8 +2,8 @@ h1. Merit Money
 
 more info about Merit Money -> http://www.management30.com/workout/merit-money/
 
-![Co-Workers mobile](miksturait.github.com/merit-money/doc/assets/merit_money_coworkers_mobile.png)
-![Comments mobile](miksturait.github.com/merit-money/doc/assets/merit_money_comments_mobile.png)
+![](doc/assets/merit_money_coworkers_mobile.png)
+![](doc/assets/merit_money_comments_mobile.png)
 
 This is application for giving 'kudos' to co-workers. Every Monday morning each co-worker is getting 20 'kudos'.
 She has to give the 'kudos' to other co-workers. Undistributed 'kudos' are lost on Sunday at midnight.
@@ -17,9 +17,9 @@ User after authorization using google account, is redirecting to main screen. On
 ** how many 'kudos' she received in current week from others
 ** how many 'kudos' she gave others
 
-![Co-Workers](miksturait.github.com/merit-money/doc/assets/merit_money_coworkers.png)
-![Comments](miksturait.github.com/merit-money/doc/assets/merit_money_comments.png)
-![Giving](miksturait.github.com/merit-money/doc/assets/merit_money_giving.png)
+![](doc/assets/merit_money_coworkers.png)
+![](doc/assets/merit_money_comments.png)
+![](doc/assets/merit_money_giving.png)
 
 h2. Scenarios
 
