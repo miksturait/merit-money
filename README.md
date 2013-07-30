@@ -3,6 +3,7 @@ h1. Merit Money
 more info about Merit Money -> http://www.management30.com/workout/merit-money/
 
 ![](doc/assets/merit_money_coworkers_mobile.png)
+__
 ![](doc/assets/merit_money_comments_mobile.png)
 
 This is application for giving 'kudos' to co-workers. Every Monday morning each co-worker is getting 20 'kudos'.
