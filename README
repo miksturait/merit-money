@@ -1,4 +1,6 @@
-h1. Sks
+h1. Merit Money
+
+more info about Merit Money -> http://www.management30.com/workout/merit-money/
 
 This is application for giving 'kudos' to co=workers. Every Monday morning each co-worker is getting 25 'kudos'.
 She has to give the 'kudos' to other co-workers. Undistributed 'kudos' are lost on Saturday morning.
@@ -68,3 +70,4 @@ h2. Credits
 
 h2. License
 
+MIT
