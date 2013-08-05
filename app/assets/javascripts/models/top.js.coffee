@@ -1,6 +1,6 @@
-Sks.Top = Sks.User.extend()
+App.Top = App.User.extend()
 
-Sks.Top.FIXTURES = [
+App.Top.FIXTURES = [
   id: 1
   name: 'Michał Czyż'
   email: 'michalczyz@gmail.com'

@@ -20,4 +20,4 @@
 #= require_self
 #= require sks
 
-window.Sks = Ember.Application.create()
+window.App = Ember.Application.create()

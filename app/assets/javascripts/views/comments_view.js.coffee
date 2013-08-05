@@ -1,2 +1,2 @@
-Sks.CommentsView = Ember.View.extend
+App.CommentsView = Ember.View.extend
   elementId: 'kudos-comments-view'

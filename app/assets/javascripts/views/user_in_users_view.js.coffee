@@ -1,4 +1,4 @@
-Sks.UserInUsersView = Em.View.extend
+App.UserInUsersView = Em.View.extend
   tagName: 'li'
   templateName: 'user_in_users'
   classNames: 'coworker'

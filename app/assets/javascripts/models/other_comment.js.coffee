@@ -1,1 +1,1 @@
-Sks.OtherComment = Sks.Comment.extend()
+App.OtherComment = App.Comment.extend()

@@ -1,4 +1,4 @@
-Sks.FlashView = Ember.View.extend
+App.FlashView = Ember.View.extend
   elementId: 'flash'
   classNames: 'alert'
   classNameBindings: ['alertType']

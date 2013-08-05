@@ -1,4 +1,4 @@
-Sks.CurrentUserController = Ember.ObjectController.extend
+App.CurrentUserController = Ember.ObjectController.extend
   needs: ['application']
   disableAddingKudos: false
   decrementKudos: (num) ->

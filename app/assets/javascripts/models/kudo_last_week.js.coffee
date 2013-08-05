@@ -1,6 +1,6 @@
-Sks.KudoLastWeek = Sks.Kudo.extend()
+App.KudoLastWeek = App.Kudo.extend()
 
-Sks.KudoLastWeek.FIXTURES = [
+App.KudoLastWeek.FIXTURES = [
   id: 1
   value: 3
   comment: 'You gave me a helping hand yesterday!'

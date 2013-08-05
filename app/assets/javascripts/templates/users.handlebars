@@ -1,12 +1,12 @@
 <ul id="users-list">
 {{#each user in controller}}
-  {{view Sks.UserInUsersView contentBinding="user"}}
+  {{view App.UserInUsersView contentBinding="user"}}
 {{/each}}
 </ul>
 
 <div id="kudos-stats" class="row">
-  {{view Sks.Top3View controllerBinding="controllers.top" label="Collectors" blankState="Wanna be here? Be
+  {{view App.Top3View controllerBinding="controllers.top" label="Collectors" blankState="Wanna be here? Be
   nice to other people!"}}
 
-  {{view Sks.Top3View controllerBinding="controllers.hamsters" label="Hamsters" blankState="Everyone gave kudos!"}}
+  {{view App.Top3View controllerBinding="controllers.hamsters" label="Hamsters" blankState="Everyone gave kudos!"}}
 </div>

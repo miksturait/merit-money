@@ -1,4 +1,4 @@
-Sks.FlashController = Ember.Controller.extend
+App.FlashController = Ember.Controller.extend
   needs: ['application']
   statusBinding: 'controllers.application.status'
   valueBinding: 'controllers.application.kudoAddedNum'

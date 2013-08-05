@@ -5,7 +5,7 @@
         {{#if controllers.myComments}}
             <ul class="comments-list">
             {{#each controllers.myComments}}
-                {{view Sks.CommentEntryView}}
+                {{view App.CommentEntryView}}
             {{/each}}
             </ul>
         {{else}}
@@ -18,7 +18,7 @@
         {{#if controllers.otherComments}}
             <ul class="comments-list">
                 {{#each controllers.otherComments}}
-                    {{view Sks.CommentEntryView}}
+                    {{view App.CommentEntryView}}
                 {{/each}}
             </ul>
         {{else}}

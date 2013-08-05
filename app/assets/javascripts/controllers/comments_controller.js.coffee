@@ -1,2 +1,2 @@
-Sks.CommentsController = Ember.ArrayController.extend
+App.CommentsController = Ember.ArrayController.extend
   needs: ['myComments', 'otherComments']

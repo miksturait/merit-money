@@ -1,11 +1,11 @@
-Sks.Store = DS.Store.extend
+App.Store = DS.Store.extend
     revision: 12
     adapter: 'DS.RESTAdapter'
 
-#Sks.Store.registerAdapter 'Sks.User', DS.FixtureAdapter
-#Sks.Store.registerAdapter 'Sks.CurrentUser', DS.FixtureAdapter
-#Sks.Store.registerAdapter 'Sks.Hamster', DS.FixtureAdapter
-#Sks.Store.registerAdapter 'Sks.Top', DS.FixtureAdapter
-#Sks.Store.registerAdapter 'Sks.KudoReceived', DS.FixtureAdapter
-#Sks.Store.registerAdapter 'Sks.KudoLastWeek', DS.FixtureAdapter
-#Sks.Store.registerAdapter 'Sks.Comment', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.User', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.CurrentUser', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.Hamster', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.Top', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.KudoReceived', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.KudoLastWeek', DS.FixtureAdapter
+#App.Store.registerAdapter 'App.Comment', DS.FixtureAdapter

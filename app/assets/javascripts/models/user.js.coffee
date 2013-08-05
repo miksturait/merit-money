@@ -1,6 +1,6 @@
-Sks.User = DS.Model.extend
-  kudoReceiveds: DS.hasMany('Sks.KudoReceived')
-  kudoLastWeeks: DS.hasMany('Sks.KudoLastWeek')
+App.User = DS.Model.extend
+  kudoReceiveds: DS.hasMany('App.KudoReceived')
+  kudoLastWeeks: DS.hasMany('App.KudoLastWeek')
   name: DS.attr("string")
   email: DS.attr("string")
 
@@ -26,7 +26,7 @@ Sks.User = DS.Model.extend
       kudosTotal
   ).property('kudoReceiveds.@each')
 
-Sks.User.FIXTURES = [
+App.User.FIXTURES = [
   id: 1
   name: 'Michał Czyż'
   email: 'michalczyz@gmail.com'

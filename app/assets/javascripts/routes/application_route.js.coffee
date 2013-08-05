@@ -1,8 +1,8 @@
-Sks.ApplicationRoute = Ember.Route.extend
+App.ApplicationRoute = Ember.Route.extend
   setupController: ->
-    @controllerFor('users').set 'content', Sks.User.find()
-    @controllerFor('currentUser').set 'content', Sks.CurrentUser.find(1)
-    @controllerFor('top').set 'content', Sks.Top.find()
-    @controllerFor('hamsters').set 'content', Sks.Hamster.find()
-    @controllerFor('myComments').set 'content', Sks.MyComment.find()
-    @controllerFor('otherComments').set 'content', Sks.OtherComment.find()
+    @controllerFor('users').set 'content', App.User.find()
+    @controllerFor('currentUser').set 'content', App.CurrentUser.find(1)
+    @controllerFor('top').set 'content', App.Top.find()
+    @controllerFor('hamsters').set 'content', App.Hamster.find()
+    @controllerFor('myComments').set 'content', App.MyComment.find()
+    @controllerFor('otherComments').set 'content', App.OtherComment.find()

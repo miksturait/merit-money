@@ -1,1 +1,1 @@
-Sks.TopController = Ember.ArrayController.extend()
+App.TopController = Ember.ArrayController.extend()

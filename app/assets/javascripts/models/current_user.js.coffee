@@ -1,10 +1,10 @@
-Sks.CurrentUser = Sks.User.extend
+App.CurrentUser = App.User.extend
   kudosLeft: DS.attr 'number'
   kudosReceived: DS.attr 'number'
   kudosTotalReceived: DS.attr 'number'
   trend: DS.attr 'string'
 
-Sks.CurrentUser.FIXTURES = [
+App.CurrentUser.FIXTURES = [
   id: 1
   kudosLeft: 20
   kudosReceived: 10

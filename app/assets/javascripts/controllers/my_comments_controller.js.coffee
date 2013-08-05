@@ -1,1 +1,1 @@
-Sks.MyCommentsController = Ember.ArrayController.extend()
+App.MyCommentsController = Ember.ArrayController.extend()

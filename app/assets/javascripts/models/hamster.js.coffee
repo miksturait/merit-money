@@ -1,6 +1,6 @@
-Sks.Hamster = Sks.User.extend()
+App.Hamster = App.User.extend()
 
-Sks.Hamster.FIXTURES = [
+App.Hamster.FIXTURES = [
   id: 1
   name: 'Michał Czyż'
   email: 'michalczyz@gmail.com'

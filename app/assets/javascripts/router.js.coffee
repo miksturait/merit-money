@@ -1,3 +1,3 @@
-Sks.Router.map ->
+App.Router.map ->
   @resource 'users', path: '/'
   @resource 'comments'

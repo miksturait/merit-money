@@ -1,6 +1,6 @@
-Sks.KudoReceived = Sks.Kudo.extend()
+App.KudoReceived = App.Kudo.extend()
 
-Sks.KudoReceived.FIXTURES = [
+App.KudoReceived.FIXTURES = [
   id: 1
   value: 2
   comment: 'Because you are nice to me!'

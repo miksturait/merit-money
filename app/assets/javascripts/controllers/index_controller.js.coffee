@@ -1,1 +1,1 @@
-Sks.IndexController = Ember.Controller.extend()
+App.IndexController = Ember.Controller.extend()

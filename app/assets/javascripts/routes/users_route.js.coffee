@@ -1,9 +1,9 @@
-Sks.UsersRoute = Ember.Route.extend
+App.UsersRoute = Ember.Route.extend
   setupController: ->
-    @controllerFor('users').set 'content', Sks.User.all()
-    @controllerFor('currentUser').set 'content', Sks.CurrentUser.find(1)
-    @controllerFor('top').set 'content', Sks.Top.all()
-    @controllerFor('hamsters').set 'content', Sks.Hamster.all()
+    @controllerFor('users').set 'content', App.User.all()
+    @controllerFor('currentUser').set 'content', App.CurrentUser.find(1)
+    @controllerFor('top').set 'content', App.Top.all()
+    @controllerFor('hamsters').set 'content', App.Hamster.all()
 
   renderTemplate: ->
     @render 'dashboard',

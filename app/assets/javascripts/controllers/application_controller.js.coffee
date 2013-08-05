@@ -1,4 +1,4 @@
-Sks.ApplicationController = Ember.Controller.extend
+App.ApplicationController = Ember.Controller.extend
   status: null
   kudoAddedNum: null
 
@@ -20,12 +20,12 @@ Sks.ApplicationController = Ember.Controller.extend
     kudosLeft = currentUserCon.get 'kudosLeft'
 
     # TODO don't use jQuery Ajax - use Ember Data transitions instead
-    kudo = Sks.Kudo.createRecord receiver: user, value: value, comment: comment
+    kudo = App.Kudo.createRecord receiver: user, value: value, comment: comment
     $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
     .done((data) =>
       if data.status isnt 'error'
         currentUserCon.decrementKudos value
-        newKudo = Sks.KudoReceived.createRecord value: value, comment: comment
+        newKudo = App.KudoReceived.createRecord value: value, comment: comment
         user.get('kudoReceiveds').pushObject(newKudo)
         self.set('status', 'success')
         self.set('kudoAddedNum', value)
