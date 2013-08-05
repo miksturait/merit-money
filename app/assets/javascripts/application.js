@@ -15,11 +15,9 @@
 //= require handlebars
 //= require ember
 //= require ember-data
-// require ember-bootstrap
 //= require md5
 //= require jquery.raty
 //= require jquery-scrollto.js
-//= require jquery.color-2.1.2
 //= require_self
 //= require sks
 
