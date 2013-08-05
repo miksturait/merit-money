@@ -10,10 +10,11 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+// todo - rewrite to coffee
 //= require jquery
 //= require handlebars
-//= require ember-1.0.0-rc.3
-//= require ember-data-dev
+//= require ember
+//= require ember-data
 // require ember-bootstrap
 //= require md5
 //= require jquery.raty

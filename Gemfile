@@ -45,7 +45,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-gem "ember-rails"
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc6.4'
+gem 'ember-data-source', '~> 0.13'
+gem 'handlebars-source', '~> 1.0.12'
 
 gem 'bootstrap3-wip-rails'
 gem "whitespace"
