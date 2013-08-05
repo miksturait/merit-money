@@ -36,13 +36,11 @@ end
 group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
-  gem 'guard-jasmine'
   gem 'libnotify', :require => RUBY_PLATFORM =~ /linux/i ? 'libnotify' : false
   gem 'growl', :require => RUBY_PLATFORM =~ /darwin/i ? 'growl' : false
   gem 'rb-inotify', :require => RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
   gem 'rb-fsevent', :require => RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
   gem 'sqlite3'
-  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'fuubar'
   gem 'rspec-rails'
 end
