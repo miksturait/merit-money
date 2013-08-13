@@ -7,7 +7,8 @@
 Undistributed kudos are lost on Sunday at midnight.
 There is no restrictions. For example Wolly can give 5 kudos to James because he helped him with solving very difficult
 task. On the other side Sue can give Alice one kudo (or ’x’ kudos) just for the sake of being nice to others. It is up to you.
-It should be up to you. The more the freedom and free rein, the more powerful the idea is.
+It should be up to you. The more the freedom and free rein, the more powerful the idea is. The idea tries to **solve**
+the **difficult problem of giving bonuses to employees**.
 
 You can find more about Merit Money [here](http://www.management30.com/workout/merit-money/).
 
@@ -17,9 +18,11 @@ employees use it on a daily basis.
 
 > One of the most awesome momement I look forward to every Monday is to 
 > launch the app and see how many kudos I got and
-> for what. Reading colleagues’ comments did raise my overall happiness says > one of the developers.
+> for what. Reading colleagues’ comments did raise my overall happiness
 
-Management claims that the solution introduced **a lot more transparency** in the company.
+says one of the developers.
+
+Management claims that the solution introduced **a lot more transparency** in the company and that it keeps the team ‘glued’.
 
 ## Development
 
@@ -35,10 +38,10 @@ Merit Money uses the following and cutting-edge technologies:
 - Authentication: OmniAuth
 
 ### Front-end
-- Twitter Bootstrap
 - Ember.js
 - Ember Data
-- CoffeeScript
+- Twitter Bootstrap
+- Coffee Script
 - Sass
 
 ### Other
@@ -47,12 +50,13 @@ Merit Money uses the following and cutting-edge technologies:
 
 ## Getting Started
 
-* Install rvm and ruby 1.9.3
-* Fetch repository and run bundle
-* cp config/database.yml.example config/database.yml
-* rake db:create
-* rake db:migrate
-* rails s
+- Install rvm and ruby 1.9.3
+- Fetch repository and run bundle
+- cp config/database.yml.example config/database.yml
+- rake db:create
+- rake db:migrate
+- rake db:seed
+- rails s and visit localhost:3000
 
 ## Documentation and Support
 ## Credits
