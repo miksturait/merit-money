@@ -1,81 +1,65 @@
-= Merit Money
-
-more info about Merit Money -> http://www.management30.com/workout/merit-money/
+# Merit Money
 
 ![](doc/assets/merit_money_coworkers_mobile.png)
-__
 ![](doc/assets/merit_money_comments_mobile.png)
 
-This is application for giving 'kudos' to co-workers. Every Monday morning each co-worker is getting 20 'kudos'.
-She has to give the 'kudos' to other co-workers. Undistributed 'kudos' are lost on Sunday at midnight.
+**Merit Money** is an application for giving *kudos* to co-workers. Every Monday each co-worker gets 20 kudos to spend.
+Undistributed kudos are lost on Sunday at midnight.
+There is no restrictions. For example Wolly can give 5 kudos to James because he helped him with solving very difficult
+task. On the other side Sue can give Alice one kudo (or ’x’ kudos) just for the sake of being nice to others. It is up to you.
+It should be up to you. The more the freedom and free rein, the more powerful the idea is.
 
-User after authorization using google account, is redirecting to main screen. On the main screen is visible
+You can find more about Merit Money [here](http://www.management30.com/workout/merit-money/).
 
-* progress
-** haw many 'kudos' left
-** how many days left until current period
-* all co-workers (including himself), and for each co-worker
-** how many 'kudos' she received in current week from others
-** how many 'kudos' she gave others
+## Successful Use Case
+Merit Money app has been implemented with success in Poland-based agile and successful software house, [Selleo](http://selleo.com). Their
+employees use it on a daily basis.
 
-![](doc/assets/merit_money_coworkers.png)
-![](doc/assets/merit_money_comments.png)
+> One of the most awesome momement I look forward to every Monday is to 
+> launch the app and see how many kudos I got and
+> for what. Reading colleagues’ comments did raise my overall happiness says > one of the developers.
 
+Management claims that the solution introduced **a lot more transparency** in the company.
 
-== Scenarios
+## Development
 
-=== Authentication
+Merit Money uses the following and cutting-edge technologies:
 
-* Successful authentication with Google Account
-* Unsuccessful authentication with Google Account
+### Backend
+- Ruby version 1.9.3
+- Rails version 3.2.12
+- SQLite with ActiveRecord.
+- Template Engine: ERB
+- Testing Framework: RSpec and Factory Girl
+- Form Builder: SimpleForm
+- Authentication: OmniAuth
 
-=== Giving Kudos
+### Front-end
+- Twitter Bootstrap
+- Ember.js
+- Ember Data
+- CoffeeScript
+- Sass
 
-* Pressing co-worker image for 3 seconds result in giving kudos when they are still left
-* Clicking co-worker image when there is no 'kudos' left, show error notice - that you can't
+### Other
+- Google account for authentication
+- Gravatar account (optional)
 
-![](doc/assets/merit_money_giving.png)
-
-== Ruby on Rails
-
-This application requires:
-
-* Ruby version 1.9.3
-* Rails version 3.2.12
-
-h2. Database
-
-This application uses SQLite with ActiveRecord.
-
-== Development
-
-* Template Engine: ERB
-* Testing Framework: RSpec and Factory Girl
-* Front-end Framework: Twitter Bootstrap (Sass)
-* Form Builder: SimpleForm
-* Authentication: OmniAuth
-
-== Email
-
-The application is configured to send email using a Gmail account.
-
-== Getting Started
+## Getting Started
 
 * Install rvm and ruby 1.9.3
 * Fetch repository and run bundle
 * cp config/database.yml.example config/database.yml
 * rake db:create
 * rake db:migrate
-* run rails s
+* rails s
 
-== Documentation and Support
+## Documentation and Support
+## Credits
 
-***
+## License
+**MIT**
 
-== Credits
-
-***
-
-== License
-
-MIT
+![](doc/assets/merit_money_coworkers.png)
+![](doc/assets/merit_money_comments.png)
+![](doc/assets/merit_money_giving.png)
