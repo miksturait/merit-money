@@ -17,7 +17,7 @@ unless Rails.env.production?
   ::WeeklyKudo.delete_all
 end
 
-users_raw = "Tomasz Bąk <t.bak@selleo.com>, Tomasz Borowski <t.borowski@selleo.com>, Rafał Bromirski <rafal.bromirski@gmail.com>, Tomasz Czana <tomasz.czana@gmail.com>, Michał Czyż <michalczyz@gmail.com>, Bartlomiej Danek <bartek.danek@gmail.com>, Sebastian Ewak <sebastian.ewak@gmail.com>, Arek Janik <arek.mp@gmail.com>, Radosław Jędryszczak <socjopata@gmail.com>, Szymon Kieloch <skieloch@gmail.com>, Blazej Kosmowski <blazejek@gmail.com>, Arkadiusz Kwaśny <arkadiusz.kwasny@gmail.com>, Tomasz Noworyta <tomasz.noworyta@gmail.com>, Adrian Osowski <aossowski@gmail.com>, Grzegorz Rduch <grduch@gmail.com>, Ireneusz Skrobis <irek.skrobis@gmail.com>, Bartłomiej Wójtowicz <wojtowicz.bartlomiej@gmail.com>, Wojciech Ryrych <wojtek.ryrych@gmail.com>, Dariusz Wylon <pract.pl@gmail.com>"
+users_raw = "Bartek Bąk <bartek.bak@mikstura.it>, Witek Borowski <witek.borowski@mikstura.it>, Rafał Kwaśny <rafal.kwasny@mikstura.it>, Marek Czana <marek.czana@mikstura.it>, Michał Kos <michal.kos@mikstura.it>, Tomek Dyś <tomek.dys@mikstura.it>, Sebastian Onet <sebastian.onet@mikstura.it>, Arek Piotr <arek.piotr@mikstura.it>"
 users_raw.split(', ').each do |user_info|
   name, email = *user_info.split(' <')
   ::AllowedUser.create(name: name, email: email.gsub('>', ''))
@@ -34,11 +34,11 @@ if Rails.env.development?
   require 'timecop'
   require 'pry'
 
-  tom = User.where(email: 't.bak@selleo.com').first
-  bart = User.where(email: 'bartek.danek@gmail.com').first
-  simon = User.where(email: 'skieloch@gmail.com').first
-  darek = User.where(email: 'pract.pl@gmail.com').first
-  wojtek = User.where(email: 'wojtek.ryrych@gmail.com').first
+  tom = User.where(email: 'tomek.dys@mikstura.it').first
+  bart = User.where(email: 'bartek.bak@mikstura.it').first
+  simon = User.where(email: 'witek.borowski@mikstura.it').first
+  darek = User.where(email: 'marek.czana@mikstura.it').first
+  wojtek = User.where(email: 'arek.piotr@mikstura.it').first
 
   Timecop.freeze(last_sunday - 8.days)
 
