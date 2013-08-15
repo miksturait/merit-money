@@ -6,14 +6,11 @@
 
 @media screen and (max-width: 320px) {
   #users-list .coworker h2.name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 100px;
+    @include ellipsis;
   }
 }
 
-// todo - check it and use col-lg
 @media screen and (max-width: 767px) {
   [class*="col-span-"] {
     padding-right: 0;
