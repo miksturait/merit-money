@@ -18,6 +18,6 @@
 #= require jquery.raty
 #= require jquery-scrollto
 #= require_self
-#= require sks
+#= require ember_manifest
 
 window.App = Ember.Application.create()
