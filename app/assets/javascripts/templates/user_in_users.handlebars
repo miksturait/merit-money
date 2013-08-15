@@ -8,13 +8,13 @@
 </div>
 
 <div class="content-more row">
-  <div class="col-span-6">
+  <div class="col-lg-6">
     <div class="stars" data-initialized="false"></div>
     {{view Ember.TextArea classNames="kudos-comment" placeholder="I’d like to add kudo because…" rows="3"}}
     <a href="#" class="btn btn-large btn-primary" {{action "addManyKudos" user target="controllers.application"}}>add</a>
   </div>
 
-  <div class="col-span-6">
+  <div class="col-lg-6">
     <div>
       <h2 class="text-center">Current Week</h2>
       {{#if user.kudoReceiveds}}
