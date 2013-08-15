@@ -14,7 +14,7 @@ App.UsersView = Ember.View.extend
           .toggleView {}, ->
             $row.ScrollTo(offsetTop: 90)
         # TODO - use binding e.g expanding to update the view
-          .find('.btn-more span').toggleClass('glyphicon-chevron-down', 'glyphicon-chevron-up')
+          .find('.btn-more span').toggleClass('icon-chevron-down', 'icon-chevron-up')
 
     @.$('#users-list').on 'click', '.content, .btn-more', (event) ->
       $this = $ this
