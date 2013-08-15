@@ -87,4 +87,9 @@ Sks::Application.configure do
 
   # Ember.js
   config.ember.variant = :production
+
+  # add the fonts path
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  config.assets.precompile += %w( .svg. .eot .woff .ttf )
 end
