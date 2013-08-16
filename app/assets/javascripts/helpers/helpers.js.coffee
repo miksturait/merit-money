@@ -10,7 +10,3 @@ Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
               trendClasses = 'trend downward icon-caret-down'
 
        new Handlebars.SafeString("<span class=\'#{trendClasses}\'></span>")
-
-Ember.Handlebars.registerBoundHelper 'avatar', (gravatar) ->
-  if gravatar
-    new Handlebars.SafeString "<img src=\'#{gravatar}\' />"

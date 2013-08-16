@@ -3,7 +3,7 @@
 <ul>
   {{#each user in controller.content}}
   <li>
-    <img {{bindAttr src="user.gravatar" title="user.name"}} />
+    {{gravatar-image email=user.email}}
   </li>
   {{/each}}
 </ul>

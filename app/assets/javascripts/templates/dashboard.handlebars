@@ -1,7 +1,7 @@
 {{render flash}}
 <div class="content">
   {{#linkTo 'users' classNames="avatar pull-left" title="back"}}
-    {{avatar gravatar}}
+    {{gravatar-image email=email}}
   {{/linkTo}}
 
   {{#linkTo 'comments' classNames="dashboard-clicable" title="dashboard"}}
