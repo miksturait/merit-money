@@ -3,11 +3,11 @@ Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
     if value
         switch value
             when 'steady'
-                trendClasses = 'trend steady icon-sort'
+                trendClasses = 'trend steady icon-minus'
             when 'upward'
-              trendClasses = 'trend upward icon-sort-up'
+              trendClasses = 'trend upward icon-caret-up'
             when 'downward'
-              trendClasses = 'trend downward icon-sort-down'
+              trendClasses = 'trend downward icon-caret-down'
 
        new Handlebars.SafeString("<span class=\'#{trendClasses}\'></span>")
 
