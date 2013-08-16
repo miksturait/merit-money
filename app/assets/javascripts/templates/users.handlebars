@@ -1,5 +1,5 @@
 <ul id="users-list">
-{{#each user in controller}}
+{{#each user in controller itemController='user'}}
   {{view App.UserInUsersView contentBinding="user"}}
 {{/each}}
 </ul>

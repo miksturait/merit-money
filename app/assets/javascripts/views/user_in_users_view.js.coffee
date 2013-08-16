@@ -5,3 +5,32 @@ App.UserInUsersView = Em.View.extend
   attributeBindings: ['data-userid']
   'data-useridBinding': 'content.id'
 
+  didInsertElement: ->
+    $view = @$()
+
+    # init raty plugin only once
+    $ratyContainer = $view.find '.content-more .stars'
+    ratyInitialized = $ratyContainer.data 'initialized'
+
+    if !ratyInitialized
+      $ratyContainer.raty
+        path: 'assets/raty'
+        size: 54
+        score: 1
+        hints: ['', '', '', '', '']
+
+      $ratyContainer.data 'initialized', true
+
+  showRow: ->
+    id = @get 'content.id'
+    $view = @$()
+    $view.find('.content-more').slideDown -> $view.ScrollTo(offsetTop: 90)
+    @get('controller.controllers.users').send 'setActiveRow', id
+
+  activeRowObserver: (->
+    @$('.content-more').slideUp() if not @get('controller.isActive')
+  ).observes('controller.isActive')
+
+
+
+

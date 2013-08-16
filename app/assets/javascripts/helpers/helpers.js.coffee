@@ -14,15 +14,3 @@ Ember.Handlebars.registerBoundHelper 'trend', (value, options) ->
 Ember.Handlebars.registerBoundHelper 'avatar', (gravatar) ->
   if gravatar
     new Handlebars.SafeString "<img src=\'#{gravatar}\' />"
-
-
-$.fn.extend
-  toggleView: (options, callback) ->
-    @defaults = {}
-    settings = $.extend {}, @defaults, options
-
-    return @each ->
-      $this = $ this
-      $this
-        .toggleClass('form-visible', 'form-hidden')
-        .find('.content-more').slideToggle 'normal', callback
