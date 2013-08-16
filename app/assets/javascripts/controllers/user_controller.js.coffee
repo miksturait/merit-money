@@ -1,5 +1,5 @@
 App.UserController = Ember.ObjectController.extend
-  needs: ['users']
+  needs: ['users', 'application']
   isActive: false
   activeRow: null
   activeRowBinding: 'controllers.users.activeRow'

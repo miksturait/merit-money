@@ -2,7 +2,7 @@ App.ApplicationController = Ember.Controller.extend
   status: null
   kudoAddedNum: null
 
-  addKudo: (user, value, comment) ->
+  addKudo: (userId, value, comment) ->
     self = @
     token = $('meta[name="csrf-token"]').attr 'content'
     currentUserCon = @controllerFor 'currentUser'
@@ -20,13 +20,14 @@ App.ApplicationController = Ember.Controller.extend
     kudosLeft = currentUserCon.get 'kudosLeft'
 
     # TODO don't use jQuery Ajax - use Ember Data transitions instead
-    kudo = App.Kudo.createRecord receiver: user, value: value, comment: comment
+    receiver = App.User.find userId
+    kudo = App.Kudo.createRecord receiver: receiver, value: value, comment: comment
     $.post("/kudos", kudo: kudo.serialize(), authenticity_token: token)
     .done((data) =>
       if data.status isnt 'error'
         currentUserCon.decrementKudos value
         newKudo = App.KudoReceived.createRecord value: value, comment: comment
-        user.get('kudoReceiveds').pushObject(newKudo)
+        receiver.get('kudoReceiveds').pushObject(newKudo)
         self.set('status', 'success')
         self.set('kudoAddedNum', value)
       else
@@ -34,16 +35,6 @@ App.ApplicationController = Ember.Controller.extend
     )
     .fail (data, status) ->
       self.set('status', 'error')
-
-  addManyKudos: (user) ->
-    # TODO delegate getting data to view
-    $visibleContent = $('#users-list').find '.form-visible'
-    $ratyContainer = $visibleContent.find('.stars')
-    value = $ratyContainer.raty('score') || 1
-    $kudoComment = $visibleContent.find('.kudos-comment')
-    comment = $kudoComment.val()
-
-    @addKudo user, value, comment
 
 
 

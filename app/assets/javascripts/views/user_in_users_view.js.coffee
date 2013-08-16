@@ -31,6 +31,13 @@ App.UserInUsersView = Em.View.extend
     @$('.content-more').slideUp() if not @get('controller.isActive')
   ).observes('controller.isActive')
 
+  addKudo: ->
+    $view = @$()
+    $contentMore = $view.find '.content-more'
+    kudoNum = $contentMore.find('.stars').raty('score') or 1
+    kudoComment = $contentMore.find('.kudos-comment').val()
+    userId = @get 'content.id'
+    @get('controller.controllers.application').send 'addKudo', userId, kudoNum, kudoComment
 
 
 
