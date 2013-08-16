@@ -4,9 +4,4 @@
 {{/each}}
 </ul>
 
-<div id="kudos-stats" class="row">
-  {{view App.Top3View controllerBinding="controllers.top" label="Collectors" blankState="Wanna be here? Be
-  nice to other people!"}}
-
-  {{view App.Top3View controllerBinding="controllers.hamsters" label="Hamsters" blankState="Everyone gave kudos!"}}
-</div>
+{{partial 'stats'}}
