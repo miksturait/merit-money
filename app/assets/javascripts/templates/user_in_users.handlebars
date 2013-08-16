@@ -4,7 +4,7 @@
     {{#view App.KudoBadgeView}}{{user.kudosReceivedNum}}{{/view}}
   </div>
   <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
-  <a href="#" class="btn btn-large btn-primary btn-more" {{action 'showRow' on='click' target='view'}}>
+  <a href="#" class="btn btn-large btn-primary btn-more" {{action 'showRow' target='view'}}>
     {{#if isActive}}
         <span class="icon-chevron-down"></span>
     {{else}}
