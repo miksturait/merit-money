@@ -11,7 +11,7 @@ App.UsersRoute = Ember.Route.extend
       outlet: 'dashboard'
       controller: 'currentUser'
 
-    @render 'users',
+    @render 'users/index',
       into: 'application'
       outlet: 'main'
       controller: 'users'

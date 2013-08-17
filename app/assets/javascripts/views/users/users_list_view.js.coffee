@@ -1,5 +1,7 @@
-App.UsersView = Ember.View.extend
-  elementId: 'kudos-users-view'
+App.UsersListView = Ember.View.extend
+  tagName: 'ul'
+  elementId: 'users-list'
+  templateName: 'users/users_list'
 
   didInsertElement: ->
     @.$('#users-list').on 'focusin', '.kudos-comment', ->

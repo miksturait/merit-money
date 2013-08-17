@@ -1,6 +1,6 @@
-App.UserInUsersView = Em.View.extend
+App.UserEntryView = Em.View.extend
   tagName: 'li'
-  templateName: 'user_in_users'
+  templateName: 'users/user_entry'
   classNames: 'coworker'
   attributeBindings: ['data-userid']
   'data-useridBinding': 'content.id'
