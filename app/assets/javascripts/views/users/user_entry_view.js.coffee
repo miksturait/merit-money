@@ -7,6 +7,8 @@ App.UserEntryView = Em.View.extend
 
   didInsertElement: ->
     $view = @$()
+    $comment = $view.find '.kudos-comment'
+    $dashboard = $ '#dashboard'
 
     # init raty plugin only once
     $ratyContainer = $view.find '.content-more .stars'
@@ -20,6 +22,12 @@ App.UserEntryView = Em.View.extend
         hints: ['', '', '', '', '']
 
       $ratyContainer.data 'initialized', true
+
+    # todo - find better solution to make dashboard fixed
+    windowWidth = $(window).width()
+    $comment
+      .on('focusin', -> $dashboard.css(position: 'absolute', top: 0) if windowWidth < 980)
+      .on 'focusout', -> $dashboard.css(position: 'fixed', top: 0) if windowWidth < 980
 
   showRow: ->
     id = @get 'content.id'
