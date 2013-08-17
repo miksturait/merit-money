@@ -1,6 +1,6 @@
 App.UsersRoute = Ember.Route.extend
   renderTemplate: ->
-    @render 'dashboard',
+    @render 'shared/dashboard',
       into: 'application'
       outlet: 'dashboard'
       controller: 'currentUser'
