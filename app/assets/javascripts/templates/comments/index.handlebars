@@ -1,0 +1,7 @@
+<div id='kudos-comments-view'>
+    <div class='row'>
+        <h2>Selleo team appreciate…</h2>
+        {{view App.CommentsView label='me for:' blank='You have received no comments :(' controllerBinding='controllers.myComments'}}
+        {{view App.CommentsView label='my colleagues for:' blank='Whoa! No comments!' controllerBinding='controllers.otherComments'}}
+    </div>    
+</div>

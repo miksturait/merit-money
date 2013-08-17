@@ -1,4 +1,4 @@
 App.CommentEntryView = Ember.View.extend
-  templateName: 'comment_entry'
+  templateName: 'comments/comment_entry'
   tagName: 'li'
   classNames: 'comment'

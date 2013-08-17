@@ -5,7 +5,7 @@ App.CommentsRoute = Ember.Route.extend
       outlet: 'dashboard'
       controller: 'currentUser'
 
-    @render 'comments',
+    @render 'comments/index',
       into: 'application'
       outlet: 'main'
       controller: 'comments'

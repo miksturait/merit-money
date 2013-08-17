@@ -1,0 +1,10 @@
+<h3>{{view.label}}</h3>
+{{#if controller.content}}
+    <ul class='comments-list'>
+    {{#each controller}}
+        {{view App.CommentEntryView}}
+    {{/each}}
+    </ul>
+{{else}}
+    <p>{{view.blank}}</p>
+{{/if}}
