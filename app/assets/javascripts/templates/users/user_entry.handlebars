@@ -1,11 +1,11 @@
-<div class="content">
+<div class="content" {{action 'toggleRow' target='view'}}>
   <div class="image-container pull-left">
     {{gravatar-image email=user.email}}
     {{#view App.KudoBadgeView}}{{user.kudosReceivedNum}}{{/view}}
   </div>
   <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
-  <a href="#" class="btn btn-large btn-primary btn-more" {{action 'showRow' target='view'}}>
-    {{#if isActive}}
+  <a href="#" class="btn btn-large btn-primary btn-more">
+    {{#if isExpanded}}
         {{glyph-icon name="icon-chevron-down"}}
     {{else}}
         {{glyph-icon name="icon-chevron-up"}}
@@ -13,15 +13,4 @@
   </a>
 </div>
 
-<div class="content-more row">
-  <div class="col-lg-6">
-    <div class="stars" data-initialized="false"></div>
-    {{view Ember.TextArea classNames="kudos-comment" placeholder="I’d like to add kudo because…" rows="3"}}
-    <a href="#" class="btn btn-large btn-primary" {{action "addKudo" target="view"}}>add</a>
-  </div>
-
-    <div class='col-lg-6'>
-        {{view App.UserEntryKudos label='Current Week' kudosBinding=kudoReceiveds}}
-        {{view App.UserEntryKudos label='Last Week' kudosBinding=kudoLastWeeks}}
-    </div>
-</div>
+{{view App.UserEntryMoreView}}

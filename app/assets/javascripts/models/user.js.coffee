@@ -20,3 +20,5 @@ App.User = DS.Model.extend
 
       kudosTotal
   ).property('kudoReceiveds.@each')
+
+  isExpanded: false
