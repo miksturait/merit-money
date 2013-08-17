@@ -1,16 +1,2 @@
-<div class="content" {{action 'toggleRow' target='view'}}>
-  <div class="image-container pull-left">
-    {{gravatar-image email=user.email}}
-    {{#view App.KudoBadgeView}}{{user.kudosReceivedNum}}{{/view}}
-  </div>
-  <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
-  <a href="#" class="btn btn-large btn-primary btn-more">
-    {{#if isExpanded}}
-        {{glyph-icon name="icon-chevron-down"}}
-    {{else}}
-        {{glyph-icon name="icon-chevron-up"}}
-    {{/if}}
-  </a>
-</div>
-
+{{partial 'users/user_entry_basic'}}
 {{view App.UserEntryMoreView}}
