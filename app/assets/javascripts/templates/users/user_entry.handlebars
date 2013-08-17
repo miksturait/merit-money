@@ -20,45 +20,8 @@
     <a href="#" class="btn btn-large btn-primary" {{action "addKudo" target="view"}}>add</a>
   </div>
 
-  <div class="col-lg-6">
-    <div>
-      <h2 class="text-center">Current Week</h2>
-      {{#if user.kudoReceiveds}}
-        <ul class='kudos-received-list'>
-          {{#each kudo in user.kudoReceiveds}}
-            <li class="kudo-received">
-                {{glyph-icon name="icon-star"}}<strong>{{kudo.value}}</strong>:
-              {{#if kudo.comment}}
-                {{kudo.comment}}
-              {{else}}
-                  :-)
-              {{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <p>no kudos given</p>
-      {{/if}}
+    <div class='col-lg-6'>
+        {{view App.UserEntryKudos label='Current Week' kudosBinding=kudoReceiveds}}
+        {{view App.UserEntryKudos label='Last Week' kudosBinding=kudoLastWeeks}}
     </div>
-
-    <div>
-      <h2 class="text-center">Last Week</h2>
-      {{#if user.kudoLastWeeks}}
-        <ul class='kudos-received-list'>
-          {{#each kudo in user.kudoLastWeeks}}
-            <li class="kudo-received">
-                {{glyph-icon name="icon-star"}}<strong>{{kudo.value}}</strong>:
-              {{#if kudo.comment}}
-                {{kudo.comment}}
-              {{else}}
-                  :-)
-              {{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <p>no kudos given</p>
-      {{/if}}
-    </div>
-  </div>
 </div>

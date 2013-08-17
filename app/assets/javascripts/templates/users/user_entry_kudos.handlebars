@@ -1,0 +1,17 @@
+<h2 class="text-center">{{view.label}}</h2>
+{{#if view.kudos}}
+    <ul class='kudos-received-list'>
+        {{#each view.kudos}}
+            <li class="kudo-received">
+                    {{glyph-icon name="icon-star"}}<strong>{{value}}</strong>:
+                {{#if comment}}
+                    {{comment}}
+                {{else}}
+                    :-)
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p class='text-center'>no kudos given</p>
+{{/if}}
