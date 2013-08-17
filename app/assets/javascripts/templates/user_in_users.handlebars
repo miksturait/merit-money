@@ -6,9 +6,9 @@
   <h2 class="name pull-left">{{user.firstName}}<br />{{user.lastName}}</h2>
   <a href="#" class="btn btn-large btn-primary btn-more" {{action 'showRow' target='view'}}>
     {{#if isActive}}
-        <span class="icon-chevron-down"></span>
+        {{glyph-icon name="icon-chevron-down"}}
     {{else}}
-        <span class="icon-chevron-up"></span>
+        {{glyph-icon name="icon-chevron-up"}}
     {{/if}}
   </a>
 </div>
@@ -27,7 +27,7 @@
         <ul class='kudos-received-list'>
           {{#each kudo in user.kudoReceiveds}}
             <li class="kudo-received">
-                <span class="icon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
+                {{glyph-icon name="icon-star"}}<strong>{{kudo.value}}</strong>:
               {{#if kudo.comment}}
                 {{kudo.comment}}
               {{else}}
@@ -47,7 +47,7 @@
         <ul class='kudos-received-list'>
           {{#each kudo in user.kudoLastWeeks}}
             <li class="kudo-received">
-              <span class="icon-star icon-kudo"></span><strong>{{kudo.value}}</strong>:
+                {{glyph-icon name="icon-star"}}<strong>{{kudo.value}}</strong>:
               {{#if kudo.comment}}
                 {{kudo.comment}}
               {{else}}
