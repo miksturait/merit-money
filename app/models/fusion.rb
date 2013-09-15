@@ -18,6 +18,9 @@ class Fusion < ActiveRecord::Base
     order("end_at DESC").first
   end
 
+  def name
+    "#{start_at} - #{end_at||'...'}"
+  end
 
   class Info
     def initialize(date)
