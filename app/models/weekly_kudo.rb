@@ -16,7 +16,7 @@ class WeeklyKudo < ActiveRecord::Base
   has_many :kudos
 
   validates_presence_of :user_id, :week_id
-  validates_inclusion_of :kudos_left, in: 0..20
+  validates_inclusion_of :kudos_left, in: 0..60
 
   def self.current(user, week = Week.current)
     where(week_id: week.id, user_id: user.id).first ||
