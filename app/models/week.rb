@@ -41,9 +41,7 @@ class Week < ActiveRecord::Base
   end
 
   def previous
-    # TOOD - weird ...
-    last_week_date = DateTime.parse(start_at.to_s) - 7.days
-    week = Info.new(last_week_date)
+    week = Info.new(end_at.to_datetime - 7.days)
     Week.where(number: week.id).first
   end
 
