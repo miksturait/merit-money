@@ -174,7 +174,7 @@ GEM
       less (~> 2.3.1)
     libnotify (0.8.0)
       ffi (>= 1.0.11)
-    libv8 (3.11.8.13)
+    libv8 (3.11.8.17)
     listen (0.7.3)
     lumberjack (1.0.3)
     mail (2.4.4)

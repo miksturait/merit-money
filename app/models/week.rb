@@ -53,31 +53,33 @@ class Week < ActiveRecord::Base
 
   class Info
     def self.current
-      new(DateTime.now.utc)
+      new(DateTime.now.utc.end_of_week)
     end
 
     def self.previous
-      new(DateTime.now.utc - 7.days)
-    end
-
-    def attrs
-      {number: id, start_at: start_at, end_at: end_at, fusion: Fusion.current}
+      new(DateTime.now.utc.end_of_week - 7.days)
     end
 
     def initialize(time)
       @time = time
     end
 
+    def attrs
+      {number: id, start_at: start_at, end_at: end_at, fusion: Fusion.current}
+    end
+
+    attr_reader :time
+
     def id
-      "#{@time.year}#{"%02d" % @time.cweek}"
+      "#{time.year}#{"%02d" % time.cweek}"
     end
 
     def start_at
-      @time.beginning_of_week
+      time.beginning_of_week
     end
 
     def end_at
-      @time.end_of_week
+      time.end_of_week
     end
   end
 end
