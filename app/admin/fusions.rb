@@ -3,6 +3,7 @@ ActiveAdmin.register Fusion do
     summary = {
         start_at: fusion.start_at,
         end_at: fusion.end_at,
+        kudos_left: fusion.weekly_kudos.sum(:kudos_left),
         coworkers: WeeklyKudo.where(week_id: fusion.weeks.last).collect do |weekly_kudo|
           {
               email: weekly_kudo.user.email,
