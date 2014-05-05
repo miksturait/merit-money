@@ -33,6 +33,7 @@ class WeeklyKudo < ActiveRecord::Base
                       up_to_last_week_total_kudos_received: up_to_last_week_total_kudos_received,
                       week: week,
                       user: user,
+                      kudos_left: kudos_left,
                       trend: trend})
     end
 
@@ -69,7 +70,7 @@ class WeeklyKudo < ActiveRecord::Base
     end
 
     def up_to_last_week_total_kudos_received
-      if previous_week && previous_weekly_kudo = WeeklyKudo.where(week_id: previous_week.id, user_id: user.id).first
+      if previous_week && (previous_weekly_kudo = WeeklyKudo.where(week_id: previous_week.id, user_id: user.id).first)
         previous_weekly_kudo.up_to_last_week_total_kudos_received + last_week_kudos_received
       else
         0
@@ -80,10 +81,13 @@ class WeeklyKudo < ActiveRecord::Base
       @previous_week ||= week.previous
     end
 
+    def kudos_left
+      user.default_weekly_kudos || 20
+    end
+
     def defaults
       {
-          hours_worked: nil,
-          kudos_left: 20
+          hours_worked: nil
       }
     end
   end

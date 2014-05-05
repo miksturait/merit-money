@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531203848) do
+ActiveRecord::Schema.define(:version => 20140505052806) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -78,11 +78,12 @@ ActiveRecord::Schema.define(:version => 20130531203848) do
     t.string   "email"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.date     "with_company_since"
-    t.integer  "days_off_left",      :default => 0
-    t.boolean  "retired",            :default => false
+    t.integer  "days_off_left",        :default => 0
+    t.boolean  "retired",              :default => false
+    t.integer  "default_weekly_kudos"
   end
 
   create_table "weekly_kudos", :force => true do |t|
