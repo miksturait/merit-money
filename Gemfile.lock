@@ -305,8 +305,6 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     whitespace (2.0.4)
-    zeus (0.13.3)
-      method_source (>= 0.6.7)
 
 PLATFORMS
   ruby
@@ -351,4 +349,3 @@ DEPENDENCIES
   timecop
   uglifier (>= 1.0.3)
   whitespace
-  zeus
