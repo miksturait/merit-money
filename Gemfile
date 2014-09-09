@@ -12,20 +12,20 @@ gem 'pg'
 gem 'haml-rails'
 gem 'haml'
 
-gem "thin", ">= 1.5.0"
-gem "omniauth", ">= 1.1.1"
-gem "omniauth-google-oauth2"
-gem "simple_form", ">= 2.0.4"
-gem "figaro", ">= 0.5.3"
-gem "quiet_assets", ">= 1.0.1", :group => :development
-gem "better_errors", ">= 0.3.2", :group => :development
-gem "binding_of_caller", ">= 0.6.8", :group => :development
-gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
-gem "zeus", :group => [:development, :test]
+gem 'thin', '>= 1.5.0'
+gem 'omniauth', '>= 1.1.1'
+gem 'omniauth-google-oauth2'
+gem 'simple_form', '>= 2.0.4'
+gem 'figaro', '>= 0.5.3'
+gem 'quiet_assets', '>= 1.0.1', :group => :development
+gem 'better_errors', '>= 0.3.2', :group => :development
+gem 'binding_of_caller', '>= 0.6.8', :group => :development
+gem 'factory_girl_rails', '>= 4.2.0', :group => [:development, :test]
+gem 'zeus', :group => [:development, :test]
 gem 'dotenv-rails', :groups => [:development, :test, :production]
 
 gem 'activeadmin'
-gem "meta_search",    '>= 1.1.0.pre'
+gem 'meta_search',    '>= 1.1.0.pre'
 
 group :test do
   gem 'timecop'
@@ -43,15 +43,15 @@ group :development, :test do
   gem 'rb-inotify', :require => RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
   gem 'rb-fsevent', :require => RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
   gem 'sqlite3'
-  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'fuubar'
   gem 'rspec-rails'
 end
 
-gem "ember-rails"
+gem 'ember-rails'
 
 gem 'bootstrap3-wip-rails'
-gem "whitespace"
+gem 'whitespace'
 
 #group :production do
 #  gem 'rails_12factor'
