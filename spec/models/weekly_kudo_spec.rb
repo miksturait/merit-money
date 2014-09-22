@@ -3,7 +3,7 @@ require 'spec_helper'
 describe WeeklyKudo do
   # if the last week is within the current fussion
   it { should have_db_column(:kudos_left).of_type(:integer) }
-  it { should ensure_inclusion_of(:kudos_left).in_range(0..60) }
+  it { should validate_inclusion_of(:kudos_left).in_range(0..60) }
 
   it { should have_db_column(:last_week_kudos_received).of_type(:integer) }
   # since last fusion

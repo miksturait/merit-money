@@ -9,7 +9,7 @@ describe Fusion do
 
   it { should have_many(:weeks).class_name("Week") }
   it { should validate_presence_of(:start_at) }
-  it { should ensure_inclusion_of(:total_fusion_budget).in_range(40_000..80_000).allow_nil(true) }
+  it { should validate_inclusion_of(:total_fusion_budget).in_range(40_000..80_000).allow_nil(true) }
 
   context "current fusion" do
     context "when not any defined yet" do
