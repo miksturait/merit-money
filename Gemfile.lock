@@ -193,7 +193,7 @@ GEM
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
-    mocha (0.13.3)
+    mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
@@ -344,7 +344,7 @@ DEPENDENCIES
   jasminerice!
   jquery-rails (= 3.1.2)
   meta_search (~> 1.1.3)
-  mocha (~> 0.13.3)
+  mocha (~> 1.1.0)
   omniauth (>= 1.1.1)
   omniauth-google-oauth2
   pg (~> 0.15.0)

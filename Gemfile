@@ -29,7 +29,7 @@ group :test do
   gem 'timecop', '~> 0.7.1'
   gem 'pry', '~> 0.10.1'
   gem 'shoulda-matchers', '~> 2.7.0'
-  gem 'mocha', '~> 0.13.3', require: 'mocha/setup'
+  gem 'mocha', '~> 1.1.0'
 end
 
 group :development do
