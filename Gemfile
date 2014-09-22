@@ -49,4 +49,5 @@ group :development, :test do
   gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'fuubar', '~> 2.0.0'
   gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-collection_matchers', '~> 0.0.1'
 end
