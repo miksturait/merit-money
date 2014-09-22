@@ -40,7 +40,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'guard', '~> 1.7.0'
+  gem 'guard', '~> 2.6.1'
   gem 'guard-rspec', '~> 2.5.1'
   gem 'guard-jasmine', '~> 1.15.1'
   gem 'growl', '~> 1.0.3'
