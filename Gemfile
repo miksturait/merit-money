@@ -26,7 +26,7 @@ group :assets do
 end
 
 group :test do
-  gem 'timecop', '~> 0.6.1'
+  gem 'timecop', '~> 0.7.1'
   gem 'pry', '~> 0.9.12'
   gem 'shoulda-matchers', '~> 1.5.6'
   gem 'mocha', '~> 0.13.3', require: 'mocha/setup'
