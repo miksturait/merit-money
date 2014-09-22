@@ -41,12 +41,12 @@ end
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'guard', '~> 2.6.1'
-  gem 'guard-rspec', '~> 2.5.1'
-  gem 'guard-jasmine', '~> 1.15.1'
+  gem 'guard-rspec', '~> 4.3.1'
+  gem 'guard-jasmine', '~> 1.19.2'
   gem 'growl', '~> 1.0.3'
   gem 'rb-fsevent', '~> 0.9.4'
   gem 'sqlite3', '~> 1.3.7'
   gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice.git'
-  gem 'fuubar', '~> 1.1.0'
-  gem 'rspec-rails', '~> 2.13.0'
+  gem 'fuubar', '~> 2.0.0'
+  gem 'rspec-rails', '~> 3.1.0'
 end
