@@ -31,7 +31,7 @@ end
 
 group :development do
   gem 'quiet_assets', '>= 1.0.1'
-  gem 'better_errors', '>= 0.3.2'
+  gem 'better_errors', '~> 0.6.0'
   gem 'binding_of_caller', '>= 0.6.8'
 end
 
