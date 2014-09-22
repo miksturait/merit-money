@@ -45,7 +45,7 @@ group :development, :test do
   gem 'guard-jasmine', '~> 1.19.2'
   gem 'growl', '~> 1.0.3'
   gem 'rb-fsevent', '~> 0.9.4'
-  gem 'sqlite3', '~> 1.3.7'
+  gem 'sqlite3', '~> 1.3.9'
   gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'fuubar', '~> 2.0.0'
   gem 'rspec-rails', '~> 3.1.0'
