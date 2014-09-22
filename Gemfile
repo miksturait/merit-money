@@ -4,7 +4,7 @@ gem 'rails', '3.2.12'
 
 gem 'jquery-rails', '3.1.2'
 gem 'therubyracer', '~> 0.12.1'
-gem 'pg', '~> 0.15.0'
+gem 'pg', '~> 0.17.1'
 gem 'haml-rails', '~> 0.4'
 gem 'haml', '~> 4.0.2'
 gem 'thin', '>= 1.5.0'
