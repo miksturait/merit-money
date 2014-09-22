@@ -46,7 +46,7 @@ group :development, :test do
   gem 'rb-fsevent', :require => RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
   gem 'sqlite3'
   gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
-  gem 'fuubar'
+  gem 'fuubar', '~> 1.1.0'
   gem 'rspec-rails'
 end
 
