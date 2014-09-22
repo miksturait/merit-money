@@ -47,4 +47,6 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   # and fail fast
   config.fail_fast = false
+
+  config.infer_spec_type_from_file_location!
 end
