@@ -7,7 +7,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails', '3.1.2'
-gem 'therubyracer'
+gem 'therubyracer', '~> 0.12.1'
 gem 'pg'
 gem 'haml-rails'
 gem 'haml'
