@@ -36,7 +36,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails', '>= 4.2.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-jasmine'
