@@ -15,7 +15,7 @@ gem 'figaro', '~> 1.0.0'
 gem 'dotenv-rails', '~> 0.11.1'
 gem 'activeadmin', '~> 0.5.1'
 gem 'meta_search', '~> 1.1.3'
-gem 'ember-rails', '~> 0.11.1'
+gem 'ember-rails', '~> 0.15.0'
 gem 'bootstrap3-wip-rails', '~> 0.1.3'
 gem 'whitespace', '~> 2.0.4'
 
