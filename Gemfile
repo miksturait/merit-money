@@ -6,12 +6,12 @@ gem 'jquery-rails', '3.1.2'
 gem 'pg', '~> 0.17.1'
 gem 'haml-rails', '~> 0.4'
 gem 'haml', '~> 4.0.2'
-gem 'thin', '>= 1.5.0'
+gem 'thin', '>= 1.6.3'
 gem 'omniauth', '>= 1.1.1'
 gem 'omniauth-google-oauth2'
 gem 'simple_form', '~> 2.0.4'
 gem 'figaro', '~> 1.0.0'
-gem 'dotenv-rails', '~> 0.11.1'
+gem 'dotenv-rails', '~> 1.0.2'
 gem 'activeadmin', '~> 0.5.1'
 gem 'meta_search', '~> 1.1.3'
 gem 'ember-rails', '~> 0.15.0'
@@ -38,8 +38,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'guard', '~> 2.6.1'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'guard', '~> 2.7.0'
   gem 'guard-rspec', '~> 4.3.1'
   gem 'guard-jasmine', '~> 1.19.2'
   gem 'growl', '~> 1.0.3'
@@ -48,5 +48,5 @@ group :development, :test do
   gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'fuubar', '~> 2.0.0'
   gem 'rspec-rails', '~> 3.1.0'
-  gem 'rspec-collection_matchers', '~> 0.0.1'
+  gem 'rspec-collection_matchers', '~> 1.0.0'
 end
