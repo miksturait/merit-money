@@ -54,4 +54,6 @@ Sks::Application.configure do
 
   # Ember.js
   config.ember.variant = :development
+
+  config.eager_load = false
 end

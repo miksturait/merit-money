@@ -87,4 +87,6 @@ Sks::Application.configure do
 
   # Ember.js
   config.ember.variant = :production
+
+  config.eager_load = true
 end
