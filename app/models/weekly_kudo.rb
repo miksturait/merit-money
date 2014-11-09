@@ -7,6 +7,7 @@ class WeeklyKudo < ActiveRecord::Base
   belongs_to :user
 
   scope :without_retired, joins(:user).where(users: {retired: [nil, false]})
+  scope :without_outsiders, joins(:user).where(users: {outsider: [nil, false]})
 
   def giver;
     user;
