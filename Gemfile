@@ -13,7 +13,7 @@ gem 'pg'
 gem 'haml-rails'
 gem 'haml'
 
-gem "thin", ">= 1.5.0"
+gem "thin", ">= 1.6.0"
 gem "omniauth", ">= 1.1.1"
 gem "omniauth-google-oauth2"
 gem "simple_form", ">= 2.0.4"
