@@ -1,9 +1,8 @@
 class Fusion < ActiveRecord::Base
-  attr_accessible :end_at, :start_at, :total_fusion_budget, :total_working_hours
+  attr_accessible :end_at, :start_at
 
   has_many :weeks
   has_many :weekly_kudos, through: :weeks
-  validates_inclusion_of :total_fusion_budget, in: 40_000..80_000, allow_nil: true
   validates_presence_of :start_at
 
 
