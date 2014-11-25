@@ -1,5 +1,9 @@
 # Merit Money
 
+you can try demo here: https://merit-money-demo.herokuapp.com/
+
+just sign in with any google account
+
 ![](doc/assets/merit_money_coworkers_mobile.png)
 ![](doc/assets/merit_money_comments_mobile.png)
 
