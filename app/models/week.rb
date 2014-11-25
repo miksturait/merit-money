@@ -37,7 +37,7 @@ class Week < ActiveRecord::Base
 
   def top_kudos_hamsters
     self.class.ensure_each_user_have_weekly_kudos_created_for_week(self)
-    weekly_kudos.without_retired.where("kudos_left > 8").order("kudos_left DESC").includes(:user).limit(3).map(&:user).compact
+    weekly_kudos.without_retired.without_outsiders.where("kudos_left > 8").order("kudos_left DESC").includes(:user).limit(3).map(&:user).compact
   end
 
   def previous
