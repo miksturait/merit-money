@@ -12,7 +12,7 @@ gulp.task('markups', function() {
   }
 
   return gulp.src(paths.src + '/{app,components}/**/*.haml')
-    .pipe($.consolidate('haml'))
+    .pipe($.consolidate('haml-coffee'))
     .on('error', function handleError(err) {
       console.error(err.toString());
       this.emit('end');
