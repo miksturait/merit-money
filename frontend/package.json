@@ -31,7 +31,7 @@
     "gulp-coffee": "~2.2.0",
     "gulp-angular-filesort": "~1.0.4",
     "gulp-coffeelint": "~0.4.0",
-    "haml-coffee": "~1.14.1",
+    "haml": "~0.4.3",
     "main-bower-files": "~2.4.0",
     "jshint-stylish": "~1.0.0",
     "wiredep": "~2.2.0",
