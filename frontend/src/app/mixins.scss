@@ -1,0 +1,14 @@
+@mixin stripped-list($color1: $color-grey-light1) {
+  &:nth-child(even) {
+    background-color: $color1;
+  }
+}
+
+@mixin clearfix
+{
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

@@ -1,0 +1,77 @@
+@import "variables";
+@import "mixins";
+
+#kudos-users-view {
+  margin-top: 15px;
+
+  .coworker {
+    margin-bottom: 15px;
+    padding: 0;
+    line-height: $row-height;
+    font-style: normal;
+    position: relative;
+    @include clearfix;
+
+    .content {
+      cursor: pointer;
+      @include clearfix;
+
+      .image-container {
+        position: relative;
+
+        .badge {
+          position: absolute;
+          top: -5px;
+          right: -10px;
+          background-color: $color-black;
+        }
+      }
+    }
+
+    .content-more {
+      clear: both;
+      padding: 10px 0;
+      display: none;
+      line-height: 30px;
+
+      .stars, .kudos-comment, .btn {
+        margin: 5px 0;
+      }
+
+      .btn {
+        position: static;
+      }
+
+      .kudo-received {
+        @include stripped-list($color-grey-light2);
+      }
+    }
+
+    .btn-more {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+    }
+
+    @include stripped-list;
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+
+  #kudos-stats {
+    text-align: center;
+
+    ul {
+      list-style: none;
+      margin: 0 auto;
+      width: 240px;
+      height: $row-height;
+    }
+
+    li {
+      float: left;
+      padding: 0;
+    }
+  }
+}

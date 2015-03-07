@@ -1,0 +1,16 @@
+#dashboard-container.row-fluid
+  .content
+    %a.avatar.pull-left(href='#/')
+      %img(src="http://www.gravatar.com/avatar/5240d42ca12b034ce200470b635663f3")
+    %a.dashboard-clicable(href='#/comments')
+      %p.kudos-left.pull-left
+        %span.glyphicon.glyphicon-star.icon-kudo
+        %strong
+          16
+        Left
+      %p#kudos-received.pull-right
+        %span.trend.steady.glyphicon.glyphicon-minus
+        %strong.last-week
+          4
+        %strong.since-bonus
+          (0)
