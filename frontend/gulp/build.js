@@ -60,6 +60,8 @@ gulp.task('html', ['inject', 'partials'], function () {
     }))
     .pipe(htmlFilter.restore())
     .pipe(gulp.dest(paths.dist + '/'))
+    .pipe($.revRailsManifest())
+    .pipe(gulp.dest(paths.dist + '/'))
     .pipe($.size({ title: paths.dist + '/', showFiles: true }));
 });
 
