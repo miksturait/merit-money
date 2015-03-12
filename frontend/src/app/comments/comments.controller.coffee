@@ -1,2 +1,1 @@
-angular.module "MeritMoney"
-  .controller "CommentsCtrl", ($scope) ->
+app.controller "CommentsCtrl", ($scope) ->
