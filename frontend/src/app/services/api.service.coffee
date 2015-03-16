@@ -1,21 +1,23 @@
-app.service 'Api', ($http, $q) ->
-  get: (url, params={}) ->
-    @request('GET', url, params, null)
+angular.module('MeritMoney')
 
-  post: (url, params={}, data) ->
-    @request('POST', url, params, data)
+  .service 'Api', ($http, $q) ->
+    get: (url, params={}) ->
+      @request('GET', url, params, null)
 
-  put: (url, params={}, data) ->
-    @request('PUT', url, params, data)
+    post: (url, params={}, data) ->
+      @request('POST', url, params, data)
 
-  request: (method, url, params={}, data) ->
-    defer = $q.defer()
+    put: (url, params={}, data) ->
+      @request('PUT', url, params, data)
 
-    $http(method: method, url: url, params: params, data: data, cache: false)
-    .success (data) -> defer.resolve data
-    .error (msg, code) -> defer.reject "#{code} #{msg}"
+    request: (method, url, params={}, data) ->
+      defer = $q.defer()
 
-    defer.promise
+      $http(method: method, url: url, params: params, data: data, cache: false)
+      .success (data) -> defer.resolve data
+      .error (msg, code) -> defer.reject "#{code} #{msg}"
 
-  idsToObjects: (ids, objects) ->
-    ids.map (id) -> _.findWhere objects, id: id
+      defer.promise
+
+    idsToObjects: (ids, objects) ->
+      ids.map (id) -> _.findWhere objects, id: id

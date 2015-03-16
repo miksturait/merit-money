@@ -1,4 +1,4 @@
-@app = angular.module "MeritMoney", [
+angular.module('MeritMoney', [
   'ngAnimate'
   'ngCookies'
   'ngTouch'
@@ -7,15 +7,15 @@
   'ngRoute'
   'ui.bootstrap'
   'angular.filter'
-]
+])
 
-app.config ($routeProvider) ->
-  $routeProvider
-  .when "/",
-    templateUrl: "app/main/main.html"
-    controller: "MainCtrl"
-  .when "/comments",
-    templateUrl: "app/comments/comments.html"
-    controller: "CommentsCtrl"
-  .otherwise
-    redirectTo: "/"
+  .config ($routeProvider) ->
+    $routeProvider
+    .when "/",
+      templateUrl: "app/main/main.html"
+      controller: "MainCtrl"
+    .when "/comments",
+      templateUrl: "app/comments/comments.html"
+      controller: "CommentsCtrl"
+    .otherwise
+      redirectTo: "/"
