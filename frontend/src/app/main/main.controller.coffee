@@ -4,6 +4,8 @@ angular.module('MeritMoney')
     $scope.init = ->
       $scope.fetchData()
 
+    $scope.rate = 1
+
     $scope.fetchData = ->
       Api.get('users.json').then (data) ->
         $scope.users = data.users

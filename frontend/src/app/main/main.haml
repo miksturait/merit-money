@@ -16,6 +16,6 @@
             %span.glyphicon.glyphicon-chevron-down(ng-show='!user.active')
         .row.content-more(ng-show='user.active')
           .col-span-6
-            Stars
+            <rating ng-model="rate"></rating>
           .col-span-6
             Current Week
