@@ -81,3 +81,4 @@ pickle-email-*.html
 /config/application.yml
 
 **~
+npm-debug.log
