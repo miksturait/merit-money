@@ -11,7 +11,7 @@
               {{ user.kudo_received | map:'value' | sum }}
           %h2.name.pull-left
             {{ user.name }}
-          %a.btn.btn-large.btn-primary.btn-more
+          %a.btn.btn-large.btn-primary.btn-more.btn-toggle
             %span.glyphicon.glyphicon-chevron-up(ng-show='user.active')
             %span.glyphicon.glyphicon-chevron-down(ng-show='!user.active')
         .row.content-more(ng-show='user.active')
