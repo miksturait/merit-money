@@ -2,9 +2,15 @@ angular.module('MeritMoney')
 
   .controller 'MainCtrl', ($scope, Api) ->
     $scope.init = ->
+      $scope.rate = 1
       $scope.fetchData()
 
-    $scope.rate = 1
+    $scope.addKudo = (user) ->
+      attrs = receiver_id: user.id, value: $scope.rate, comment: ''
+      $.post('/kudos.json', kudo: attrs).then -> $scope.fetchData()
+
+    $scope.setRate = (value) ->
+      $scope.rate = value
 
     $scope.fetchData = ->
       Api.get('users.json').then (data) ->
