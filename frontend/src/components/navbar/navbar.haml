@@ -6,11 +6,11 @@
       %p.kudos-left.pull-left
         %span.glyphicon.glyphicon-star.icon-kudo
         %strong
-          16
+          {{ kudosLeftNum }}
         Left
       %p#kudos-received.pull-right
         %span.trend.steady.glyphicon.glyphicon-minus
         %strong.last-week
-          4
+          {{ kudosReceived }}
         %strong.since-bonus
-          (0)
+          ({{ kudosTotalReceived }})
