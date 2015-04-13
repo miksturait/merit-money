@@ -9,7 +9,7 @@
           {{ kudosLeftNum }}
         Left
       %p#kudos-received.pull-right
-        %span.trend.steady.glyphicon.glyphicon-minus
+        %span(ng-class='trendClass()')
         %strong.last-week
           {{ kudosReceived }}
         %strong.since-bonus

@@ -22,5 +22,13 @@ angular.module('MeritMoney')
         $scope.kudosLeftNum = data.current_user.kudos_left
         $scope.kudosReceived = data.current_user.kudos_received
         $scope.kudosTotalReceived = data.current_user.kudos_total_received
+        $scope.trend = data.current_user.trend
+
+    $scope.trendClass = ->
+      trendClass = switch $scope.trend
+        when 'steady' then 'steady glyphicon-minus'
+        when 'upward' then 'upward glyphicon-chevron-up'
+        when 'downward' then 'downward glyphicon-chevron-down'
+      "trend glyphicon #{trendClass}"
 
     $scope.init()
