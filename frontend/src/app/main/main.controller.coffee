@@ -24,11 +24,11 @@ angular.module('MeritMoney')
         $scope.kudosTotalReceived = data.current_user.kudos_total_received
         $scope.trend = data.current_user.trend
 
-    $scope.trendClass = ->
-      trendClass = switch $scope.trend
+    $scope.$watch 'trend', ->
+      klass = switch $scope.trend
         when 'steady' then 'steady glyphicon-minus'
         when 'upward' then 'upward glyphicon-chevron-up'
         when 'downward' then 'downward glyphicon-chevron-down'
-      "trend glyphicon #{trendClass}"
+      $scope.trendClass = "trend glyphicon #{klass}"
 
     $scope.init()
