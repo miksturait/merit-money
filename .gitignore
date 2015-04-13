@@ -77,6 +77,9 @@ pickle-email-*.html
 # vim artifacts
 **.swp
 
+# ctags
+tags
+
 # Ignore application configuration
 /config/application.yml
 
