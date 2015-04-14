@@ -16,7 +16,7 @@
             %span.glyphicon.glyphicon-chevron-down(ng-show='!user.active')
         .row.content-more(ng-show='user.active')
           .col-span-6
-            %rating(ng-model='rate' ng-click='setRate(rate)')
+            %rating(ng-model='user.newKudo.value')
             %span.btn.btn-primary(ng-click='addKudo(user)')
               add kudo
           .col-span-6
