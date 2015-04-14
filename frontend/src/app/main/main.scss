@@ -59,6 +59,10 @@
         display: inline-block;
       }
 
+      .kudo-received, .kudos-received-list {
+        padding: 0;
+      }
+
       .kudo-received {
         @include stripped-list($color-grey-light2);
       }

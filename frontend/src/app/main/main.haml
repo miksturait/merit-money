@@ -23,8 +23,14 @@
           .col-sm-6
             %h2.text-center
               Current Week
-            %p
+            %p(ng-show='!user.kudo_received.length')
               no kudos given
+            %ul.kudos-received-list(ng-repeat='kudo in user.kudo_received' ng-show='user.kudo_received.length')
+              %li.kudo-received
+                %span.glyphicon.glyphicon-star.icon-kudo
+                %strong
+                  {{kudo.value}}:
+                {{kudo.comment}}
 
             %h2.text-center
               Last Week
