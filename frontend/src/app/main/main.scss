@@ -35,11 +35,28 @@
       line-height: 30px;
 
       .stars, .kudos-comment, .btn {
+        display: block;
         margin: 5px 0;
       }
 
+      .kudos-comment {
+        width: 100%;
+      }
+
+      .stars {
+        &:focus {
+          outline: none;
+        }
+
+        .glyphicon-star, .glyphicon-star-empty {
+          color: $color-blue-light;
+          cursor: pointer;
+          font-size: 50px;
+        }
+      }
+
       .btn {
-        position: static;
+        display: inline-block;
       }
 
       .kudo-received {

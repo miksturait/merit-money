@@ -15,9 +15,18 @@
             %span.glyphicon.glyphicon-chevron-up(ng-show='user.active')
             %span.glyphicon.glyphicon-chevron-down(ng-show='!user.active')
         .row.content-more(ng-show='user.active')
-          .col-span-6
-            %rating(ng-model='user.newKudo.value')
+          .col-sm-6
+            %rating.stars(ng-model='user.newKudo.value')
+            %textarea.kudos-comment(ng-model='user.newKudo.comment' placeholder="I’d like to add kudo because…")
             %span.btn.btn-primary(ng-click='addKudo(user)')
               add kudo
-          .col-span-6
-            Current Week
+          .col-sm-6
+            %h2.text-center
+              Current Week
+            %p
+              no kudos given
+
+            %h2.text-center
+              Last Week
+            %p
+              no kudos given
