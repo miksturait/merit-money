@@ -1,0 +1,20 @@
+%div(ng-include="'components/navbar/navbar.html'")
+
+#content-wrapper.container
+  #kudos-comments-view
+    %h2 Selleo team appreciate…
+    .row
+      .col-md-6.comments
+        %h3 me for:
+        %ul.comments-list
+          %li.comment(ng-repeat='comment in [1,2,3,4,5]')
+            %span.glyphicon.glyphicon-star.icon-kudo
+            %strong 3\:
+            za sks app
+      .col-md-6.comments
+        %h3 my colleagues for:
+        %ul.comments-list
+          %li.comment(ng-repeat='comment in [1,2,3,4,5]')
+            %span.glyphicon.glyphicon-star.icon-kudo
+            %strong 3\:
+            za sks app

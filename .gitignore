@@ -40,6 +40,10 @@ db/*.sqlite3
 /public/cache
 /public/stylesheets/compiled
 /public/system/*
+/public/index.html
+/public/fonts
+/public/scripts
+/public/styles
 /spec/tmp/*
 /cache
 /capybara*
@@ -73,7 +77,11 @@ pickle-email-*.html
 # vim artifacts
 **.swp
 
+# ctags
+tags
+
 # Ignore application configuration
 /config/application.yml
 
 **~
+npm-debug.log

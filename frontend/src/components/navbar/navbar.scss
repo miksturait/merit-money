@@ -1,0 +1,88 @@
+#dashboard-container {
+  width: 100%;
+  font-size: 18px;
+  height: $row-height;
+  line-height: $row-height;
+  background-color: $color-blue-light;
+  color: $color-white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  .dashboard-clicable {
+    display: block;
+    height: $row-height;
+    color: $color-white;
+  }
+
+  .avatar, .avatar img {
+    display: block;
+  }
+
+  #kudos-received {
+    margin: 0 20px 0 0;
+  }
+
+  .kudos-left {
+    margin: 0 0 0 20px;
+  }
+
+  #flash {
+    width: 100%;
+    height: $row-height;
+    padding: 0 15px;
+    position: absolute;
+    z-index: 20;
+    display: none;
+  }
+
+  .trend {
+    &.steady {
+      color: $color-white;
+    }
+
+    &.upward {
+      color: $color-green;
+    }
+
+    &.downward {
+      color: $color-red;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+  font-style: italic;
+}
+
+h2, h3 {
+  color: $color-blue-light;
+  font: {
+    weight: bold;
+    size: 20px;
+  }
+
+  margin: 5px 0;
+  line-height: 30px;
+}
+
+// TODO - should be scoped in the stylesheet representing that view
+h2.name {
+  margin: 0 27px 0 20px;
+  padding-top: 13px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: normal;
+  color: $color-grey-dark;
+}
+
+.icon-kudo {
+  color: $color-blue-dark;
+}

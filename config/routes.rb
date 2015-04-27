@@ -7,6 +7,7 @@ Sks::Application.routes.draw do
   match "/logout", to: "sessions#destroy"
 
   root to: 'homes#index'
+  match '/ember', to: 'homes#index'
   match '/about', to: 'homes#about', as: :about
 
   match '/current_users/1', to: 'users#me'

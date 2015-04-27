@@ -58,6 +58,8 @@ Merit Money uses the following and cutting-edge technologies:
 - rake db:seed
 - rails s and visit localhost:3000
 
+### To install pg with problems use:
+```gem install pg -v '0.15.0' -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.3/bin/pg_config```
 ## Documentation and Support
 ## Credits
 
