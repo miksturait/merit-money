@@ -1,6 +1,6 @@
 angular.module('MeritMoney')
 
-  .controller 'MainCtrl', [ '$scope', 'DataFetcher', ($scope, DataFetcher) ->
+  .controller 'MainCtrl', ($scope, DataFetcher) ->
     $scope.init = ->
       DataFetcher.getUsers()
       DataFetcher.getCurrentUser()
@@ -16,4 +16,3 @@ angular.module('MeritMoney')
       $scope.trendClass = "trend glyphicon #{klass}"
 
     $scope.init()
-  ]
