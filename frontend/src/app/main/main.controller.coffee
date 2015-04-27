@@ -5,9 +5,6 @@ angular.module('MeritMoney')
       DataFetcher.getUsers()
       DataFetcher.getCurrentUser()
 
-    $scope.addKudo = (user) ->
-      Api.post('/kudos.json', null, {kudo: user.newKudo}).then -> $scope.fetchData()
-
     $scope.$watch 'trend', ->
       klass = switch $scope.trend
         when 'steady' then 'steady glyphicon-minus'
