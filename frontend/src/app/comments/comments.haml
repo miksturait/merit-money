@@ -6,15 +6,22 @@
     .row
       .col-md-6.comments
         %h3 me for:
-        %ul.comments-list
-          %li.comment(ng-repeat='comment in [1,2,3,4,5]')
+        %p(ng-show='!myComments.length')
+          You have received no comments :(
+        %ul.comments-list(ng-repeat='comment in myComments' ng-show='myComments.length')
+          %li.comment
             %span.glyphicon.glyphicon-star.icon-kudo
-            %strong 3\:
-            za sks app
+            %strong
+              {{comment.value}}:
+            {{comment.comment}}
+
       .col-md-6.comments
         %h3 my colleagues for:
-        %ul.comments-list
-          %li.comment(ng-repeat='comment in [1,2,3,4,5]')
+        %p(ng-show='!otherComments.length')
+          Whoa! No comments!
+        %ul.comments-list(ng-repeat='comment in otherComments' ng-show='otherComments.length')
+          %li.comment
             %span.glyphicon.glyphicon-star.icon-kudo
-            %strong 3\:
-            za sks app
+            %strong
+              {{comment.value}}:
+            {{comment.comment}}
