@@ -1,12 +1,9 @@
 angular.module('MeritMoney')
 
-  .controller 'MainCtrl', [ '$scope', 'DataFetcher', ($scope, DataFetcher) ->
+  .controller 'MainCtrl', ($scope, DataFetcher) ->
     $scope.init = ->
       DataFetcher.getUsers()
       DataFetcher.getCurrentUser()
-
-    $scope.addKudo = (user) ->
-      Api.post('/kudos.json', null, {kudo: user.newKudo}).then -> $scope.fetchData()
 
     $scope.$watch 'trend', ->
       klass = switch $scope.trend
@@ -16,4 +13,3 @@ angular.module('MeritMoney')
       $scope.trendClass = "trend glyphicon #{klass}"
 
     $scope.init()
-  ]
