@@ -9,7 +9,7 @@
           {{ currentUser.kudosLeftNum }}
         Left
       %p#kudos-received.pull-right
-        %span(trend)
+        %span(trend='currentUser.trend')
         %strong.last-week
           {{ currentUser.kudosReceived }}
         %strong.since-bonus
