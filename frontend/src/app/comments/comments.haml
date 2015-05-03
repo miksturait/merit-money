@@ -1,0 +1,27 @@
+%div(ng-include="'components/navbar/navbar.html'")
+
+#content-wrapper.container
+  #kudos-comments-view
+    %h2 Selleo team appreciate…
+    .row
+      .col-md-6.comments
+        %h3 me for:
+        %p(ng-show='!myComments.length')
+          You have received no comments :(
+        %ul.comments-list(ng-repeat='comment in myComments' ng-show='myComments.length')
+          %li.comment
+            %span.glyphicon.glyphicon-star.icon-kudo
+            %strong
+              {{comment.value}}:
+            {{comment.comment}}
+
+      .col-md-6.comments
+        %h3 my colleagues for:
+        %p(ng-show='!otherComments.length')
+          Whoa! No comments!
+        %ul.comments-list(ng-repeat='comment in otherComments' ng-show='otherComments.length')
+          %li.comment
+            %span.glyphicon.glyphicon-star.icon-kudo
+            %strong
+              {{comment.value}}:
+            {{comment.comment}}

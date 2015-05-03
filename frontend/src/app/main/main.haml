@@ -1,0 +1,37 @@
+%div(ng-include="'components/navbar/navbar.html'")
+
+#content-wrapper.container
+  #kudos-users-view
+    %ul#users-list
+      %li.coworker(ng-repeat='user in users' select-user)
+        .row.content
+          .image-container.pull-left
+            %img(gravatar-src-once="user.email" gravatar-size="80")
+            %span.badge.badge-inverse
+              {{ user.kudo_received | map:'value' | sum }}
+          %h2.name.pull-left
+            {{ user.name }}
+          %a.btn.btn-large.btn-primary.btn-more.btn-toggle
+            %span.glyphicon.glyphicon-chevron-up(ng-show='user.active')
+            %span.glyphicon.glyphicon-chevron-down(ng-show='!user.active')
+        .row.content-more(ng-show='user.active')
+          .col-sm-6
+            %rating.stars(ng-model='user.newKudo.value')
+            %textarea.kudos-comment(ng-model='user.newKudo.comment' placeholder="I’d like to add kudo because…")
+            %add-kudo-button(user='user')
+          .col-sm-6
+            %h2.text-center
+              Current Week
+            %p(ng-show='!user.kudo_received.length')
+              no kudos given
+            %ul.kudos-received-list(ng-repeat='kudo in user.kudo_received' ng-show='user.kudo_received.length')
+              %li.kudo-received
+                %span.glyphicon.glyphicon-star.icon-kudo
+                %strong
+                  {{kudo.value}}:
+                {{kudo.comment}}
+
+            %h2.text-center
+              Last Week
+            %p
+              no kudos given

@@ -1,0 +1,16 @@
+#dashboard-container.row-fluid
+  .content
+    %a.avatar.pull-left(href='#/')
+      %img(gravatar-src-once="currentUser.email" gravatar-size="80")
+    %a.dashboard-clicable(href='#/comments')
+      %p.kudos-left.pull-left
+        %span.glyphicon.glyphicon-star.icon-kudo
+        %strong
+          {{ currentUser.kudosLeftNum }}
+        Left
+      %p#kudos-received.pull-right
+        %span(trend='currentUser.trend')
+        %strong.last-week
+          {{ currentUser.kudosReceived }}
+        %strong.since-bonus
+          ({{ currentUser.kudosTotalReceived }})
