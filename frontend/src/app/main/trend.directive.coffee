@@ -4,8 +4,8 @@ angular.module('MeritMoney')
     restrict: 'A'
 
     link: (scope, element) ->
-      scope.$watch 'trend', ->
-        klass = switch scope.trend
+      scope.$watch 'currentUser.trend', ->
+        klass = switch scope.currentUser.trend
           when 'steady' then 'steady glyphicon-minus'
           when 'upward' then 'upward glyphicon-chevron-up'
           when 'downward' then 'downward glyphicon-chevron-down'

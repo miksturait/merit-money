@@ -10,11 +10,12 @@ angular.module('MeritMoney')
 
     getCurrentUser: ->
       Api.get('current_users/1.json').then (data) ->
-        $rootScope.kudosLeftNum = data.current_user.kudos_left
-        $rootScope.kudosReceived = data.current_user.kudos_received
-        $rootScope.kudosTotalReceived = data.current_user.kudos_total_received
-        $rootScope.trend = data.current_user.trend
-        $rootScope.email = data.current_user.email
+        $rootScope.currentUser = {}
+        $rootScope.currentUser.kudosLeftNum = data.current_user.kudos_left
+        $rootScope.currentUser.kudosReceived = data.current_user.kudos_received
+        $rootScope.currentUser.kudosTotalReceived = data.current_user.kudos_total_received
+        $rootScope.currentUser.trend = data.current_user.trend
+        $rootScope.currentUser.email = data.current_user.email
 
     getComments: ->
       Api.get('my_comments.json').then (data) ->
