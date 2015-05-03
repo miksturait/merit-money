@@ -14,3 +14,10 @@ angular.module('MeritMoney')
         $rootScope.kudosReceived = data.current_user.kudos_received
         $rootScope.kudosTotalReceived = data.current_user.kudos_total_received
         $rootScope.trend = data.current_user.trend
+
+    getComments: ->
+      Api.get('my_comments.json').then (data) ->
+        $rootScope.myComments = data.my_comments
+
+      Api.get('other_comments.json').then (data) ->
+        $rootScope.otherComments = data.other_comments
