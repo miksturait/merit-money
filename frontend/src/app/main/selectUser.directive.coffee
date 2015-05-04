@@ -3,7 +3,7 @@ angular.module('MeritMoney')
   .directive 'selectUser', ($timeout) ->
     restrict: 'A'
     link: (scope, element) ->
-      element.find('.btn-toggle').on 'click', ->
+      element.find('.content-basic').on 'click', ->
         # select active user
         scope.$apply ->
           scope.users.forEach (user) ->
