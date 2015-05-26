@@ -18,8 +18,7 @@
           .col-sm-6
             %rating.stars(ng-model='user.newKudo.value')
             %textarea.kudos-comment(ng-model='user.newKudo.comment' placeholder="I’d like to add kudo because…")
-            %span.btn.btn-primary(ng-click='addKudo(user)')
-              add kudo
+            %add-kudo-button(user='user')
           .col-sm-6
             %h2.text-center
               Current Week
