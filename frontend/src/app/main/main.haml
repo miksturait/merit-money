@@ -6,7 +6,7 @@
       %li.coworker(ng-repeat='user in users' select-user)
         .row.content
           .image-container.pull-left
-            %img(src="http://www.gravatar.com/avatar/5240d42ca12b034ce200470b635663f3")
+            %img(gravatar-src-once="user.email" gravatar-size="80")
             %span.badge.badge-inverse
               {{ user.kudo_received | map:'value' | sum }}
           %h2.name.pull-left

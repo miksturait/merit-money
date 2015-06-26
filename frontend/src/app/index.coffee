@@ -7,6 +7,7 @@ angular.module('MeritMoney', [
   'ngRoute'
   'ui.bootstrap'
   'angular.filter'
+  'ui.gravatar'
 ])
 
   .config ($routeProvider) ->

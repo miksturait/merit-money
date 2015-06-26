@@ -2,6 +2,8 @@ angular.module('MeritMoney')
 
   .directive 'trend', ->
     restrict: 'A'
+    scope:
+      trend: '='
 
     link: (scope, element) ->
       scope.$watch 'trend', ->
